@@ -385,18 +385,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8">
             {[
               {
-                title: '1 Vidéo par Chapitre',
+                title: '1 Vidéo par chapitre',
                 description: 'Chaque chapitre commence par une vidéo explicative complète en français, animée par un professeur natif.',
                 icon: Play,
                 features: [
                   '1 vidéo HD par chapitre',
-                  'Professeur natif',
+                  'Professeur',
                   'Explications détaillées'
                 ]
               },
               {
-                title: '5 Quiz par Chapitre',
-                description: 'Chaque chapitre contient 5 quiz progressifs pour valider vos acquis et identifier vos axes d’amélioration.',
+                title: '1 quiz composée de 5 questions par Chapitre',
+                description: 'Chaque chapitre contient 1 quiz composée de 5 questions progressifs pour valider vos acquis et identifier vos axes d’amélioration.',
                 icon: Brain,
                 features: [
                   '1 quiz de 5 questions par chapitre',
@@ -407,7 +407,7 @@ export default function Home() {
               },
               {
                 title: 'Audio Interactif',
-                description: 'Chaque lettre arabe est accompagnée d’une explication audio, accessible par clic, avec prononciation native et suivi de votre progression.',
+                description: 'Chaque lettre arabe est accompagnée d’une explication audio, accessible par clic, avec prononciation et suivi de votre progression.',
                 icon: Volume2,
                 features: [
                   'Audio par lettre',
