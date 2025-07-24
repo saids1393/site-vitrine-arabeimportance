@@ -22,12 +22,39 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleEmailSubmit = () => {
-    if (email) {
-      setIsSubmitted(true);
-      setEmail('');
-      setTimeout(() => setIsSubmitted(false), 3000);
+  const handleEmailSubmit = async () => {
+    if (!email) {
+      setError('Veuillez entrer une adresse email valide');
+      return;
+    }
+
+    setIsLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setEmail('');
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        const data = await response.json();
+        setError(data.message || "Erreur lors de l'envoi de l'email");
+      }
+    } catch (err) {
+      setError("Une erreur s'est produite. Veuillez réessayer.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -174,7 +201,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <Trophy className="w-5 h-5 text-purple-500 mr-2" />
-                  <span className="text-sm text-gray-400">99% de réussite</span>
+                  <span className="text-sm text-gray-400">100% de réussite</span>
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-green-600 mr-2" />
@@ -375,7 +402,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Contenu complet et innovant
+              Contenu complet et simple
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
               Chaque chapitre contient tout ce dont vous avez besoin pour progresser rapidement et va à l'essentiel !
@@ -386,34 +413,32 @@ export default function Home() {
             {[
               {
                 title: '1 Vidéo par chapitre',
-                description: 'Chaque chapitre commence par une vidéo explicative complète en français, animée par un professeur natif.',
+                description: 'Chaque chapitre a une vidéo explicative complète en français',
                 icon: Play,
                 features: [
                   '1 vidéo HD par chapitre',
-                  'Professeur',
                   'Explications détaillées'
                 ]
               },
               {
-                title: '1 quiz composée de 5 questions par Chapitre',
-                description: 'Chaque chapitre contient 1 quiz composée de 5 questions progressifs pour valider vos acquis et identifier vos axes d’amélioration.',
+                title: '1 quiz composé de 5 questions par chapitre',
+                description: 'Chaque chapitre contient 1 quiz composé de 5 questions progressives pour valider vos acquis et identifier vos axes d\'amélioration.',
                 icon: Brain,
                 features: [
                   '1 quiz de 5 questions par chapitre',
                   'Difficulté progressive',
-                  'Feedback instantané',
                   'Suivi des résultats'
                 ]
               },
               {
                 title: 'Audio Interactif',
-                description: 'Chaque lettre arabe est accompagnée d’une explication audio, accessible par clic, avec prononciation et suivi de votre progression.',
+                description: "Chaque lettre et chaque mot en arabe sont accompagnés d'un audio accessible d'un simple clic, avec prononciation et suivi automatique de votre progression.",
                 icon: Volume2,
                 features: [
                   'Audio par lettre',
-                  'Prononciation native',
+                  'Audio par mot',
                   'Clic interactif',
-                  'Suivi de progression'
+                  'Progression automatisée'
                 ]
               }
 
@@ -477,7 +502,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-center text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Audio interactif pour chaque lettre
+                      Audio interactif pour chaque lettre et mot
                     </li>
                   </ul>
                 </div>
@@ -494,7 +519,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-center text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Accès à vie
+                      Support H24
                     </li>
                   </ul>
                 </div>
@@ -514,11 +539,11 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Le premier module sera gratuit
+              10% de réduction lors de sa sortie
             </h2>
             <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
               Soyez les premiers à commencer lors de sa sortie.
-              Inscrivez-vous pour être averti du lancement, accéder gratuitement au premier module et bénéficier de 10% de réduction supplémentaire.
+              Souscrivez pour être averti du lancement et bénéficier de 10% de réduction soit à seulement 58,49€ au lieu de 64,99€
             </p>
 
             {!isSubmitted ? (
@@ -535,13 +560,21 @@ export default function Home() {
                   </div>
                   <button
                     onClick={handleEmailSubmit}
-                    className="bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap"
+                    disabled={isLoading}
+                    className="bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap disabled:opacity-70"
                   >
-                    <Mail className="mr-2 w-5 h-5" />
-                    Souscrire
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    {isLoading ? (
+                      <span>Envoi...</span>
+                    ) : (
+                      <>
+                        <Mail className="mr-2 w-5 h-5" />
+                        Souscrire
+                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      </>
+                    )}
                   </button>
                 </div>
+                {error && <p className="text-red-200 mt-2 text-sm">{error}</p>}
               </div>
             ) : (
               <motion.div
@@ -561,6 +594,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Footer */}
       <footer className="bg-black text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -571,7 +605,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
     </div>
   );
 }
