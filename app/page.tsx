@@ -386,22 +386,37 @@ export default function Home() {
             {[
               {
                 title: '1 Vidéo par Chapitre',
-                description: 'Chaque chapitre commence par une vidéo explicative complète avec sous-titres en arabe et français, animée par des professeurs natifs.',
+                description: 'Chaque chapitre commence par une vidéo explicative complète en français, animée par un professeur natif.',
                 icon: Play,
-                features: ['1 vidéo HD par chapitre', 'Sous-titres bilingues', 'Professeurs natifs', 'Explications détaillées']
+                features: [
+                  '1 vidéo HD par chapitre',
+                  'Professeur natif',
+                  'Explications détaillées'
+                ]
               },
               {
                 title: '5 Quiz par Chapitre',
-                description: 'Chaque chapitre contient 5 quiz progressifs pour valider vos acquis et identifier vos points d\'amélioration.',
+                description: 'Chaque chapitre contient 5 quiz progressifs pour valider vos acquis et identifier vos axes d’amélioration.',
                 icon: Brain,
-                features: ['5 quiz par chapitre', 'Difficulté progressive', 'Feedback instantané', 'Suivi des résultats']
+                features: [
+                  '1 quiz de 5 questions par chapitre',
+                  'Difficulté progressive',
+                  'Feedback instantané',
+                  'Suivi des résultats'
+                ]
               },
               {
                 title: 'Audio Interactif',
-                description: 'Introduction audio explicative au clic de chaque lettre arabe avec prononciation native et suivi de progression.',
+                description: 'Chaque lettre arabe est accompagnée d’une explication audio, accessible par clic, avec prononciation native et suivi de votre progression.',
                 icon: Volume2,
-                features: ['Audio par lettre', 'Prononciation native', 'Clic interactif', 'Suivi progression']
+                features: [
+                  'Audio par lettre',
+                  'Prononciation native',
+                  'Clic interactif',
+                  'Suivi de progression'
+                ]
               }
+
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
