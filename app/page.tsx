@@ -35,7 +35,7 @@ export default function Home() {
     { label: 'Accueil', sectionId: 'accueil' },
     { label: 'Méthode', sectionId: 'méthode' },
     { label: 'Contenu', sectionId: 'contenu' },
-    { label: 'Contact', sectionId: 'contact' }
+    { label: 'Souscription', sectionId: 'contact' }
   ];
 
   const scrollToSection = (sectionId: string) => {
