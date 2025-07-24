@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Play, 
-  Brain, 
-  Volume2, 
-  CheckCircle, 
-  Star, 
-  Mail, 
+import {
+  Play,
+  Brain,
+  Volume2,
+  CheckCircle,
+  Star,
+  Mail,
   ArrowRight,
   Users,
   Clock,
@@ -23,14 +23,20 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleEmailSubmit = () => {
     if (email) {
       setIsSubmitted(true);
       setEmail('');
       setTimeout(() => setIsSubmitted(false), 3000);
     }
   };
+
+  const menuItems = [
+    { label: 'Accueil', sectionId: 'accueil' },
+    { label: 'Méthode', sectionId: 'méthode' },
+    { label: 'Contenu', sectionId: 'contenu' },
+    { label: 'Contact', sectionId: 'contact' }
+  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -44,7 +50,7 @@ export default function Home() {
       <header className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center space-x-2"
@@ -57,16 +63,16 @@ export default function Home() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
-              {['Accueil', 'Méthode', 'Contenu', 'Contact'].map((item, index) => (
+              {menuItems.map((item, index) => (
                 <motion.button
-                  key={item}
+                  key={item.label}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.toLowerCase())}
+                  onClick={() => scrollToSection(item.sectionId)}
                   className="text-gray-300 hover:text-blue-400 transition-colors font-medium"
                 >
-                  {item}
+                  {item.label}
                 </motion.button>
               ))}
             </nav>
@@ -90,13 +96,13 @@ export default function Home() {
             className="md:hidden bg-gray-900 border-t border-gray-700"
           >
             <div className="px-4 py-4 space-y-1 flex flex-col items-center">
-              {['Accueil', 'Méthode', 'Contenu', 'Contact'].map((item) => (
+              {menuItems.map((item) => (
                 <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
+                  key={item.label}
+                  onClick={() => scrollToSection(item.sectionId)}
                   className="w-full max-w-xs text-center px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-gray-800 rounded-md transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>
@@ -120,7 +126,7 @@ export default function Home() {
                 className="inline-flex items-center bg-blue-900/30 text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-700/50"
               >
                 <Star className="w-4 h-4 mr-2" />
-                Méthode logique et qui va vers l'essentiel
+                Méthode logique qui va vers l'essentiel
               </motion.div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
@@ -136,7 +142,7 @@ export default function Home() {
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
                   Une méthode conçue pour apprendre à lire et écrire l'arabe rapidement.
-                  Grâce à une méthode qui va à l'essentiel pour tenir en régularité, une répétition guidée et un rythme adapté, 
+                  Grâce à une approche qui va à l'essentiel pour maintenir la régularité, une répétition guidée et un rythme adapté,
                   <strong className="text-white"> la réussite devient inévitable</strong>.
                 </p>
               </div>
@@ -164,7 +170,7 @@ export default function Home() {
               >
                 <div className="flex items-center">
                   <Users className="w-5 h-5 text-blue-600 mr-2" />
-                  <span className="text-sm text-gray-400">+60 élèves accompgnées</span>
+                  <span className="text-sm text-gray-400">+60 élèves accompagnés</span>
                 </div>
                 <div className="flex items-center">
                   <Trophy className="w-5 h-5 text-purple-500 mr-2" />
@@ -172,7 +178,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-green-600 mr-2" />
-                  <span className="text-sm text-gray-400">Résultats en quelques temps</span>
+                  <span className="text-sm text-gray-400">Résultats en quelques semaines</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -187,7 +193,7 @@ export default function Home() {
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-white" />
                 </div>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-semibold text-white">Chaque chapitre</h3>
@@ -195,7 +201,7 @@ export default function Home() {
                       <Play className="w-6 h-6 text-blue-600" />
                     </div>
                   </div>
-                  
+
                   <div className="bg-gray-700 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm text-gray-400">Progression</span>
@@ -287,7 +293,7 @@ export default function Home() {
               },
               {
                 title: '🎯 R – Régularité',
-                description: 'De la discipline fréquentes pour garder tout au frais',
+                description: 'De la discipline fréquente pour garder tout au frais',
                 icon: Trophy,
                 color: 'yellow',
                 delay: 0.6
@@ -320,14 +326,14 @@ export default function Home() {
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
-  Comment est née la méthode ERPR ?
-</h3>
-<p className="text-gray-400 leading-relaxed mb-6">
-  Après plusieurs années d’enseignement de la langue arabe et une observation attentive des réussites et des échecs des apprenants, j’ai remarqué un point commun essentiel : ceux qui réussissaient appliquaient naturellement les principes de la méthode ERPR. 
-  À l’inverse, ceux qui échouaient négligeaient au moins un de ses piliers fondamentaux. 
-  C’est en partant de ce constat que j’ai travaillé sans relâche à créer une méthode simple, structurée et centrée sur l’essentiel — pour aider chaque élève à être à l’écoute, motivé à répéter, pratiquer et rester régulier, d’où l’acronyme ERPR.
-</p>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Comment est née la méthode ERPR ?
+                </h3>
+                <p className="text-gray-400 leading-relaxed mb-6">
+                  Après plusieurs années d'enseignement de la langue arabe et une observation attentive des réussites et des échecs des apprenants, j'ai remarqué un point commun essentiel : ceux qui réussissaient appliquaient naturellement les principes de la méthode ERPR.
+                  À l'inverse, ceux qui échouaient négligeaient au moins un de ces piliers fondamentaux.
+                  C'est en partant de ce constat que j'ai travaillé sans relâche à créer une méthode simple, structurée et centrée sur l'essentiel — pour aider chaque élève à être à l'écoute, motivé à répéter, pratiquer et rester régulier, d'où l'acronyme ERPR.
+                </p>
 
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4">
@@ -341,17 +347,17 @@ export default function Home() {
               </div>
               <div className="bg-gray-800 rounded-xl p-6 border border-gray-600">
                 <h4 className="text-lg font-semibold text-white mb-4">Qui suis-je ?</h4>
-                <ul className="space-y-3 text-gray-400">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                Je m'appelle Soidroudine. Il fut un temps où je ne savais ni lire ni écrire. Conscient de l'importance de la connaissance, j’ai décidé de prendre ma vie en main et de consacrer plusieurs années à l’apprentissage de la langue arabe.
-
-Mon parcours m’a mené jusqu’au Caire, où j’ai eu l’honneur d’étudier au prestigieux centre Merkez Al-Ibaanah, puis de poursuivre mes études sous la direction du Cheikh Mahmoud Ash-Shafi’î.
-
-Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour, en particulier à celles et ceux qui, comme moi autrefois, ne savaient ni lire ni écrire. J’ai eu le privilège d’accompagner de nombreux élèves dans leur apprentissage, jusqu’à ce qu’ils puissent à leur tour poursuivre leurs études, parfois même jusqu’en Égypte.
-                  </li>
-                
-                </ul>
+                <div className="text-gray-400 space-y-3">
+                  <p>
+                    Je m'appelle Soidroudine. Autodidacte passionné, j'ai consacré plusieurs années à l'apprentissage de la langue arabe.
+                  </p>
+                  <p>
+                    Mon parcours m'a mené au Caire où j'ai étudié au centre Merkez Al-Ibaanah, puis sous la direction du Cheikh Mahmoud Ash-Shafi'î.
+                  </p>
+                  <p>
+                    Fort de cette expérience, j'enseigne désormais et accompagne de nombreux élèves vers la réussite, certains poursuivant même leurs études jusqu'en Égypte.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -408,10 +414,10 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                
+
                 <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
                 <p className="text-gray-400 mb-6 leading-relaxed">{feature.description}</p>
-                
+
                 <ul className="space-y-2">
                   {feature.features.map((item, i) => (
                     <li key={i} className="flex items-center">
@@ -437,10 +443,10 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
                 Accès complet à la méthode ERPR
               </h3>
               <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                La méthode ERPR sera disponible au prix de <strong className="text-white">64,99€</strong> avec un accès à vie 
-                incluant toutes les vidéos, quiz, audios interactifs et un accompagnement personnalisé. 
-                Souscrivez dès maintenant pour etre avertie de sa sortie de 10% de réduction <strong className="text-blue-400">10% supplémentaire</strong>, 
-                soit <strong className="text-white">58,49€</strong> et etre vartie d'une démo gratuite.
+                La méthode ERPR sera disponible au prix de <strong className="text-white">64,99€</strong> avec un accès à vie
+                incluant toutes les vidéos, quiz, audios interactifs et un accompagnement personnalisé.
+                Souscrivez dès maintenant pour être averti de sa sortie et bénéficier de <strong className="text-blue-400">10% de réduction supplémentaire</strong>,
+                soit <strong className="text-white">58,49€</strong> et être averti d'une démo gratuite.
               </p>
               <div className="grid md:grid-cols-2 gap-6 text-left">
                 <div>
@@ -496,12 +502,12 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
               Le premier module sera gratuit
             </h2>
             <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
-              Soyez les premiers à commencer lors de sa sortie. 
+              Soyez les premiers à commencer lors de sa sortie.
               Inscrivez-vous pour être averti du lancement, accéder gratuitement au premier module et bénéficier de 10% de réduction supplémentaire.
             </p>
 
             {!isSubmitted ? (
-              <form onSubmit={handleEmailSubmit} className="max-w-md mx-auto">
+              <div className="max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-4">
                   <div className="flex-1">
                     <input
@@ -509,12 +515,11 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Votre adresse email"
-                      required
                       className="w-full bg-white px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 border-0 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                     />
                   </div>
                   <button
-                    type="submit"
+                    onClick={handleEmailSubmit}
                     className="bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap"
                   >
                     <Mail className="mr-2 w-5 h-5" />
@@ -522,7 +527,7 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-              </form>
+              </div>
             ) : (
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -535,7 +540,7 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
             )}
 
             <p className="text-blue-200 text-sm mt-6">
-              🎁 Souscrivez dès maintenant et soyez <strong>les premiers à etre avertie de sa sortie avec 10% de réduction et plus de la démo gratuit de la premère partie de la methode</strong>
+              🎁 Souscrivez dès maintenant et soyez <strong>les premiers à être avertis de sa sortie avec 10% de réduction et en plus de la démo gratuite de la première partie de la méthode</strong>
             </p>
           </motion.div>
         </div>
@@ -546,11 +551,12 @@ Fort de cette expérience, j’ai rapidement commencé à enseigner à mon tour,
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-gray-400 text-sm">
-              Fondé par <span className="text-white font-medium">son_importance</span>
+              &copy; 2025 <span className="text-white font-medium">son_importance</span>. Tous droits réservés.
             </p>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
