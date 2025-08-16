@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -15,8 +14,14 @@ import {
   Trophy,
   Menu,
   X,
-  User
+  User,
+  AlertCircle,
+  Instagram,
+  Send,
 } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
+import logoUrl from './assets/img/logo-son-importance.png';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,10 +35,8 @@ export default function Home() {
       setError('Veuillez entrer une adresse email valide');
       return;
     }
-
     setIsLoading(true);
     setError('');
-
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -42,7 +45,6 @@ export default function Home() {
         },
         body: JSON.stringify({ email }),
       });
-
       if (response.ok) {
         setIsSubmitted(true);
         setEmail('');
@@ -62,7 +64,7 @@ export default function Home() {
     { label: 'Accueil', sectionId: 'accueil' },
     { label: 'Méthode', sectionId: 'méthode' },
     { label: 'Contenu', sectionId: 'contenu' },
-    { label: 'Souscription', sectionId: 'contact' }
+    { label: 'Notification', sectionId: 'contact' }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -82,12 +84,25 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center space-x-2"
             >
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E</span>
-              </div>
-              <span className="text-2xl font-bold text-white">ERPR</span>
+              {/* Logo */}
+              <Link href="/" className="flex items-center cursor-pointer">
+                <Image
+                  src={logoUrl}
+                  alt="Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
+                <div className="flex flex-col ml-3">
+                  <span className="text-xl text-white font-bold">
+                    Son importance
+                  </span>
+                  <span className="text-sm text-white opacity-70 font-normal">
+                    L'importance de la langue arabe
+                  </span>
+                </div>
+              </Link>
             </motion.div>
-
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               {menuItems.map((item, index) => (
@@ -97,13 +112,12 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="text-gray-300 hover:text-blue-400 transition-colors font-medium"
+                  className="text-gray-300 hover:text-blue-400 transition-colors font-medium cursor-pointer"
                 >
                   {item.label}
                 </motion.button>
               ))}
             </nav>
-
             {/* Mobile Menu Button */}
             <button
               className="md:hidden"
@@ -113,7 +127,6 @@ export default function Home() {
             </button>
           </div>
         </div>
-
         {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div
@@ -127,7 +140,7 @@ export default function Home() {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-gray-800 rounded-md transition-colors"
+                  className="w-full max-w-xs text-center px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-gray-800 rounded-md transition-colors cursor-pointer"
                 >
                   {item.label}
                 </button>
@@ -146,7 +159,7 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
+               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -155,25 +168,22 @@ export default function Home() {
                 <Star className="w-4 h-4 mr-2" />
                 Méthode logique qui va vers l'essentiel
               </motion.div>
-
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Apprenez à lire et écrire avec{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   la méthode ERPR
                 </span>
               </h1>
-
               <div className="mb-8">
                 <h2 className="text-xl text-gray-300 mb-4 font-medium">
                   Écoute – Répétition – Pratique – Régularité
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Une méthode conçue pour apprendre à lire et écrire l'arabe rapidement.
+                  Une méthode conçue pour apprendre à lire et écrire l'arabe rapidement, incluant le niveau Tajwid et en préparation.
                   Grâce à une approche qui va à l'essentiel pour maintenir la régularité, une répétition guidée et un rythme adapté,
                   <strong className="text-white"> la réussite devient inévitable</strong>.
                 </p>
               </div>
-
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -182,13 +192,12 @@ export default function Home() {
               >
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl"
+                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl cursor-pointer"
                 >
-                  Souscrire dès maintenant
+                  Être notifié dès maintenant
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
-
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -205,11 +214,10 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-green-600 mr-2" />
-                  <span className="text-sm text-gray-400">Résultats en quelques semaines</span>
+                  <span className="text-sm text-gray-400">Résultats rapidement</span>
                 </div>
               </motion.div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -220,7 +228,6 @@ export default function Home() {
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-white" />
                 </div>
-
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-semibold text-white">Chaque chapitre</h3>
@@ -228,7 +235,6 @@ export default function Home() {
                       <Play className="w-6 h-6 text-blue-600" />
                     </div>
                   </div>
-
                   <div className="bg-gray-700 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-sm text-gray-400">Progression</span>
@@ -243,11 +249,10 @@ export default function Home() {
                       />
                     </div>
                   </div>
-
                   <div className="grid grid-cols-3 gap-4">
                     <div className="text-center p-3 bg-blue-900/20 rounded-lg border border-blue-700/30">
                       <Volume2 className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-                      <span className="text-xs text-gray-400">Audio</span>
+                      <span className="text-xs text-gray-400">+530 audios cliquables</span>
                     </div>
                     <div className="text-center p-3 bg-purple-900/20 rounded-lg border border-purple-700/30">
                       <Brain className="w-6 h-6 text-purple-600 mx-auto mb-2" />
@@ -260,7 +265,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
               {/* Floating Elements */}
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
@@ -291,10 +295,9 @@ export default function Home() {
               Qu'est-ce que la méthode <span className="text-blue-600">ERPR</span> ?
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
-              Une approche logique basée sur quatre piliers fondamentaux pour une réussite garantie
+              Une approche logique basée sur quatre piliers fondamentaux pour une réussite garantie, disponible dans une application web automatisée avec envoi de devoirs à chaque fin de chapitre.
             </p>
           </motion.div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {[
               {
@@ -342,7 +345,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-
           {/* About Creator */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -361,7 +363,6 @@ export default function Home() {
                   À l'inverse, ceux qui échouaient négligeaient au moins un de ces piliers fondamentaux.
                   C'est en partant de ce constat que j'ai travaillé sans relâche à créer une méthode simple, structurée et centrée sur l'essentiel — pour aider chaque élève à être à l'écoute, motivé à répéter, pratiquer et rester régulier, d'où l'acronyme ERPR.
                 </p>
-
                 <div className="flex items-center">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4">
                     <User className="w-6 h-6 text-white" />
@@ -405,10 +406,9 @@ export default function Home() {
               Contenu complet et simple
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Chaque chapitre contient tout ce dont vous avez besoin pour progresser rapidement et va à l'essentiel !
+              Chaque chapitre contient tout ce dont vous avez besoin pour progresser rapidement et va à l'essentiel, avec plus de 530 audios cliquables en illimité !
             </p>
           </motion.div>
-
           <div className="grid lg:grid-cols-3 gap-8">
             {[
               {
@@ -435,13 +435,13 @@ export default function Home() {
                 description: "Chaque lettre et chaque mot en arabe sont accompagnés d'un audio accessible d'un simple clic, avec prononciation et suivi automatique de votre progression.",
                 icon: Volume2,
                 features: [
+                  'Plus de 530 audios cliquables',
                   'Audio par lettre',
                   'Audio par mot',
                   'Clic interactif',
                   'Progression automatisée'
                 ]
               }
-
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -454,10 +454,8 @@ export default function Home() {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-
                 <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
                 <p className="text-gray-400 mb-6 leading-relaxed">{feature.description}</p>
-
                 <ul className="space-y-2">
                   {feature.features.map((item, i) => (
                     <li key={i} className="flex items-center">
@@ -469,7 +467,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-
           {/* Pricing Information */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -483,10 +480,10 @@ export default function Home() {
                 Accès complet à la méthode ERPR
               </h3>
               <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                La méthode ERPR sera disponible au prix de <strong className="text-white">64,99€</strong> avec un accès à vie
+                La méthode ERPR sera disponible au prix de <strong className="text-white">80€</strong> avec un accès à vie
                 incluant toutes les vidéos, quiz, audios interactifs et un accompagnement personnalisé.
-                Souscrivez dès maintenant pour être averti de sa sortie et bénéficier de <strong className="text-blue-400">10% de réduction supplémentaire</strong>,
-                soit <strong className="text-white">58,49€</strong> et être averti d'une démo gratuite.
+                Inscrivez-vous dès maintenant pour être notifié de sa sortie et bénéficier d'une <strong className="text-red-400">place limitée pour une gestion optimale de l'accompagnement</strong>,
+                déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram, et être averti d'une démo gratuite.
               </p>
               <div className="grid md:grid-cols-2 gap-6 text-left">
                 <div>
@@ -502,7 +499,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-center text-gray-300">
                       <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Audio interactif pour chaque lettre et mot
+                      Plus de 530 audios cliquables en illimité
                     </li>
                   </ul>
                 </div>
@@ -530,7 +527,7 @@ export default function Home() {
       </section>
 
       {/* Email Collection Section */}
-      <section id="contact" className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
+      <section id="contact" className="py-20 bg-gray-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -539,13 +536,12 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              10% de réduction lors de sa sortie
+              Places limitées pour une gestion optimale, déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram
             </h2>
-            <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
               Soyez les premiers à commencer lors de sa sortie.
-              Souscrivez pour être averti du lancement et bénéficier de 10% de réduction soit à seulement 58,49€ au lieu de 64,99€
+              Inscrivez-vous pour être notifié du lancement et bénéficier d'une place limitée à seulement 80€
             </p>
-
             {!isSubmitted ? (
               <div className="max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -561,14 +557,14 @@ export default function Home() {
                   <button
                     onClick={handleEmailSubmit}
                     disabled={isLoading}
-                    className="bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap disabled:opacity-70"
+                    className="bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap disabled:opacity-70 cursor-pointer"
                   >
                     {isLoading ? (
                       <span>Envoi...</span>
                     ) : (
                       <>
                         <Mail className="mr-2 w-5 h-5" />
-                        Souscrire
+                        Être notifié
                         <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                       </>
                     )}
@@ -586,22 +582,54 @@ export default function Home() {
                 Merci ! Vous recevrez bientôt de nos nouvelles.
               </motion.div>
             )}
-
-            <p className="text-blue-200 text-sm mt-6">
-              🎁 Souscrivez dès maintenant et soyez <strong>les premiers à être avertis de sa sortie avec 10% de réduction et en plus de la démo gratuite de la première partie de la méthode</strong>
-            </p>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="flex flex-col items-center gap-4 mt-6"
+            >
+              <p className="text-gray-300 text-sm text-center max-w-md">
+                🎁 Inscrivez-vous dès maintenant et soyez <strong>les premiers à être notifiés de sa sortie avec une place limitée pour une gestion optimale de l'accompagnement et en plus de la démo gratuite de la première partie de la méthode</strong>
+              </p>
+              <div className="flex gap-4">
+                <Link
+                  href="https://t.me/son_importance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg"
+                >
+                  <Send className="w-5 h-5" />
+                  <span className="text-sm font-medium">Rejoindre Telegram</span>
+                </Link>
+                <Link
+                  href="https://instagram.com/son_importance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span className="text-sm font-medium">Suivre Instagram</span>
+                </Link>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-
       {/* Footer */}
-      <footer className="bg-black text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">
+      <footer className="bg-gray-900 text-white py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">
               &copy; 2025 <span className="text-white font-medium">son_importance</span>. Tous droits réservés.
             </p>
+            <div className="flex space-x-4">
+              <Link href="https://t.me/son_importance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Send className="w-5 h-5" />
+              </Link>
+              <Link href="https://instagram.com/son_importance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                <Instagram className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
