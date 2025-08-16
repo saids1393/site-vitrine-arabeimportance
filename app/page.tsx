@@ -592,7 +592,7 @@ export default function Home() {
               </p>
               <div className="flex gap-4">
                 <Link
-                  href="https://t.me/son_importance"
+                  href="https://t.me/SonImportance"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg"
@@ -623,7 +623,7 @@ export default function Home() {
               &copy; 2025 <span className="text-white font-medium">son_importance</span>. Tous droits réservés.
             </p>
             <div className="flex space-x-4">
-              <Link href="https://t.me/son_importance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://t.me/SonImportance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Send className="w-5 h-5" />
               </Link>
               <Link href="https://instagram.com/son_importance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
