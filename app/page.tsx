@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logoUrl from './assets/img/logo-son-importance.png';
+import logoUrl from './assets/img/logo-arabe-importance.png';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,18 +89,10 @@ export default function Home() {
                 <Image
                   src={logoUrl}
                   alt="Logo"
-                  width={48}
-                  height={48}
+                  width={130}
+                  height={30}
                   className="object-contain"
                 />
-                <div className="flex flex-col ml-3">
-                  <span className="text-xl text-white font-bold">
-                    Son importance
-                  </span>
-                  <span className="text-sm text-white opacity-70 font-normal">
-                    L'importance de la langue arabe
-                  </span>
-                </div>
               </Link>
             </motion.div>
             {/* Desktop Navigation */}
@@ -179,8 +171,7 @@ export default function Home() {
                   Écoute – Répétition – Pratique – Régularité
                 </h2>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Une méthode conçue pour apprendre à lire et écrire l'arabe rapidement, incluant le niveau Tajwid et en préparation.
-                  Grâce à une approche qui va à l'essentiel pour maintenir la régularité, une répétition guidée et un rythme adapté,
+                  Une méthode conçue pour apprendre à lire et écrire l'arabe rapidement. Grâce à une approche qui va à l'essentiel pour maintenir la régularité, une répétition guidée et un rythme adapté,
                   <strong className="text-white"> la réussite devient inévitable</strong>.
                 </p>
               </div>
@@ -368,8 +359,8 @@ export default function Home() {
                     <User className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">son_importance</h4>
-                    <p className="text-gray-400 text-sm">Créateur de la méthode ERPR</p>
+                    <h4 className="text-white font-semibold">Pr. Soidroudine</h4>
+                    <p className="text-gray-400 text-sm">Créateur de la marque arabe-importance et de la méthode ERPR</p>
                   </div>
                 </div>
               </div>
@@ -475,53 +466,65 @@ export default function Home() {
             viewport={{ once: true }}
             className="mt-16 text-center"
           >
-            <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Accès complet à la méthode ERPR
-              </h3>
-              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                La méthode ERPR sera disponible au prix de <strong className="text-white">80€</strong> avec un accès à vie
-                incluant toutes les vidéos, quiz, audios interactifs et un accompagnement personnalisé.
-                Inscrivez-vous dès maintenant pour être notifié de sa sortie et bénéficier d'une <strong className="text-red-400">place limitée pour une gestion optimale de l'accompagnement</strong>,
-                déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram, et être averti d'une démo gratuite.
-              </p>
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Contenu inclus :</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      1 vidéo explicative par chapitre
-                    </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      5 quiz progressifs par chapitre
-                    </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Plus de 530 audios cliquables en illimité
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-white mb-3">Services inclus :</h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Suivi de progression personnalisé
-                    </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Accompagnement personnalisé
-                    </li>
-                    <li className="flex items-center text-gray-300">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      Support H24
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+          <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700 max-w-4xl mx-auto">
+  <h3 className="text-2xl font-bold text-white mb-6">
+    Accès complet à la méthode ERPR
+  </h3>
+
+  <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+    La méthode ERPR sera disponible au prix de <strong className="text-white">89€</strong> du à un accès à vie et à la maintenance de l'application.
+    Cette méthode inclue des vidéos, quiz, audios interactifs et un accompagnement individuel via WhatsApp.
+    Inscrivez-vous dès maintenant pour être notifié de sa sortie en bénéficiant d'une <strong className="text-red-400">place limitée pour une gestion optimale de l'accompagnement</strong>,
+    déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram, et être averti des nouveautés.
+  </p>
+
+  <div>
+    <h4 className="text-lg font-semibold text-white mb-4">Ce qui vous attends :</h4>
+    <div className="grid md:grid-cols-2 gap-6 text-left">
+      
+      {/* Colonne gauche */}
+      <ul className="space-y-2">
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Support numérique
+        </li>
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Vidéo explicative par chapitre
+        </li>
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Synthèse textuelle par chapitre
+        </li>
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Plusieurs quiz progressifs par chapitre
+        </li>
+      </ul>
+
+      {/* Colonne droite */}
+      <ul className="space-y-2">
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Plus de 530 audios cliquables en illimité
+        </li>
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Suivi de progression graphique hebdomadaire et mensuel
+        </li>
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Devoirs automatisés
+        </li>
+        <li className="flex items-center text-gray-300">
+          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+          Accompagnement via WhatsApp & Support H24
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
           </motion.div>
         </div>
       </section>
@@ -536,11 +539,11 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Places limitées pour une gestion optimale, déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram
+              Places limitées pour une gestion optimale, déblocage tous les 1 à 2 mois
             </h2>
             <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-              Soyez les premiers à commencer lors de sa sortie.
-              Inscrivez-vous pour être notifié du lancement et bénéficier d'une place limitée à seulement 80€
+              Soyez les premiers à être notifiés lors de sa sortie.
+              Inscrivez-vous pour être notifié du lancement en bénéficiant d'une place limitée à seulement 89€ accès à vie !
             </p>
             {!isSubmitted ? (
               <div className="max-w-md mx-auto">
@@ -588,7 +591,7 @@ export default function Home() {
               className="flex flex-col items-center gap-4 mt-6"
             >
               <p className="text-gray-300 text-sm text-center max-w-md">
-                🎁 Inscrivez-vous dès maintenant et soyez <strong>les premiers à être notifiés de sa sortie avec une place limitée pour une gestion optimale de l'accompagnement et en plus de la démo gratuite de la première partie de la méthode</strong>
+                🎁 Inscrivez-vous dès maintenant et soyez <strong>les premiers à être notifiés de sa sortie avec une place limitée pour une gestion optimale de l'accompagnement.</strong>
               </p>
               <div className="flex gap-4">
                 <Link
@@ -620,7 +623,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; 2025 <span className="text-white font-medium">son_importance</span>. Tous droits réservés.
+              &copy; 2025 <span className="text-white font-medium">arabe-importance</span>. Tous droits réservés.
             </p>
             <div className="flex space-x-4">
               <Link href="https://t.me/SonImportance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
