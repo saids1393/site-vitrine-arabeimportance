@@ -57,7 +57,7 @@ export default function LegalLayout({
               <span className="font-semibold">arabe-importance</span>
             </div>
             <div className="w-px h-4 bg-gray-300"></div>
-            <span className="text-gray-600 text-sm">Soidroudine Said</span>
+            <span className="text-gray-600 text-sm">Soidroudine</span>
           </div>
         </header>
 

@@ -62,7 +62,7 @@ export default function LegalPage() {
               <ContactItem 
                 icon={<User />}
                 label="Nom"
-                value="Soidroudine Said"
+                value="Soidroudine"
               />
               <ContactItem 
                 icon={<Building />}
@@ -135,7 +135,7 @@ export default function LegalPage() {
           icon={<User className="w-full h-full" />}
         >
           <div className="bg-gray-50 rounded-lg p-6">
-            <p className="text-gray-900 font-semibold text-lg">Soidroudine Said</p>
+            <p className="text-gray-900 font-semibold text-lg">Soidroudine</p>
             <p className="text-gray-600 mt-2">
               Responsable éditorial du contenu publié sur le site
             </p>
