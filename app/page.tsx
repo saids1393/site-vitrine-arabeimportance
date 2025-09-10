@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logoUrl from './assets/img/logo-arabe-importance.png';
+import logoUrl from './assets/img/logo-arabe-importance-white.png';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,9 +74,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-gray-900 overflow-x-hidden">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700">
+      <header className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.div
@@ -104,7 +104,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="text-gray-300 hover:text-blue-400 transition-colors font-medium cursor-pointer"
+                  className="text-white hover:text-blue-300 transition-colors font-medium cursor-pointer text-lg"
                 >
                   {item.label}
                 </motion.button>
@@ -125,14 +125,14 @@ export default function Home() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-gray-900 border-t border-gray-700"
+            className="md:hidden bg-gray-800 border-t border-gray-700"
           >
             <div className="px-4 py-4 space-y-1 flex flex-col items-center">
               {menuItems.map((item) => (
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.sectionId)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-gray-300 hover:text-blue-400 hover:bg-gray-800 rounded-md transition-colors cursor-pointer"
+                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-gray-700 rounded-md transition-colors cursor-pointer text-lg"
                 >
                   {item.label}
                 </button>
@@ -143,7 +143,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="accueil" className="pt-16 min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <section id="accueil" className="pt-16 min-h-screen flex items-center bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -155,22 +155,22 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center bg-blue-900/30 text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-700/50"
+                className="inline-flex items-center bg-gradient-to-r from-blue-900 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 border border-blue-700"
               >
                 <Star className="w-4 h-4 mr-2" />
                 Méthode logique qui va vers l'essentiel
               </motion.div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Apprenez à lire et écrire avec{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-800 to-blue-900 bg-clip-text text-transparent">
                   la méthode ERPR
                 </span>
               </h1>
               <div className="mb-8">
-                <h2 className="text-xl text-gray-300 mb-4 font-medium">
+                <h2 className="text-xl text-white mb-4 font-medium">
                   Écoute – Répétition – Pratique – Régularité
                 </h2>
-                <p className="text-lg text-gray-400 leading-relaxed">
+                <p className="text-lg text-blue-100 leading-relaxed">
                   Une méthode conçue pour apprendre à lire et écrire l'arabe rapidement. Grâce à une approche qui va à l'essentiel pour maintenir la régularité, une répétition guidée et un rythme adapté,
                   <strong className="text-white"> la réussite devient inévitable</strong>.
                 </p>
@@ -183,7 +183,7 @@ export default function Home() {
               >
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl cursor-pointer"
+                  className="bg-gradient-to-r from-blue-900 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-900 hover:to-blue-950 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl cursor-pointer text-lg"
                 >
                   Être notifié dès maintenant
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -193,19 +193,19 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
-                className="flex items-center gap-8 mt-12 pt-8 border-t border-gray-700"
+                className="flex items-center gap-8 mt-12 pt-8 border-t border-blue-700"
               >
                 <div className="flex items-center">
-                  <Users className="w-5 h-5 text-blue-600 mr-2" />
-                  <span className="text-sm text-gray-400">+60 élèves accompagnés</span>
+                  <Users className="w-5 h-5 text-blue-300 mr-2" />
+                  <span className="text-sm text-blue-100">+60 élèves accompagnés</span>
                 </div>
                 <div className="flex items-center">
-                  <Trophy className="w-5 h-5 text-purple-500 mr-2" />
-                  <span className="text-sm text-gray-400">100% de réussite</span>
+                  <Trophy className="w-5 h-5 text-blue-300 mr-2" />
+                  <span className="text-sm text-blue-100">100% de réussite</span>
                 </div>
                 <div className="flex items-center">
-                  <Clock className="w-5 h-5 text-green-600 mr-2" />
-                  <span className="text-sm text-gray-400">Résultats rapidement</span>
+                  <Clock className="w-5 h-5 text-blue-300 mr-2" />
+                  <span className="text-sm text-blue-100">Résultats rapidement</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -215,43 +215,43 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative"
             >
-              <div className="relative bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700">
+              <div className="relative bg-gradient-to-r from-blue-900 rounded-2xl shadow-2xl p-8 border border-blue-700">
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-white" />
                 </div>
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
                     <h3 className="text-lg font-semibold text-white">Chaque chapitre</h3>
-                    <div className="w-12 h-12 bg-blue-900/30 rounded-full flex items-center justify-center border border-blue-700/50">
-                      <Play className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-blue-700/50 rounded-full flex items-center justify-center border border-blue-500">
+                      <Play className="w-6 h-6 text-blue-200" />
                     </div>
                   </div>
-                  <div className="bg-gray-700 rounded-lg p-4">
+                  <div className="bg-gray-900 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-gray-400">Progression</span>
+                      <span className="text-sm text-blue-100">Progression</span>
                       <span className="text-sm font-medium text-white">75%</span>
                     </div>
-                    <div className="w-full bg-gray-600 rounded-full h-2">
+                    <div className="w-full bg-white rounded-full h-2">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: '75%' }}
                         transition={{ duration: 1.5, delay: 1 }}
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
+                        className="bg-gradient-to-r from-blue-900 to-blue-900 h-2 rounded-full"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-4">
-                    <div className="text-center p-3 bg-blue-900/20 rounded-lg border border-blue-700/30">
-                      <Volume2 className="w-6 h-6 text-blue-600 mx-auto mb-2" />
-                      <span className="text-xs text-gray-400">+530 audios cliquables</span>
+                    <div className="text-center p-3 bg-gray-900 rounded-lg border border-blue-600">
+                      <Volume2 className="w-6 h-6 text-blue-200 mx-auto mb-2" />
+                      <span className="text-xs text-blue-100">+530 audios cliquables</span>
                     </div>
-                    <div className="text-center p-3 bg-purple-900/20 rounded-lg border border-purple-700/30">
-                      <Brain className="w-6 h-6 text-purple-600 mx-auto mb-2" />
-                      <span className="text-xs text-gray-400">Quiz</span>
+                    <div className="text-center p-3 bg-gray-900 rounded-lg border border-blue-600">
+                      <Brain className="w-6 h-6 text-blue-200 mx-auto mb-2" />
+                      <span className="text-xs text-blue-100">Quiz</span>
                     </div>
-                    <div className="text-center p-3 bg-green-900/20 rounded-lg border border-green-700/30">
-                      <CheckCircle className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                      <span className="text-xs text-gray-400">Validé</span>
+                    <div className="text-center p-3 bg-gray-900 rounded-lg border border-blue-600">
+                      <CheckCircle className="w-6 h-6 text-blue-200 mx-auto mb-2" />
+                      <span className="text-xs text-blue-100">Validé</span>
                     </div>
                   </div>
                 </div>
@@ -260,12 +260,12 @@ export default function Home() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-r from-purple-400 to-blue-500 rounded-full opacity-20"
+                className="absolute -top-8 -left-8 w-16 h-16 bg-gradient-to-r from-blue-800 to-blue-900 rounded-full opacity-30"
               />
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-20"
+                className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-r from-blue-800 to-blue-900 rounded-full opacity-30"
               />
             </motion.div>
           </div>
@@ -283,9 +283,9 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-              Qu'est-ce que la méthode <span className="text-blue-600">ERPR</span> ?
+              Qu'est-ce que la méthode <span className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">ERPR</span> ?
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed">
               Une approche logique basée sur quatre piliers fondamentaux pour une réussite garantie, disponible dans une application web automatisée avec envoi de devoirs à chaque fin de chapitre.
             </p>
           </motion.div>
@@ -302,21 +302,21 @@ export default function Home() {
                 title: '🎯 R – Répétition',
                 description: 'La clé pour ancrer les bases durablement',
                 icon: Clock,
-                color: 'purple',
+                color: 'blue',
                 delay: 0.2
               },
               {
                 title: '🎯 P – Pratique',
                 description: 'Appliquer pour maîtriser',
                 icon: Brain,
-                color: 'green',
+                color: 'blue',
                 delay: 0.4
               },
               {
                 title: '🎯 R – Régularité',
                 description: 'De la discipline fréquente pour garder tout au frais',
                 icon: Trophy,
-                color: 'yellow',
+                color: 'blue',
                 delay: 0.6
               }
             ].map((item, index) => (
@@ -326,13 +326,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: item.delay }}
                 viewport={{ once: true }}
-                className="bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-600"
+                className="bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl hover:bg-gray-600 transition-all duration-300 border border-gray-600"
               >
-                <div className={`w-12 h-12 bg-${item.color}-900/30 rounded-lg flex items-center justify-center mb-4 border border-${item.color}-700/50`}>
-                  <item.icon className={`w-6 h-6 text-${item.color}-600`} />
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-800 to-blue-900 rounded-lg flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{item.description}</p>
+                <p className="text-lg text-blue-100 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -349,24 +349,24 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-white mb-4">
                   Comment est née la méthode ERPR ?
                 </h3>
-                <p className="text-gray-400 leading-relaxed mb-6">
+                <p className="text-lg text-blue-100 leading-relaxed mb-6">
                   Après plusieurs années d'enseignement de la langue arabe et une observation attentive des réussites et des échecs des apprenants, j'ai remarqué un point commun essentiel : ceux qui réussissaient appliquaient naturellement les principes de la méthode ERPR.
                   À l'inverse, ceux qui échouaient négligeaient au moins un de ces piliers fondamentaux.
                   C'est en partant de ce constat que j'ai travaillé sans relâche à créer une méthode simple, structurée et centrée sur l'essentiel — pour aider chaque élève à être à l'écoute, motivé à répéter, pratiquer et rester régulier, d'où l'acronyme ERPR.
                 </p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-800 to-blue-900 rounded-full flex items-center justify-center mr-4">
                     <User className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">Pr. Soidroudine</h4>
-                    <p className="text-gray-400 text-sm">Créateur de la marque arabe-importance et de la méthode ERPR</p>
+                    <h4 className="text-white font-semibold text-lg">Pr. Soidroudine</h4>
+                    <p className="text-blue-200 text-sm">Créateur de la marque arabe-importance et de la méthode ERPR</p>
                   </div>
                 </div>
               </div>
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-600">
+              <div className="bg-gray-600 rounded-xl p-6 border border-gray-500">
                 <h4 className="text-lg font-semibold text-white mb-4">Qui suis-je ?</h4>
-                <div className="text-gray-400 space-y-3">
+                <div className="text-lg text-blue-100 space-y-3">
                   <p>
                     Je m'appelle Soidroudine. Autodidacte passionné, j'ai consacré plusieurs années à l'apprentissage de la langue arabe.
                   </p>
@@ -396,7 +396,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Contenu complet et simple
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               Chaque chapitre contient tout ce dont vous avez besoin pour progresser rapidement et va à l'essentiel, avec plus de 530 audios cliquables en illimité !
             </p>
           </motion.div>
@@ -440,18 +440,18 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gray-800 rounded-xl p-8 hover:bg-gray-700 transition-colors duration-300 border border-gray-700"
+                className="bg-gray-800 rounded-xl p-8 hover:bg-gray-700 transition-colors duration-300 border border-gray-600 shadow-md"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl flex items-center justify-center mb-6">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">{feature.description}</p>
+                <p className="text-lg text-blue-100 mb-6 leading-relaxed">{feature.description}</p>
                 <ul className="space-y-2">
                   {feature.features.map((item, i) => (
                     <li key={i} className="flex items-center">
-                      <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
-                      <span className="text-sm text-gray-300">{item}</span>
+                      <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm text-blue-100">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -466,15 +466,15 @@ export default function Home() {
             viewport={{ once: true }}
             className="mt-16 text-center"
           >
-          <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700 max-w-4xl mx-auto">
+          <div className="bg-gray-800 rounded-2xl p-8 border border-gray-600 shadow-md max-w-4xl mx-auto">
   <h3 className="text-2xl font-bold text-white mb-6">
     Accès complet à la méthode ERPR
   </h3>
 
-  <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-    La méthode ERPR sera disponible au prix de <strong className="text-white">89€</strong> du à un accès à vie et à la maintenance de l'application.
+  <p className="text-lg text-blue-100 mb-8 leading-relaxed">
+    La méthode ERPR sera disponible au prix de <strong className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">89€</strong> du à un accès à vie et à la maintenance de l'application.
     Cette méthode inclue des vidéos, quiz, audios interactifs et un accompagnement individuel via WhatsApp.
-    Inscrivez-vous dès maintenant pour être notifié de sa sortie en bénéficiant d'une <strong className="text-red-400">place limitée pour une gestion optimale de l'accompagnement</strong>,
+    Inscrivez-vous dès maintenant pour être notifié de sa sortie en bénéficiant d'une <strong className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">place limitée pour une gestion optimale de l\'accompagnement</strong>,
     déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram, et être averti des nouveautés.
   </p>
 
@@ -484,40 +484,40 @@ export default function Home() {
       
       {/* Colonne gauche */}
       <ul className="space-y-2">
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Support numérique
         </li>
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Vidéo explicative par chapitre
         </li>
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Synthèse textuelle par chapitre
         </li>
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Plusieurs quiz progressifs par chapitre
         </li>
       </ul>
 
       {/* Colonne droite */}
       <ul className="space-y-2">
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Plus de 530 audios cliquables en illimité
         </li>
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Suivi de progression graphique hebdomadaire et mensuel
         </li>
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Devoirs automatisés
         </li>
-        <li className="flex items-center text-gray-300">
-          <CheckCircle className="w-4 h-4 text-green-500 mr-3 flex-shrink-0" />
+        <li className="flex items-center text-blue-100 text-lg">
+          <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
           Accompagnement via WhatsApp & Support H24
         </li>
       </ul>
@@ -541,7 +541,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
               Places limitées pour une gestion optimale, déblocage tous les 1 à 2 mois
             </h2>
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
               Soyez les premiers à être notifiés lors de sa sortie.
               Inscrivez-vous pour être notifié du lancement en bénéficiant d'une place limitée à seulement 89€ accès à vie !
             </p>
@@ -554,13 +554,13 @@ export default function Home() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Votre adresse email"
-                      className="w-full bg-white px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 border-0 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                      className="w-full bg-white px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 border-0 focus:ring-4 focus:ring-blue-300 focus:outline-none text-lg"
                     />
                   </div>
                   <button
                     onClick={handleEmailSubmit}
                     disabled={isLoading}
-                    className="bg-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap disabled:opacity-70 cursor-pointer"
+                    className="bg-gradient-to-r from-blue-800 to-blue-900 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-900 hover:to-blue-950 transition-colors duration-300 flex items-center justify-center group whitespace-nowrap disabled:opacity-70 cursor-pointer text-lg"
                   >
                     {isLoading ? (
                       <span>Envoi...</span>
@@ -573,13 +573,13 @@ export default function Home() {
                     )}
                   </button>
                 </div>
-                {error && <p className="text-red-200 mt-2 text-sm">{error}</p>}
+                {error && <p className="text-red-300 mt-2 text-sm">{error}</p>}
               </div>
             ) : (
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-green-500 text-white px-8 py-4 rounded-xl inline-flex items-center"
+                className="bg-green-600 text-white px-8 py-4 rounded-xl inline-flex items-center text-lg"
               >
                 <CheckCircle className="mr-2 w-5 h-5" />
                 Merci ! Vous recevrez bientôt de nos nouvelles.
@@ -590,15 +590,15 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               className="flex flex-col items-center gap-4 mt-6"
             >
-              <p className="text-gray-300 text-sm text-center max-w-md">
-                🎁 Inscrivez-vous dès maintenant et soyez <strong>les premiers à être notifiés de sa sortie avec une place limitée pour une gestion optimale de l'accompagnement.</strong>
+              <p className="text-blue-100 text-lg text-center max-w-md leading-relaxed">
+                🎁 Inscrivez-vous dès maintenant et soyez <strong className="text-white">les premiers à être notifiés de sa sortie avec une place limitée pour une gestion optimale de l'accompagnement.</strong>
               </p>
               <div className="flex gap-4">
                 <Link
                   href="https://t.me/SonImportance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg"
+                  className="bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg text-lg"
                 >
                   <Send className="w-5 h-5" />
                   <span className="text-sm font-medium">Rejoindre Telegram</span>
@@ -607,7 +607,7 @@ export default function Home() {
                   href="https://instagram.com/son_importance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg"
+                  className="bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg text-lg"
                 >
                   <Instagram className="w-5 h-5" />
                   <span className="text-sm font-medium">Suivre Instagram</span>
@@ -618,24 +618,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; 2025 <span className="text-white font-medium">arabe-importance</span>. Tous droits réservés.
-            </p>
-            <div className="flex space-x-4">
-              <Link href="https://t.me/SonImportance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <Send className="w-5 h-5" />
-              </Link>
-              <Link href="https://instagram.com/son_importance" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
-              </Link>
-            </div>
-          </div>
+{/* Footer */}
+<footer className="bg-gray-900 text-white py-5 border-t border-gray-700">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+    <div className="flex flex-col md:flex-row justify-between items-center">
+      <p className="text-blue-200 text-lg mb-4 md:mb-0">
+        &copy; 2025 <span className="text-white font-medium">arabe-importance</span>. Tous droits réservés.
+      </p>
+      
+      <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+        {/* Liens légaux */}
+        <div className="flex space-x-4">
+          <Link 
+            href="/cgv" 
+            className="text-blue-200 hover:text-white transition-colors text-sm"
+          >
+            Conditions générales
+          </Link>
+          <Link 
+            href="/legal" 
+            className="text-blue-200 hover:text-white transition-colors text-sm"
+          >
+            Mentions légales
+          </Link>
         </div>
-      </footer>
+        
+        {/* Séparateur visuel */}
+        <div className="hidden sm:block h-4 w-px bg-gray-600"></div>
+        
+        {/* Liens sociaux */}
+        <div className="flex space-x-4">
+          <Link href="https://t.me/SonImportance" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
+            <Send className="w-5 h-5" />
+          </Link>
+          <Link href="https://instagram.com/son_importance" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
+            <Instagram className="w-5 h-5" />
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
