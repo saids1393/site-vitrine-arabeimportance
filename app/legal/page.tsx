@@ -112,18 +112,7 @@ export default function LegalPage() {
                     </a>
                   }
                 />
-                <ContactItem 
-                  icon={<Phone />}
-                  label="Téléphone"
-                  value={
-                    <a 
-                      href="tel:+33766445427"
-                      className="text-blue-900 hover:text-blue-700 transition-colors duration-200 hover:underline"
-                    >
-                      +33 7 66 44 54 27
-                    </a>
-                  }
-                />
+                
               </div>
             </div>
           </div>

@@ -12,19 +12,15 @@ import {
   Users,
   Clock,
   Trophy,
-  Menu,
-  X,
   User,
-  AlertCircle,
   Instagram,
   Send,
 } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
-import logoUrl from './assets/img/logo-arabe-importance-white.png';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -60,87 +56,15 @@ export default function Home() {
     }
   };
 
-  const menuItems = [
-    { label: 'Accueil', sectionId: 'accueil' },
-    { label: 'Méthode', sectionId: 'méthode' },
-    { label: 'Contenu', sectionId: 'contenu' },
-    { label: 'Notification', sectionId: 'contact' }
-  ];
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
   };
 
   return (
     <div className="min-h-screen bg-gray-900 overflow-x-hidden">
       {/* Header */}
-      <header className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center space-x-2"
-            >
-              {/* Logo */}
-              <Link href="/" className="flex items-center cursor-pointer">
-                <Image
-                  src={logoUrl}
-                  alt="Logo"
-                  width={130}
-                  height={30}
-                  className="object-contain"
-                />
-              </Link>
-            </motion.div>
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
-              {menuItems.map((item, index) => (
-                <motion.button
-                  key={item.label}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.sectionId)}
-                  className="text-white hover:text-blue-300 transition-colors font-medium cursor-pointer text-lg"
-                >
-                  {item.label}
-                </motion.button>
-              ))}
-            </nav>
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
-            </button>
-          </div>
-        </div>
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-gray-800 border-t border-gray-700"
-          >
-            <div className="px-4 py-4 space-y-1 flex flex-col items-center">
-              {menuItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.sectionId)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-gray-700 rounded-md transition-colors cursor-pointer text-lg"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </header>
+      <Header scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
       <section id="accueil" className="pt-16 min-h-screen flex items-center bg-gray-900">
@@ -221,7 +145,7 @@ export default function Home() {
                 </div>
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-white">Chaque chapitre</h3>
+                    <h3 className="text-lg font-semibold text-white">Chapitres</h3>
                     <div className="w-12 h-12 bg-blue-700/50 rounded-full flex items-center justify-center border border-blue-500">
                       <Play className="w-6 h-6 text-blue-200" />
                     </div>
@@ -247,7 +171,7 @@ export default function Home() {
                     </div>
                     <div className="text-center p-3 bg-gray-900 rounded-lg border border-blue-600">
                       <Brain className="w-6 h-6 text-blue-200 mx-auto mb-2" />
-                      <span className="text-xs text-blue-100">Quiz</span>
+                      <span className="text-xs text-blue-100">Quizs</span>
                     </div>
                     <div className="text-center p-3 bg-gray-900 rounded-lg border border-blue-600">
                       <CheckCircle className="w-6 h-6 text-blue-200 mx-auto mb-2" />
@@ -286,7 +210,7 @@ export default function Home() {
               Qu'est-ce que la méthode <span className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">ERPR</span> ?
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Une approche logique basée sur quatre piliers fondamentaux pour une réussite garantie, disponible dans une application web automatisée avec envoi de devoirs à chaque fin de chapitre.
+Une approche logique basée sur quatre piliers fondamentaux pour une réussite garantie, disponible via une application web automatisée, comprenant plus de 530 audios intégrés à travers les lettres, mots et phrases cliquables à l’infini, ainsi que l’envoi automatisé de vos devoirs.
             </p>
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -403,17 +327,17 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8">
             {[
               {
-                title: '1 Vidéo par chapitre',
+                title: 'Vidéos par chapitre',
                 description: 'Chaque chapitre a une vidéo explicative complète en français',
                 icon: Play,
                 features: [
-                  '1 vidéo HD par chapitre',
+                  'Vidéos HD par chapitre',
                   'Explications détaillées'
                 ]
               },
               {
-                title: '1 quiz composé de 5 questions par chapitre',
-                description: 'Chaque chapitre contient 1 quiz composé de 5 questions progressives pour valider vos acquis et identifier vos axes d\'amélioration.',
+                title: '1 quiz composé de questions par chapitre ',
+                description: 'Chaque chapitre contient 1 quiz composé de questions progressives pour valider vos acquis et identifier vos axes d\'amélioration.',
                 icon: Brain,
                 features: [
                   '1 quiz de 5 questions par chapitre',
@@ -430,7 +354,6 @@ export default function Home() {
                   'Audio par lettre',
                   'Audio par mot',
                   'Clic interactif',
-                  'Progression automatisée'
                 ]
               }
             ].map((feature, index) => (
@@ -474,8 +397,8 @@ export default function Home() {
   <p className="text-lg text-blue-100 mb-8 leading-relaxed">
     La méthode ERPR sera disponible au prix de <strong className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">89€</strong> du à un accès à vie et à la maintenance de l'application.
     Cette méthode inclue des vidéos, quiz, audios interactifs et un accompagnement individuel via WhatsApp.
-    Inscrivez-vous dès maintenant pour être notifié de sa sortie en bénéficiant d'une <strong className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">place limitée pour une gestion optimale de l\'accompagnement</strong>,
-    déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram, et être averti des nouveautés.
+    Inscrivez-vous dès maintenant pour être notifié de sa sortie en bénéficiant d'une <strong className="bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">place limitée pour une gestion optimale de l'accompagnement</strong>,
+    déblocage tous les 1 à 2 mois pour les actifs sur mon canal Telegram pour être averti des nouveautés.
   </p>
 
   <div>
@@ -595,7 +518,7 @@ export default function Home() {
               </p>
               <div className="flex gap-4">
                 <Link
-                  href="https://t.me/SonImportance"
+                  href="https://t.me/ArabeImportance"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg text-lg"
@@ -604,7 +527,7 @@ export default function Home() {
                   <span className="text-sm font-medium">Rejoindre Telegram</span>
                 </Link>
                 <Link
-                  href="https://instagram.com/son_importance"
+                  href="https://instagram.com/arabeimportance"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors shadow-md hover:shadow-lg text-lg"
@@ -618,47 +541,8 @@ export default function Home() {
         </div>
       </section>
 
-{/* Footer */}
-<footer className="bg-gray-900 text-white py-5 border-t border-gray-700">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-    <div className="flex flex-col md:flex-row justify-between items-center">
-      <p className="text-blue-200 text-lg mb-4 md:mb-0">
-        &copy; 2025 <span className="text-white font-medium">arabe-importance</span>. Tous droits réservés.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-        {/* Liens légaux */}
-        <div className="flex space-x-4">
-          <Link 
-            href="/cgv" 
-            className="text-blue-200 hover:text-white transition-colors text-sm"
-          >
-            Conditions générales
-          </Link>
-          <Link 
-            href="/legal" 
-            className="text-blue-200 hover:text-white transition-colors text-sm"
-          >
-            Mentions légales
-          </Link>
-        </div>
-        
-        {/* Séparateur visuel */}
-        <div className="hidden sm:block h-4 w-px bg-gray-600"></div>
-        
-        {/* Liens sociaux */}
-        <div className="flex space-x-4">
-          <Link href="https://t.me/SonImportance" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
-            <Send className="w-5 h-5" />
-          </Link>
-          <Link href="https://instagram.com/son_importance" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors">
-            <Instagram className="w-5 h-5" />
-          </Link>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

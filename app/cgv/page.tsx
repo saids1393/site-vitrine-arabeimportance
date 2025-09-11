@@ -118,9 +118,9 @@ export default function CGVPage() {
         <Article number={2} title="Prix et paiement" icon={<Euro className="w-full h-full" />}>
           <div className="space-y-6">
             <FeatureList items={[
-              "Les prix sont indiqués en euros (€) toutes taxes comprises.",
-              "Le paiement est exigible immédiatement à la commande.",
-              "Une facture est envoyée par email après paiement."
+              "Les prix sont indiqués en euros (€)",
+     "Le paiement est exigible immédiatement lors de la commande à la sortie de l'application, sauf pour la page d'abonnements de Tajwid et d'Arabe avancé, où le paiement s'effectuera via WhatsApp.",
+      "Une facture est envoyée par email après le paiement."
             ]} />
             
             <div>
@@ -176,10 +176,10 @@ export default function CGVPage() {
             
             <HighlightBox type="warning">
               <h3 className="font-semibold mb-2">⚠️ Exception importante</h3>
-              <p>
-                Si le client accède immédiatement au contenu numérique et reconnaît expressément 
-                sa renonciation à ce droit (case à cocher), le droit de rétractation est perdu.
-              </p>
+ <p>
+  Si le client commence un cours de tajwid ou d’arabe avancé via Zoom, le droit de rétractation ne s’applique plus, sauf s’il est exercé avant le début du cours.
+</p>
+
             </HighlightBox>
           </div>
         </Article>
@@ -245,7 +245,7 @@ export default function CGVPage() {
             
             <div className="bg-gray-100 rounded-lg p-4">
               <p className="text-gray-700 text-center">
-                <strong>Tribunal compétent :</strong> Tribunaux français
+                <strong>Tribunal :</strong> Tribunaux français ou internationaux compétents selon le domicile du client.
               </p>
             </div>
           </div>
