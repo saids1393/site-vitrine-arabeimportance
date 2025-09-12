@@ -25,8 +25,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 // Import des images
-import DashboardImage from '/app/assets/img/dashboard.png';
-import SupportImage from '/app/assets/img/support.png';
+import DashboardImage from './assets/img/dashboard.png';
+import SupportImage from './assets/img/support.png';
 
 export default function Home() {
   const [email, setEmail] = useState('');
