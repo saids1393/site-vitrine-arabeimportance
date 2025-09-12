@@ -31,7 +31,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
         { label: 'Accueil', sectionId: 'accueil' },
         { label: 'Méthode', sectionId: 'méthode' },
         { label: 'Contenu', sectionId: 'contenu' },
-        { label: 'Notification', sectionId: 'contact' },
+        { label: 'Rejoindre', sectionId: 'contact' },
         { label: 'Avancée', href: '/abonnements' }
       ];
 
