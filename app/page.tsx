@@ -117,7 +117,7 @@ export default function Home() {
                   onClick={() => scrollToSection('contact')}
                   className="bg-gradient-to-r from-blue-900 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-900 hover:to-blue-950 transition-all duration-300 flex items-center justify-center group shadow-lg hover:shadow-xl cursor-pointer text-lg"
                 >
-                  Rejoindre la liste d'attente
+                  S'inscrire
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
@@ -402,11 +402,13 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-            Places limitées pour une gestion optimale, déblocage tous les 1 à 2 mois
+            Offre spéciale pour les 25 premiers inscrits !
           </h2>
-          <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Soyez les premiers à être notifiés lors de sa sortie.
-            Rejoindre la liste d'attente pour être notifié du lancement en bénéficiant d'une place limitée à seulement 89€ accès à vie !
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
+            <span className="text-2xl font-bold text-white">59€</span> au lieu de <span className="line-through">89€</span> pour les 25 premiers inscrits
+          </p>
+          <p className="text-lg text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
+            Accès à vie avec possibilité de paiement en plusieurs fois
           </p>
 
           {!isSubmitted ? (
@@ -429,7 +431,7 @@ export default function Home() {
   ) : (
     <>
       <Mail className="w-5 h-5" />
-      <span>Rejoindre</span>
+      <span>S'inscrire</span>
       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
     </>
   )}
@@ -455,7 +457,7 @@ export default function Home() {
             className="flex flex-col items-center gap-4 mt-6"
           >
             <p className="text-blue-100 text-lg text-center max-w-md leading-relaxed">
-              🎁 Rejoindre la liste d'attente dès maintenant et soyez <strong className="text-white">les premiers à être notifiés de sa sortie avec une place limitée pour une gestion optimale de l'accompagnement.</strong>
+              🎁 <strong className="text-white">Offre limitée aux 25 premiers inscrits</strong> à seulement 59€ avec possibilité de paiement en plusieurs fois. Prix initial de 89€ ensuite avec toujours possibilité de paiement en plusieurs fois
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
