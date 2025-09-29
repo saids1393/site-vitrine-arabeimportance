@@ -2,13 +2,11 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://arabe-importance.vercel.app';
-  
   return [
     {
-      url: baseUrl,
+      url: 'https://arabe-importance.vercel.app',
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly',
       priority: 1,
     },
   ];
