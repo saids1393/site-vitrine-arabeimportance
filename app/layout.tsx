@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     canonical: "https://arabe-importance.vercel.app/",
   },
   verification: {
-    google: "votre-code-google-search-console", // À ajouter après inscription
+    google: "jd5X4FA2YA9yn-36R-X2tVQaCsfoC0Jok4bIBaIEqwI",
   },
   metadataBase: new URL("https://arabe-importance.vercel.app"),
 };
