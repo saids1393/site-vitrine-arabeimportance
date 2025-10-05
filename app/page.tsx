@@ -486,6 +486,28 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Méthode ERPR",
+      "description": "Application web automatisée pour l'apprentissage de la lecture et de l'écriture en arabe",
+      "url": "https://arabe-importance.vercel.app",
+      "founder": {
+        "@type": "Person",
+        "name": "Pr. Soidroudine"
+      },
+      "areaServed": "FR",
+      "offers": {
+        "@type": "Offer",
+        "price": "59",
+        "priceCurrency": "EUR"
+      }
+    })
+  }}
+/>
     </div>
   );
 }

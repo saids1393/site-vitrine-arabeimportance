@@ -46,15 +46,18 @@ export async function POST(request: Request) {
 
           <p style="font-size: 16px; margin-bottom: 20px;">Vous venez de vous inscrire pour être <strong>parmi les premiers notifiés</strong> du lancement de la <strong>méthode ERPR</strong> (Écoute - Répétition - Pratique - Régularité), conçue spécialement pour vous permettre d'acquérir <strong>les bases de la lecture et de l'écriture</strong> de manière efficace et progressive.</p>
 
-          <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #3b82f6;">
-            <h3 style="color: #1e40af; margin-top: 0;">🔹 Ce qui vous attend :</h3>
-            <ul style="padding-left: 20px; margin: 10px 0;">
-              <li>Une <strong>méthode testée</strong> pour apprendre à lire et écrire rapidement</li>
-              <li>Plus de <strong>530 audios interactifs</strong> pour une immersion totale</li>
-              <li>Un <strong>accompagnement</strong> à débloquer à certains chapitres</li>
-              <li>Des <strong>places limitées</strong> pour une qualité d'enseignement optimale</li>
-            </ul>
-          </div>
+<div style="background: #f0f9ff; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #3b82f6;">
+  <h3 style="color: #1e40af; margin-top: 0;">🔹 Ce qui vous attend :</h3>
+  <ul style="padding-left: 20px; margin: 10px 0;">
+    <li>Une <strong>méthode testée</strong> pour apprendre à lire et écrire rapidement</li>
+    <li>Plus de <strong>530 audios interactifs</strong> pour une immersion totale</li>
+    <li>Des <strong>devoirs envoyés automatiquement</strong></li>
+    <li>Une <strong>possibilité d'accompagnement</strong> 7j/7</li>
+    <li>Un <strong>groupe privé Telegram</strong></li>
+    <li>Amélioration <strong>continue</strong> de l'application avec de futurs niveaux</li>
+  </ul>
+</div>
+
 
           <div style="display: flex; justify-content: space-between; margin: 25px 0; gap: 15px;">
             <div style="text-align: center; flex: 1;">
@@ -91,22 +94,22 @@ export async function POST(request: Request) {
 
           <p style="font-size: 16px; margin: 20px 0 5px;">Cordialement,</p>
           <p style="font-size: 16px; margin: 0 0 20px; font-weight: 600;">
-            L'équipe <span style="color: #3b82f6;">son_importance</span><br>
+            L'équipe <span style="color: #3b82f6;">arabeimportance</span><br>
             <span style="color: #6b7280; font-size: 14px;">"L'importance de la langue"</span>
           </p>
 
           <div style="text-align: center;">
-            <a href="https://instagram.com/son_importance" style="display: inline-block; margin: 0 5px;">
+            <a href="https://instagram.com/arabeimportance" style="display: inline-block; margin: 0 5px;">
               <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram" width="32"/>
             </a>
-            <a href="https://t.me/son_importance" style="display: inline-block; margin: 0 5px;">
+            <a href="https://t.me/arabeimportance" style="display: inline-block; margin: 0 5px;">
               <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram" width="32"/>
             </a>
           </div>
         </div>
 
         <div style="text-align: center; padding: 20px; color: #9ca3af; font-size: 12px; background: #f9fafb;">
-          <p style="margin: 5px 0;">© 2025 son_importance. Tous droits réservés.</p>
+          <p style="margin: 5px 0;">© 2025 arabeimportance. Tous droits réservés.</p>
           <p style="margin: 5px 0;">
             <a href="#" style="color: #6b7280; text-decoration: none; margin: 0 10px;">Politique de confidentialité</a>
             <a href="#" style="color: #6b7280; text-decoration: none; margin:  Això0 10px;">Conditions d'utilisation</a>
