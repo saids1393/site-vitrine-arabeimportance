@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://arabe-importance.vercel.app/",
+    url: "https://arabeimportance.fr/",
     siteName: "Méthode ERPR",
     title: "Méthode ERPR - Apprentissage de la lecture et de l'écriture",
     description: "Découvrez la méthode ERPR, une approche efficace et logique pour l'apprentissage de la lecture et de l'écriture en arabe.",
     images: [
       {
-        url: "https://arabe-importance.vercel.app/og-image.jpg", 
+        url: "https://arabeimportance.fr/og-image.jpg", 
         width: 1200,
         height: 630,
         alt: "Méthode ERPR - Apprentissage de la lecture",
@@ -39,15 +39,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Méthode ERPR - Apprentissage de la lecture et de l'écriture",
     description: "Application web automatisée pour apprendre à lire et écrire avec la méthode ERPR",
-    images: ["https://arabe-importance.vercel.app/og-image.jpg"]
+    images: ["https://arabeimportance.fr/og-image.jpg"]
   },
   alternates: {
-    canonical: "https://arabe-importance.vercel.app/",
+    canonical: "https://arabeimportance.fr/",
   },
   verification: {
     google: "jd5X4FA2YA9yn-36R-X2tVQaCsfoC0Jok4bIBaIEqwI",
   },
-  metadataBase: new URL("https://arabe-importance.vercel.app"),
+  metadataBase: new URL("https://arabeimportance.fr"),
 };
 
 export default function RootLayout({
