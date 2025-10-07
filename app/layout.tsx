@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     canonical: "https://arabeimportance.fr/",
   },
   verification: {
-    google: "jd5X4FA2YA9yn-36R-X2tVQaCsfoC0Jok4bIBaIEqwI",
+    google: "58V7rjvuocCuv_vqRH83XWRZ9rNDJzj5rK6E2u9JMn4",
   },
   metadataBase: new URL("https://arabeimportance.fr"),
 };
