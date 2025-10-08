@@ -235,41 +235,141 @@ export default function Home() {
 <script
   type="application/ld+json"
   dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "Arabe Importance - Apprendre l’arabe avec la méthode ERPR",
-      "alternateName": "Apprendre l’arabe en ligne",
-      "url": "https://www.arabeimportance.fr",
-      "logo": "https://www.arabeimportance.fr/assets/img/logo.png",
-      "sameAs": [
-        "https://instagram.com/arabeimportance",
-        "https://t.me/ArabeImportance"
-      ],
-      "description":
-        "Apprenez l’arabe facilement avec la méthode ERPR : une méthode innovante basée sur l’écoute, la répétition, la pratique et la régularité. Idéale pour apprendre à lire et écrire l’arabe rapidement, même sans base préalable.",
-      "founder": {
-        "@type": "Person",
-        "name": "Pr. Soidroudine",
-        "description": "Créateur de la méthode ERPR et fondateur de Arabe Importance, enseignant spécialisé dans l’apprentissage de la langue arabe.",
+    __html: JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "@id": "https://www.arabeimportance.fr#organization",
+        "name": "Arabe Importance - Apprendre l'arabe avec la méthode ERPR",
+        "alternateName": "Apprendre l'arabe en ligne",
+        "url": "https://www.arabeimportance.fr",
+        "logo": "https://www.arabeimportance.fr/assets/img/logo.png",
+        "description": "Apprenez l'arabe facilement avec la méthode ERPR : une méthode innovante basée sur l'écoute, la répétition, la pratique et la régularité. Idéale pour apprendre à lire et écrire l'arabe rapidement, même sans base préalable.",
+        "foundingDate": "2024",
+        "founder": {
+          "@type": "Person",
+          "name": "Pr. Soidroudine",
+          "jobTitle": "Enseignant et créateur de la méthode ERPR",
+          "description": "Créateur de la méthode ERPR et fondateur de Arabe Importance, enseignant spécialisé dans l'apprentissage de la langue arabe avec plus de 10 ans d'expérience."
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "FR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "contact@arabeimportance.fr",
+          "availableLanguage": ["French"]
+        },
+        "sameAs": [
+          "https://instagram.com/arabeimportance",
+          "https://t.me/ArabeImportance"
+        ],
+        "areaServed": "FR",
+        "knowsAbout": [
+          "apprentissage de l'arabe",
+          "méthodologie d'enseignement des langues",
+          "linguistique arabe",
+          "pédagogie interactive"
+        ]
       },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "FR"
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Méthode ERPR - Apprendre à lire et écrire l'arabe",
+        "description": "Formation complète pour apprendre l'arabe avec la méthode ERPR (Écoute, Répétition, Pratique, Régularité). Plus de 530 audios, tableau de bord automatisé et accompagnement personnalisé.",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "@id": "https://www.arabeimportance.fr#organization"
+        },
+        "educationalLevel": "beginner",
+        "teaches": "lecture et écriture de la langue arabe",
+        "timeRequired": "P3M",
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": ["online", "self-paced"],
+          "courseWorkload": "PT6H",
+          "offers": {
+            "@type": "Offer",
+            "price": "59",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.arabeimportance.fr/#contact",
+            "priceValidUntil": "2024-12-31",
+            "description": "Accès à vie à la méthode ERPR avec support inclus"
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "ratingCount": "60",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "learningResourceType": "interactive resource",
+        "numberOfCredits": "1",
+        "competencyRequired": "Aucun prérequis nécessaire"
       },
-      "areaServed": "FR",
-      "keywords": "apprendre l’arabe, cours d’arabe, méthode ERPR, apprendre à lire l’arabe, apprendre à écrire l’arabe, arabe facile, apprendre l’arabe en ligne",
-      "offers": {
-        "@type": "Offer",
-        "price": "59",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.arabeimportance.fr/#contact",
-        "description": "Accès à vie à la méthode ERPR pour apprendre à lire et écrire l’arabe, avec plus de 530 audios et un tableau de bord automatisé."
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Apprendre l'arabe avec la méthode ERPR | Cours en ligne",
+        "description": "Découvrez la méthode ERPR pour apprendre à lire et écrire l'arabe facilement. Formation complète avec accompagnement personnalisé et résultats garantis.",
+        "url": "https://www.arabeimportance.fr",
+        "mainEntity": {
+          "@type": "Course",
+          "name": "Méthode ERPR - Apprendre à lire et écrire l'arabe"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://www.arabeimportance.fr"
+            }
+          ]
+        },
+        "primaryImageOfPage": "https://www.arabeimportance.fr/assets/img/logo.png",
+        "isPartOf": {
+          "@id": "https://www.arabeimportance.fr#organization"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "La méthode ERPR fonctionne-t-elle pour les débutants complets ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, la méthode ERPR est spécialement conçue pour les débutants sans aucune connaissance préalable de l'arabe. La progression est étape par étape."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien de temps faut-il pour voir les premiers résultats ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La plupart de nos élèves constatent des progrès significatifs dans les 2 premières semaines, avec une capacité de lecture basique acquise en 1 mois."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "L'accès à la formation est-il limité dans le temps ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non, l'accès est à vie. Vous pouvez apprendre à votre rythme et revenir sur les contenus autant que nécessaire."
+            }
+          }
+        ]
       }
-          }),
-        }}
-      />
+    ])
+  }}
+/>
     </div>
   );
 }
