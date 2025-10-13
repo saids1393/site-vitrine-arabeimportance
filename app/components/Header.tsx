@@ -22,18 +22,18 @@ export default function Header({ scrollToSection }: HeaderProps) {
   const pathname = usePathname();
   const isAbonnementsPage = pathname === '/abonnements';
 
-  const menuItems: MenuItem[] = isAbonnementsPage 
+  const menuItems: MenuItem[] = isAbonnementsPage
     ? [
-        { label: 'Accueil', href: '/' },
-        { label: 'Avancée', href: '/abonnements' }
-      ]
+      { label: 'Accueil', href: '/' },
+      { label: 'Avancée', href: '/abonnements' }
+    ]
     : [
-        { label: 'Accueil', sectionId: 'accueil' },
-        { label: 'Méthode', sectionId: 'méthode' },
-        { label: 'Contenu', sectionId: 'contenu' },
-        { label: "S'inscrire", sectionId: 'contact' },
-        { label: 'Avancée', href: '/abonnements' }
-      ];
+      { label: 'Accueil', sectionId: 'accueil' },
+      { label: 'Méthode', sectionId: 'méthode' },
+      { label: 'Contenu', sectionId: 'contenu' },
+      { label: "S'inscrire", sectionId: 'contact' },
+      { label: 'Avancée', href: '/abonnements' }
+    ];
 
   const handleMenuClick = (sectionId: string) => {
     scrollToSection(sectionId);
