@@ -87,7 +87,7 @@ export default function Home() {
                 </div>
 
                 <h1 className="text-2xl sm:text-5xl lg:text-4xl font-bold text-white mb-6 leading-tight">
-                  Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> avec la méthode ERPR : L'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">importance</span> de la lecture et de l'écriture
+                  Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> avec la<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent"> méthode ERPR </span>: L'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">importance</span> de la lecture et de l'écriture
                 </h1>
 
                 <p className="text-lg text-slate-300 mb-8 leading-relaxed">
@@ -187,7 +187,7 @@ export default function Home() {
             >
               <h2 className="text-4xl font-bold text-white mb-6">
                 Pourquoi l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> est d'une grande{' '}
-                <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">importance</span> : Découvrez la méthode ERPR
+                <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">importance</span> : Découvrez la <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">méthode ERPR</span>
               </h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
                 Comprendre l'<strong className="text-white">importance de l'arabe</strong> dans votre parcours d'apprentissage. Une approche logique et moderne basée sur quatre piliers fondamentaux :{' '}
@@ -233,7 +233,7 @@ export default function Home() {
                 L'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">importance</span> d'un apprentissage visuel de l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span>
               </h2>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-                Découvrez l'importance d'une approche visuelle et moderne pour transformer votre apprentissage de l'arabe avec la méthode ERPR.
+                Découvrez l'importance d'une approche visuelle et moderne pour transformer votre apprentissage de l'arabe avec la<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent"> méthode ERPR.</span>
               </p>
             </header>
 
