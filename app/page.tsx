@@ -9,9 +9,10 @@ import MotionSection from './components/MotionSection';
 import { Volume2, Clock, Brain, Trophy, CheckCircle, Play } from 'lucide-react';
 import DashboardImage from '/public/assets/img/dashboard.png';
 import SupportImage from '/public/assets/img/support.png';
+import ScrollButton from './components/ScrollButton';
 
 
-export const revalidate = 60; 
+export const revalidate = 60;
 
 export default function Home() {
 
@@ -26,17 +27,22 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 py-20 lg:flex lg:items-center lg:gap-12">
             {/* Left */}
             <MotionSection direction="left" className="lg:w-1/2">
-              <h1 className="text-3xl sm:text-5xl lg:text-4xl font-bold text-white mb-6 leading-tight">
-                Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> avec la<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent"> méthode ERPR </span>: Niveau de la <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">lecture et de l'écriture</span>
-              </h1>
+              <h1 className="text-2xl sm:text-3xl lg:text-2xl font-bold">ARABE IMPORTANCE</h1>
+
+              <h2 className="text-4xl sm:text-3xl lg:text-4xl font-semibold text-white mb-6 leading-tight">
+                Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> avec la<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent"> méthode ERPR </span>! Niveau débutant <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">lecture et écriture</span>
+              </h2>
+
               <p className="text-lg text-slate-300 mb-8">
-                Découvrez l'<strong className="text-white">importance de l'arabe</strong> dans votre apprentissage, basé sur <strong className="text-white">Écoute, Répétition, Pratique, Régularité</strong>.
+                Découvrez l'<strong className="text-white">importance de l'arabe</strong> dans votre apprentissage, basé sur <strong className="text-white">Écoute, Répétition, Pratique, Régularité</strong> dans une application automatisée qui sortira début novembre.
               </p>
+               <ScrollButton />
             </MotionSection>
+
 
             {/* Right */}
             <MotionSection direction="right" delay={0.2} className="lg:w-1/2">
-              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 border border-pink-500/30">
+              <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-2xl p-8 border border-pink-500/30 mt-10">
                 <div className="absolute -top-4 -right-4 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
                   <CheckCircle className="w-5 h-5 text-white" />
                 </div>
@@ -82,7 +88,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Méthode Section */}
+        {/* méthode Section */}
         <section id="méthode" className="py-20 bg-slate-900/50">
           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -120,7 +126,7 @@ export default function Home() {
         </section>
 
         {/* Contenu Section */}
-        <section id="contenu" className="py-10 bg-slate-900/70">
+        <section id="contenu" className="py-5 bg-slate-900/70">
           <ContentSection />
         </section>
 
@@ -138,7 +144,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Course",
-            "name": "Méthode ERPR – Lecture et écriture en arabe",
+            "name": "méthode ERPR – Lecture et écriture en arabe",
             "description":
               "Cours complet et progressif pour apprendre la lecture et l’écriture en arabe. Basé sur la méthode ERPR : Écoute, Répétition, Pratique, Régularité.",
             "provider": {

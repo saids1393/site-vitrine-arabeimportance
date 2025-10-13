@@ -41,9 +41,8 @@ export default function EmailForm() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900/50 text-center">
+    <section id="contact" className="bg-slate-900/50 text-center">
       <div className="max-w-4xl mx-auto px-6">
-        <header className="mb-10">
           <h2 className="text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-white mb-6">
             Rejoignez-nous et découvrez <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">la puissance de l'ERPR</span>
           </h2>
@@ -51,10 +50,10 @@ export default function EmailForm() {
           <p className="text-xl text-slate-300 mb-4">
             <span className="text-pink-400 font-bold text-2xl">59€</span> au lieu de <span className="line-through text-slate-500">89€</span>
           </p>
-          <p className="text-slate-400">
+          <p className="text-slate-400 mb-5">
             Accès à vie avec possibilité de paiement en plusieurs fois. Comprenez l'importance d'investir dans votre apprentissage de l'arabe.
           </p>
-        </header>
+     
 
         {!isSubmitted ? (
           <div className="max-w-md mx-auto">
