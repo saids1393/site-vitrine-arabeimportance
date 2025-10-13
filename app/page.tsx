@@ -86,7 +86,7 @@ export default function Home() {
                   Méthode logique et rapide
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-2xl sm:text-5xl lg:text-4xl font-bold text-white mb-6 leading-tight">
                   Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> avec la méthode ERPR : L'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">importance</span> de la lecture et de l'écriture
                 </h1>
 
