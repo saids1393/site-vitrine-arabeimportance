@@ -1,23 +1,17 @@
-'use client';
 import Image from 'next/image';
-import { useState } from 'react';
 import ClientHeaderWrapper from './components/ClientHeader';
 import Footer from './components/Footer';
 import ContentSection from './components/ContentSection';
 import MotionSection from './components/MotionSection';
-import SignupPopup from './components/SignupPopup';
 
 import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play } from 'lucide-react';
 import DashboardImage from '/public/assets/img/dashboard.png';
 import SupportImage from '/public/assets/img/support.png';
 
 export default function Home() {
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-slate-200 overflow-x-hidden">
-      <ClientHeaderWrapper onSignupClick={() => setIsSignupOpen(true)} />
-      <SignupPopup isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
+      <ClientHeaderWrapper />
 
       <main>
         {/* Hero Section */}
@@ -53,14 +47,18 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={() => setIsSignupOpen(true)}
-                  className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                <a
+                  href="https://arabeimportance.fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center"
                 >
                   S'inscrire maintenant
-                </button>
+                </a>
                 <a
-                  href="#"
+                  href="https://arabeimportance.fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-slate-800 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-700 transition-all border border-slate-700 text-center"
                 >
                   Connexion
@@ -287,12 +285,14 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <button
-                      onClick={() => setIsSignupOpen(true)}
-                      className="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-5 rounded-xl font-bold text-xl hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mb-4"
+                    <a
+                      href="https://arabeimportance.fr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-5 rounded-xl font-bold text-xl hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mb-4 text-center block"
                     >
                       S'inscrire maintenant
-                    </button>
+                    </a>
 
                     <p className="text-center text-slate-400 text-sm">
                       Accès immédiat après inscription

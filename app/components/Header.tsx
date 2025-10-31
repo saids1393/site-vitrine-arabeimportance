@@ -9,7 +9,6 @@ import logoUrl from '../assets/img/logo-arabe-importance-white.png';
 
 interface HeaderProps {
   scrollToSection: (sectionId: string) => void;
-  onSignupClick: () => void;
 }
 
 interface MenuItem {
@@ -18,7 +17,7 @@ interface MenuItem {
   href?: string;
 }
 
-export default function Header({ scrollToSection, onSignupClick }: HeaderProps) {
+export default function Header({ scrollToSection }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isAbonnementsPage = pathname === '/abonnements';
@@ -91,20 +90,24 @@ export default function Header({ scrollToSection, onSignupClick }: HeaderProps) 
                 </motion.button>
               )
             ))}
-            <motion.button
+            <motion.a
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              onClick={onSignupClick}
+              href="https://arabeimportance.fr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg"
             >
               S'inscrire
-            </motion.button>
+            </motion.a>
             <motion.a
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              href="#"
+              href="https://arabeimportance.fr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
             >
               Connexion
@@ -148,17 +151,19 @@ export default function Header({ scrollToSection, onSignupClick }: HeaderProps) 
                 </button>
               )
             ))}
-            <button
-              onClick={() => {
-                onSignupClick();
-                setIsMenuOpen(false);
-              }}
+            <a
+              href="https://arabeimportance.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
               className="w-full max-w-xs text-center px-4 py-3 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-md font-semibold hover:from-pink-600 hover:to-blue-600 transition-all"
             >
               S'inscrire
-            </button>
+            </a>
             <a
-              href="#"
+              href="https://arabeimportance.fr"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
               className="w-full max-w-xs text-center px-4 py-3 bg-slate-800 text-white rounded-md font-semibold hover:bg-slate-700 transition-all border border-slate-700"
             >

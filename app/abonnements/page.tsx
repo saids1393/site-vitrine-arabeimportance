@@ -17,10 +17,6 @@ export default function Abonnements() {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSignupClick = () => {
-    console.log('Signup clicked');
-  };
-
   const offers = [
     {
       title: 'Tajwîd - Lire comme un Imam',
@@ -51,7 +47,7 @@ export default function Abonnements() {
   return (
     <div className="min-h-screen bg-gray-900 overflow-x-hidden">
       {/* Header */}
-      <Header scrollToSection={scrollToSection} onSignupClick={handleSignupClick} />
+      <Header scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
       <section className="pt-16 min-h-screen flex items-center bg-gray-900">

@@ -2,11 +2,7 @@
 
 import Header from './Header';
 
-interface ClientHeaderWrapperProps {
-  onSignupClick: () => void;
-}
-
-export default function ClientHeaderWrapper({ onSignupClick }: ClientHeaderWrapperProps) {
+export default function ClientHeaderWrapper() {
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
@@ -14,5 +10,5 @@ export default function ClientHeaderWrapper({ onSignupClick }: ClientHeaderWrapp
     }
   };
 
-  return <Header scrollToSection={scrollToSection} onSignupClick={onSignupClick} />;
+  return <Header scrollToSection={scrollToSection} />;
 }
