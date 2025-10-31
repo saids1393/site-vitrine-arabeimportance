@@ -17,7 +17,7 @@ export default function VideoBackground() {
         Votre navigateur ne supporte pas la vidéo HTML5.
       </video>
       <div
-        className="absolute top-0 left-0 w-full h-full bg-black/60 pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full bg-black/70 pointer-events-none"
       />
     </>
   );

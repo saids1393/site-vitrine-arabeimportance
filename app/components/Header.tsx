@@ -41,7 +41,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-700 shadow-sm">
+    <header className="fixed top-0 w-full bg-white/5 backdrop-blur-md z-50 border-b border-white/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.div
@@ -128,7 +128,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-gray-800 border-t border-gray-700"
+          className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10"
         >
           <div className="px-4 py-4 space-y-2 flex flex-col items-center">
             {menuItems.map((item) => (
@@ -137,7 +137,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-gray-700 rounded-md transition-colors cursor-pointer text-lg"
+                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 rounded-md transition-colors cursor-pointer text-lg"
                 >
                   {item.label}
                 </Link>
@@ -145,7 +145,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
                 <button
                   key={item.label}
                   onClick={() => handleMenuClick(item.sectionId!)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-gray-700 rounded-md transition-colors cursor-pointer text-lg"
+                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 rounded-md transition-colors cursor-pointer text-lg"
                 >
                   {item.label}
                 </button>

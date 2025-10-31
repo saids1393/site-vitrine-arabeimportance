@@ -11,7 +11,7 @@ import SupportImage from '/public/assets/img/support.png';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-slate-200 overflow-x-hidden">
+    <div className="min-h-screen bg-black text-slate-200 overflow-x-hidden">
       <ClientHeaderWrapper />
 
       <main>
