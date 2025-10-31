@@ -11,16 +11,13 @@ export default function VideoBackground() {
         loop
         playsInline
         preload="auto"
-        className="fixed top-0 left-0 w-screen h-screen object-cover pointer-events-none"
-        style={{ zIndex: -9999 }}
+        className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
       >
         <source src={videoTest} type="video/mp4" />
         Votre navigateur ne supporte pas la vidéo HTML5.
       </video>
-      {/* Overlay */}
-      <div 
-        className="fixed top-0 left-0 w-screen h-screen bg-black/30 pointer-events-none"
-        style={{ zIndex: -9998 }}
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-black/60 pointer-events-none"
       />
     </>
   );
