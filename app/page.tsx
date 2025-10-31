@@ -3,6 +3,7 @@ import ClientHeaderWrapper from './components/ClientHeader';
 import Footer from './components/Footer';
 import ContentSection from './components/ContentSection';
 import MotionSection from './components/MotionSection';
+import VideoBackground from './components/Videobackground';
 
 import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play } from 'lucide-react';
 import DashboardImage from '/public/assets/img/dashboard.png';
@@ -14,9 +15,11 @@ export default function Home() {
       <ClientHeaderWrapper />
 
       <main>
-        {/* Hero Section */}
-        <section id="accueil" className="pt-24 sm:pt-32 min-h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-6 py-20 lg:flex lg:items-center lg:gap-12">
+   {/* Hero Section */}
+    <section id="accueil" className="pt-24 sm:pt-32 min-h-screen flex items-center relative overflow-hidden">
+  <VideoBackground />
+  
+  <div className="max-w-7xl mx-auto px-6 py-20 lg:flex lg:items-center lg:gap-12 relative z-10">
             {/* Left */}
             <MotionSection direction="left" className="lg:w-1/2">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-blue-500/20 border border-pink-500/30 rounded-full px-4 py-2 mb-6">
@@ -207,7 +210,7 @@ export default function Home() {
                 <MotionSection key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 * i}>
                   <div className="bg-slate-800 rounded-2xl p-6 shadow-xl border border-pink-500/20 hover:border-pink-500/40 transition-all transform hover:-translate-y-2">
                     <div className="aspect-video rounded-lg overflow-hidden mb-4 border border-slate-700">
-                      <Image
+                <img
                         src={item.img}
                         alt={item.title}
                         width={800}
