@@ -9,6 +9,7 @@ import logoUrl from '../assets/img/logo-arabe-importance-white.png';
 
 interface HeaderProps {
   scrollToSection: (sectionId: string) => void;
+  onSignupClick: () => void;
 }
 
 interface MenuItem {
@@ -17,7 +18,7 @@ interface MenuItem {
   href?: string;
 }
 
-export default function Header({ scrollToSection }: HeaderProps) {
+export default function Header({ scrollToSection, onSignupClick }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isAbonnementsPage = pathname === '/abonnements';
@@ -30,8 +31,8 @@ export default function Header({ scrollToSection }: HeaderProps) {
     : [
       { label: 'Accueil', sectionId: 'accueil' },
       { label: 'Méthode', sectionId: 'méthode' },
+      { label: 'Tarif', sectionId: 'tarif' },
       { label: 'Contenu', sectionId: 'contenu' },
-      { label: "S'inscrire", sectionId: 'contact' },
       { label: 'Avancée', href: '/abonnements' }
     ];
 
@@ -61,7 +62,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
             </Link>
           </motion.div>
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {menuItems.map((item, index) => (
               item.href ? (
                 <motion.div
@@ -90,6 +91,24 @@ export default function Header({ scrollToSection }: HeaderProps) {
                 </motion.button>
               )
             ))}
+            <motion.button
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              onClick={onSignupClick}
+              className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg"
+            >
+              S'inscrire
+            </motion.button>
+            <motion.a
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              href="#"
+              className="bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
+            >
+              Connexion
+            </motion.a>
           </nav>
           {/* Mobile Menu Button */}
           <button
@@ -108,7 +127,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
           exit={{ opacity: 0, height: 0 }}
           className="md:hidden bg-gray-800 border-t border-gray-700"
         >
-          <div className="px-4 py-4 space-y-1 flex flex-col items-center">
+          <div className="px-4 py-4 space-y-2 flex flex-col items-center">
             {menuItems.map((item) => (
               item.href ? (
                 <Link
@@ -129,6 +148,22 @@ export default function Header({ scrollToSection }: HeaderProps) {
                 </button>
               )
             ))}
+            <button
+              onClick={() => {
+                onSignupClick();
+                setIsMenuOpen(false);
+              }}
+              className="w-full max-w-xs text-center px-4 py-3 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-md font-semibold hover:from-pink-600 hover:to-blue-600 transition-all"
+            >
+              S'inscrire
+            </button>
+            <a
+              href="#"
+              onClick={() => setIsMenuOpen(false)}
+              className="w-full max-w-xs text-center px-4 py-3 bg-slate-800 text-white rounded-md font-semibold hover:bg-slate-700 transition-all border border-slate-700"
+            >
+              Connexion
+            </a>
           </div>
         </motion.div>
       )}

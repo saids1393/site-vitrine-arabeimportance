@@ -1,42 +1,71 @@
-// app/page.tsx
+'use client';
 import Image from 'next/image';
+import { useState } from 'react';
 import ClientHeaderWrapper from './components/ClientHeader';
 import Footer from './components/Footer';
 import ContentSection from './components/ContentSection';
-import EmailForm from './components/EmailForm';
 import MotionSection from './components/MotionSection';
+import SignupPopup from './components/SignupPopup';
 
-import { Volume2, Clock, Brain, Trophy, CheckCircle, Play } from 'lucide-react';
+import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play } from 'lucide-react';
 import DashboardImage from '/public/assets/img/dashboard.png';
 import SupportImage from '/public/assets/img/support.png';
-import ScrollButton from './components/ScrollButton';
-
-
-export const revalidate = 60;
 
 export default function Home() {
-
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-slate-200 overflow-x-hidden">
-      {/* Header */}
-      <ClientHeaderWrapper />
+      <ClientHeaderWrapper onSignupClick={() => setIsSignupOpen(true)} />
+      <SignupPopup isOpen={isSignupOpen} onClose={() => setIsSignupOpen(false)} />
+
       <main>
         {/* Hero Section */}
         <section id="accueil" className="pt-24 sm:pt-32 min-h-screen flex items-center">
           <div className="max-w-7xl mx-auto px-6 py-20 lg:flex lg:items-center lg:gap-12">
             {/* Left */}
             <MotionSection direction="left" className="lg:w-1/2">
-              <h1 className="text-2xl sm:text-3xl lg:text-2xl font-bold">ARABE IMPORTANCE</h1>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-blue-500/20 border border-pink-500/30 rounded-full px-4 py-2 mb-6">
+                <Sparkles className="w-4 h-4 text-pink-400" />
+                <span className="text-sm font-semibold text-white">Nouvelle plateforme disponible</span>
+              </div>
 
-              <h2 className="text-4xl sm:text-3xl lg:text-4xl font-semibold text-white mb-6 leading-tight">
-                Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> avec la<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent"> méthode ERPR </span>! Niveau débutant <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">lecture et écriture</span>
-              </h2>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Apprenez l'<span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">arabe</span> autrement
+              </h1>
 
-              <p className="text-lg text-slate-300 mb-8">
-                Découvrez l'<strong className="text-white">importance de l'arabe</strong> dans votre apprentissage, basé sur <strong className="text-white">Écoute, Répétition, Pratique, Régularité</strong> dans une application automatisée qui sortira début novembre.
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                La première plateforme avec <span className="text-pink-400 font-semibold">audio intégré</span> sur chaque lettre, mot et phrase. Basée sur la méthode <strong className="text-white">ERPR</strong> : Écoute, Répétition, Pratique, Régularité.
               </p>
-               <ScrollButton />
+
+              <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 mb-8">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-4xl font-bold text-white">75,65€</span>
+                  <span className="text-2xl text-slate-400 line-through">89€</span>
+                  <span className="bg-pink-500 text-white text-sm font-bold px-3 py-1 rounded-full">-15%</span>
+                </div>
+                <p className="text-slate-300 text-sm mb-3">
+                  Offre de lancement valable 3 semaines
+                </p>
+                <p className="text-blue-300 text-sm font-medium">
+                  Paiement en 2 fois disponible
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => setIsSignupOpen(true)}
+                  className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  S'inscrire maintenant
+                </button>
+                <a
+                  href="#"
+                  className="bg-slate-800 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-700 transition-all border border-slate-700 text-center"
+                >
+                  Connexion
+                </a>
+              </div>
             </MotionSection>
 
 
@@ -88,51 +117,196 @@ export default function Home() {
           </div>
         </section>
 
-        {/* méthode Section */}
-        <section id="méthode" className="py-20 bg-slate-900/50">
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { title: 'Écoute', icon: Volume2, color: 'pink', desc: 'Importance de l\'écoute active.' },
-              { title: 'Répétition', icon: Clock, color: 'blue', desc: 'Répétez pour ancrer durablement.' },
-              { title: 'Pratique', icon: Brain, color: 'pink', desc: 'Appliquez pour maîtriser.' },
-              { title: 'Régularité', icon: Trophy, color: 'blue', desc: 'Progressez jour après jour.' },
-            ].map(({ title, icon: Icon, color, desc }, i) => (
-              <MotionSection key={i} direction="up" delay={i * 0.2}>
-                <div className={`bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 shadow-xl border border-pink-500/30`}>
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${color === 'pink' ? 'bg-pink-500' : 'bg-blue-500'}`}>
-                    <Icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-                  <p className="text-slate-300">{desc}</p>
+        {/* Audio Feature Section - EXCLUSIVE */}
+        <section id="audio-feature" className="py-20 bg-gradient-to-r from-pink-500/10 to-blue-500/10 border-y border-pink-500/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 bg-pink-500/20 border border-pink-500/50 rounded-full px-6 py-3 mb-6">
+                  <Music className="w-5 h-5 text-pink-400" />
+                  <span className="text-sm font-bold text-white uppercase tracking-wide">Fonctionnalité Exclusive</span>
                 </div>
-              </MotionSection>
-            ))}
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                  Audio intégré <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">illimité</span>
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  La seule plateforme au monde offrant un audio cliquable sur <strong className="text-white">chaque lettre, chaque mot, chaque phrase</strong>. Apprenez en écoutant, où que vous soyez.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8 mb-12">
+                {[
+                  { title: 'Lettres', icon: Volume2, desc: 'Cliquez sur chaque lettre pour entendre sa prononciation parfaite' },
+                  { title: 'Mots', icon: Volume2, desc: 'Écoutez la prononciation complète de tous les mots' },
+                  { title: 'Phrases', icon: Volume2, desc: 'Phrases complètes avec audio natif pour une immersion totale' },
+                ].map(({ title, icon: Icon, desc }, i) => (
+                  <div key={i} className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 border border-pink-500/30 hover:border-pink-500/60 transition-all transform hover:-translate-y-2">
+                    <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-3 text-center">{title}</h3>
+                    <p className="text-slate-300 text-center">{desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center">
+                <div className="inline-block bg-slate-950 border border-pink-500/30 rounded-2xl p-8 max-w-2xl">
+                  <CheckCircle className="w-12 h-12 text-pink-400 mx-auto mb-4" />
+                  <p className="text-lg text-white font-semibold">
+                    Cette innovation unique vous permet d'apprendre à votre rythme, en répétant autant de fois que nécessaire, sans limite.
+                  </p>
+                </div>
+              </div>
+            </MotionSection>
           </div>
         </section>
 
-        {/* Illustration Section */}
+        {/* méthode Section */}
+        <section id="méthode" className="py-20 bg-slate-900/50">
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <h2 className="text-4xl font-bold text-white text-center mb-12">
+                La méthode <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">ERPR</span>
+              </h2>
+            </MotionSection>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { title: 'Écoute', icon: Volume2, color: 'pink', desc: 'Importance de l\'écoute active pour mémoriser.' },
+                { title: 'Répétition', icon: Clock, color: 'blue', desc: 'Répétez pour ancrer durablement.' },
+                { title: 'Pratique', icon: Brain, color: 'pink', desc: 'Appliquez pour maîtriser parfaitement.' },
+                { title: 'Régularité', icon: Trophy, color: 'blue', desc: 'Progressez jour après jour avec constance.' },
+              ].map(({ title, icon: Icon, color, desc }, i) => (
+                <MotionSection key={i} direction="up" delay={i * 0.2}>
+                  <div className={`bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 shadow-xl border border-pink-500/30 h-full`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 ${color === 'pink' ? 'bg-pink-500' : 'bg-blue-500'}`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+                    <p className="text-slate-300">{desc}</p>
+                  </div>
+                </MotionSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Section with 4 Images */}
         <section className="py-20 bg-slate-900/60">
-          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
-            {[DashboardImage, SupportImage].map((img, i) => (
-              <MotionSection key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.2 * i}>
-                <div className="bg-slate-800 rounded-xl p-6 shadow-lg border border-pink-500/20">
-                  <div className="aspect-video rounded-lg overflow-hidden mb-4 border border-slate-700">
-                    <Image src={img} alt="Illustration" className="object-contain bg-slate-900" />
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <h2 className="text-4xl font-bold text-white text-center mb-12">
+                Découvrez la <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">plateforme</span>
+              </h2>
+            </MotionSection>
+            <div className="grid md:grid-cols-2 gap-8">
+              {[
+                { img: 'https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Interface intuitive' },
+                { img: 'https://images.pexels.com/photos/5905857/pexels-photo-5905857.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Apprentissage progressif' },
+                { img: 'https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Exercices interactifs' },
+                { img: 'https://images.pexels.com/photos/5905492/pexels-photo-5905492.jpeg?auto=compress&cs=tinysrgb&w=800', title: 'Suivi de progression' },
+              ].map((item, i) => (
+                <MotionSection key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 * i}>
+                  <div className="bg-slate-800 rounded-2xl p-6 shadow-xl border border-pink-500/20 hover:border-pink-500/40 transition-all transform hover:-translate-y-2">
+                    <div className="aspect-video rounded-lg overflow-hidden mb-4 border border-slate-700">
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        width={800}
+                        height={450}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold text-white text-center">{item.title}</h3>
+                  </div>
+                </MotionSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing & CTA Section */}
+        <section id="tarif" className="py-20 bg-gradient-to-br from-slate-900 to-blue-950">
+          <div className="max-w-5xl mx-auto px-6">
+            <MotionSection direction="up">
+              <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-10 border border-pink-500/30 shadow-2xl">
+                <div className="text-center mb-8">
+                  <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                    Commencez votre apprentissage
+                  </h2>
+                  <p className="text-xl text-slate-300">
+                    Rejoignez la plateforme la plus innovante pour apprendre l'arabe
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="bg-slate-950 rounded-2xl p-8 border border-pink-500/30">
+                    <h3 className="text-2xl font-bold text-white mb-6">Tarif unique</h3>
+                    <div className="flex items-baseline gap-3 mb-4">
+                      <span className="text-5xl font-bold text-white">75,65€</span>
+                      <span className="text-3xl text-slate-400 line-through">89€</span>
+                    </div>
+                    <div className="bg-pink-500/20 border border-pink-500/50 rounded-lg px-4 py-3 mb-6">
+                      <p className="text-pink-300 font-semibold">
+                        Économisez 15% - Offre valable 3 semaines
+                      </p>
+                      <p className="text-slate-400 text-sm">
+                        À partir du 02/11/2025
+                      </p>
+                    </div>
+                    <ul className="space-y-3 text-slate-300">
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
+                        <span>Accès illimité à tous les contenus</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
+                        <span>Audio sur chaque lettre, mot et phrase</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
+                        <span>Méthode ERPR complète</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
+                        <span>Support et mises à jour</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-col justify-center">
+                    <div className="bg-blue-500/20 border border-blue-500/50 rounded-2xl p-6 mb-6">
+                      <h4 className="text-xl font-semibold text-white mb-3">
+                        Paiement facilité
+                      </h4>
+                      <p className="text-slate-300 mb-2">
+                        Paiement en <strong className="text-white">2 fois sans frais</strong>
+                      </p>
+                      <p className="text-blue-300 text-sm">
+                        2 x 37,82€
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => setIsSignupOpen(true)}
+                      className="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-5 rounded-xl font-bold text-xl hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mb-4"
+                    >
+                      S'inscrire maintenant
+                    </button>
+
+                    <p className="text-center text-slate-400 text-sm">
+                      Accès immédiat après inscription
+                    </p>
                   </div>
                 </div>
-              </MotionSection>
-            ))}
+              </div>
+            </MotionSection>
           </div>
         </section>
 
         {/* Contenu Section */}
-        <section id="contenu" className="py-5 bg-slate-900/70">
+        <section id="contenu" className="py-20 bg-slate-900/70">
           <ContentSection />
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="py-20 bg-slate-900/50 text-center">
-          <EmailForm />
         </section>
       </main>
 
