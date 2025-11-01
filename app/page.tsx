@@ -7,10 +7,10 @@ import VideoBackground from './components/Videobackground';
 import EmailForm from './components/EmailForm';
 
 import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play } from 'lucide-react';
-import GalleryImage from '/public/assets/img/canvaDestock.png';
-import GalleryImage2 from '/public/assets/img/canvaDestockCours2.png';
-import GalleryImage3 from '/public/assets/img/mobile5.png';
-import GalleryImage4 from '/public/assets/img/mobile6.png';
+import GalleryImage from '@/public/assets/img/canvaDestock.png';
+import GalleryImage2 from '@/public/assets/img/canvaDestockCours2.png';
+import GalleryImage3 from '@/public/assets/img/mobile5.png';
+import GalleryImage4 from '@/public/assets/img/mobile6.png';
 
 export default function Home() {
   return (
