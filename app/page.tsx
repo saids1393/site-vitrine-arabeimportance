@@ -7,10 +7,6 @@ import VideoBackground from './components/Videobackground';
 import EmailForm from './components/EmailForm';
 
 import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play } from 'lucide-react';
-import GalleryImage from '@/public/assets/img/canvaDestock.png';
-import GalleryImage2 from '@/public/assets/img/canvaDestockCours2.png';
-import GalleryImage3 from '@/public/assets/img/mobile5.png';
-import GalleryImage4 from '@/public/assets/img/mobile6.png';
 
 export default function Home() {
   return (
@@ -215,16 +211,16 @@ export default function Home() {
             </MotionSection>
             <div className="grid md:grid-cols-2 gap-8">
               {[
-                { img: GalleryImage, title: 'Tableau de bord sur pc' },
-                { img: GalleryImage2, title: "Page d'apprentissage dynamique" },
-                { img: GalleryImage3, title: 'Tableau de bord mobile' },
-                { img: GalleryImage4, title: "Page d'apprentissage dynamique mobile" },
+                { src: '/assets/img/canvaDestock.png', title: 'Tableau de bord sur pc' },
+                { src: '/assets/img/canvaDestockCours2.png', title: "Page d'apprentissage dynamique" },
+                { src: '/assets/img/mobile5.png', title: 'Tableau de bord mobile' },
+                { src: '/assets/img/mobile6.png', title: "Page d'apprentissage dynamique mobile" },
               ].map((item, i) => (
                 <MotionSection key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 * i}>
                   <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 shadow-xl border border-pink-500/20 hover:border-pink-500/40 transition-all transform hover:-translate-y-2">
                     <div className="aspect-video rounded-lg overflow-hidden mb-4 border border-slate-700">
                       <Image
-                        src={item.img}
+                        src={item.src}
                         alt={item.title}
                         width={800}
                         height={450}
