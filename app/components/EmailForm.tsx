@@ -1,4 +1,3 @@
-// components/EmailForm.tsx
 'use client';
 
 import { useState } from 'react';
