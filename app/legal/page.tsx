@@ -108,7 +108,7 @@ export default function LegalPage() {
                       href="mailto:soidroudinesaid51@gmail.com"
                       className="text-blue-900 hover:text-blue-700 transition-colors duration-200 hover:underline"
                     >
-                      sonimportance@gmail.com
+                     arabeimportance@gmail.com
                     </a>
                   }
                 />

@@ -3,7 +3,7 @@ import { Send, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-blue-950 text-white py-12 border-t border-pink-500/30">
+    <footer className="bg-black/80 text-white py-12 border-t border-pink-500/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
         <div className="text-center mb-8">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">

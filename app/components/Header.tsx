@@ -25,14 +25,16 @@ export default function Header({ scrollToSection }: HeaderProps) {
   const menuItems: MenuItem[] = isAbonnementsPage
     ? [
       { label: 'Accueil', href: '/' },
-      { label: 'Avancée', href: '/abonnements' }
+
     ]
     : [
       { label: 'Accueil', sectionId: 'accueil' },
       { label: 'Méthode', sectionId: 'méthode' },
-      { label: 'Tarif', sectionId: 'tarif' },
       { label: 'Contenu', sectionId: 'contenu' },
-      { label: 'Avancée', href: '/abonnements' }
+      { label: 'Tarif', sectionId: 'tarif' },
+      { label: 'Contact', sectionId: 'contact' },
+
+
     ];
 
   const handleMenuClick = (sectionId: string) => {
@@ -94,7 +96,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              href="https://arabeimportance.fr"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg"
@@ -105,7 +107,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              href="https://arabeimportance.fr"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
@@ -152,7 +154,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
               )
             ))}
             <a
-              href="https://arabeimportance.fr"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
@@ -161,7 +163,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
               S'inscrire
             </a>
             <a
-              href="https://arabeimportance.fr"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}

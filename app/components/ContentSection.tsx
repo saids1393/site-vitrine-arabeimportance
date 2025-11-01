@@ -48,7 +48,7 @@ const ContentSection = () => {
       description: "Chaque lettre et mot en arabe avec un audio cliquable en illimité.",
       icon: Volume2,
       features: [
-        "Plus de 530 audios cliquables",
+        "Plus de 500 audios cliquables",
         "Audio par lettre",
         "Audio par mot",
         "Audio par phrase",
@@ -67,10 +67,10 @@ const ContentSection = () => {
       features: ["Corrections", "Situation réelle"],
     },
     {
-      title: "Devoirs automatisés",
-      description: "Recevez vos devoirs automatiquement.",
+      title: "Devoirs automatisés et rendus",
+      description: "Recevez vos devoirs automatiquement et rendez les avec un retour de correction.",
       icon: Send,
-      features: ["Devoirs pratique", "Devoirs qualitatifs"],
+      features: ["Devoirs pratique", "Rendus faciles"],
     },
     {
       title: "Accompagnement individuel",
@@ -112,7 +112,7 @@ const ContentSection = () => {
   }, [currentSlide, maxSlides]);
 
   return (
-    <section id="contenu" className="bg-slate-900/70 backdrop-blur-sm">
+    <section id="contenu" className="bg-black/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -123,7 +123,7 @@ const ContentSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">
-            Contenu complet et simple
+            Fonctionnalités modernes et uniquese
           </h2>
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Chaque chapitre contient tout ce dont vous avez besoin pour progresser rapidement et va à l'essentiel, avec plus de 530 audios cliquables en illimité !
@@ -131,7 +131,7 @@ const ContentSection = () => {
         </motion.div>
 
         {/* Slider */}
-        <div className="relative">
+        <div className="relative ">
           {!isMobile && (
             <>
               <button
@@ -160,15 +160,14 @@ const ContentSection = () => {
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
-                  className={`flex-shrink-0 px-3 ${
-                    slidesToShow === 1 ? 'w-full' : slidesToShow === 2 ? 'w-1/2' : 'w-1/3'
-                  }`}
+                  className={`flex-shrink-0 px-3 ${slidesToShow === 1 ? 'w-full' : slidesToShow === 2 ? 'w-1/2' : 'w-1/3'
+                    }`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="bg-slate-800/60 backdrop-blur-xl rounded-xl p-8 hover:bg-slate-700 transition-colors duration-300 border border-pink-500/20 shadow-lg h-full">
+                  <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-xl p-8 hover:bg-slate-700 transition-colors duration-300 border border-pink-500/20 shadow-lg h-full">
                     <div className="w-16 h-16 bg-gradient-to-r from-pink-400 to-blue-400 rounded-xl flex items-center justify-center mb-6">
                       <feature.icon className="w-8 h-8 text-white" />
                     </div>
@@ -194,11 +193,10 @@ const ContentSection = () => {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
                     ? 'bg-pink-400 scale-125'
                     : 'bg-gray-600 hover:bg-pink-400'
-                }`}
+                  }`}
                 aria-label={`Aller au slide ${index + 1}`}
               />
             ))}
@@ -213,61 +211,7 @@ const ContentSection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-slate-800/60 backdrop-blur-xl border border-pink-500/30 rounded-2xl p-8 shadow-xl max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">
-              Accès complet à la méthode ERPR
-            </h3>
 
-            <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              La méthode ERPR sera disponible au prix de{" "}
-              <strong className="bg-gradient-to-r from-pink-400 to-blue-300 bg-clip-text text-transparent">
-                89€
-              </strong>{" "}
-              dû à un accès à vie et à la maintenance de l'application. Elle inclut vidéos, quiz, audios interactifs, devoirs automatisés, exercices pratiques et un accompagnement individuel via WhatsApp.
-            </p>
-
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Ce qui vous attend :</h4>
-              <div className="grid md:grid-cols-2 gap-6 text-left">
-                <ul className="space-y-2">
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Support numérique dynamique
-                  </li>
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Vidéo explicative par chapitre
-                  </li>
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Exercices pratiques
-                  </li>
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Plusieurs quiz progressifs par chapitre
-                  </li>
-                </ul>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Plus de 530 audios cliquables en illimité
-                  </li>
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Suivi de progression graphique hebdomadaire et mensuel
-                  </li>
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Devoirs automatisés
-                  </li>
-                  <li className="flex items-center text-slate-300 text-lg">
-                    <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
-                    Accompagnement via WhatsApp & Support H24
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

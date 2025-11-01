@@ -45,12 +45,12 @@ export default function Abonnements() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 overflow-x-hidden">
+    <div className="min-h-screen bg-black/80 overflow-x-hidden">
       {/* Header */}
       <Header scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
-      <section className="pt-16 min-h-screen flex items-center bg-gray-900">
+      <section className="pt-16 min-h-screen flex items-center bg-black/80">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -81,14 +81,14 @@ export default function Abonnements() {
           </motion.div>
 
           {/* Offers Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid lg:grid-cols-2 gap-8 mb-16 bg-black/80">
             {offers.map((offer, index) => (
               <motion.div
                 key={offer.title}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-gray-800 rounded-2xl p-8 border border-gray-600 shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-black/80  rounded-2xl p-8 border border-gray-600 shadow-lg hover:shadow-2xl transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center">
@@ -123,9 +123,9 @@ export default function Abonnements() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-center "
           >
-            <div className="bg-gray-800 rounded-2xl p-8 border border-gray-600 shadow-md">
+            <div className="bg-black/80 rounded-2xl p-8 border border-gray-600 shadow-md">
               <h3 className="text-3xl font-bold text-white mb-6">
                 Comment procéder ?
               </h3>
