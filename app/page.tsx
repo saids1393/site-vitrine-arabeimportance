@@ -31,7 +31,7 @@ export default function Home() {
               </h1>
 
               <h2 className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, avec plus de <span className="text-pink-400 font-semibold">500 audios intégrés</span> couvrant les lettres, les mots et les phrases.  
+                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, avec plus de <span className="text-pink-400 font-semibold">500 audios intégrés</span> couvrant les lettres, les mots et les phrases.
                 Basée sur <span className="text-blue-400 font-semibold">la méthode ERPR</span> : Écoute, Répétition, Pratique, Régularité.
               </h2>
 
@@ -42,7 +42,7 @@ export default function Home() {
                   <span className="bg-pink-500 text-white text-sm font-bold px-3 py-1 rounded-full">-15%</span>
                 </div>
                 <p className="text-slate-300 text-sm mb-3">
-                  Offre de lancement valable 3 semaines <br/>
+                  Offre de lancement valable 3 semaines<br />
                   (code promo : ERPR15)
                 </p>
                 <p className="text-blue-300 text-sm font-medium">
@@ -160,7 +160,7 @@ export default function Home() {
                   Audios intégrés <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">illimités</span>
                 </h2>
                 <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                  Une approche moderne : chaque lettre, mot et phrase est accompagnée d'un <strong className="text-white">audio enregistré par l'enseignant</strong>.  
+                  Une approche moderne : chaque lettre, mot et phrase est accompagnée d'un <strong className="text-white">audio enregistré par l'enseignant</strong>.
                   Plus de 500 enregistrements pour apprendre avec une prononciation authentique et claire.
                 </p>
               </div>
@@ -203,18 +203,16 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <MotionSection direction="up">
               <h2 className="text-4xl font-bold text-white text-center mb-12">
-                Une plateforme <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">moderne
-                <br/>
-                automatisée et dynamique
-                </span>
+                Une plateforme <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">moderne<br />
+                automatisée et dynamique</span>
               </h2>
             </MotionSection>
             <div className="grid md:grid-cols-2 gap-8">
               {[
-                { src: '/assets/img/canvaDestock.png', title: 'Tableau de bord sur pc' },
-                { src: '/assets/img/canvaDestockCours2.png', title: "Page d'apprentissage dynamique" },
+                { src: '/assets/img/canvaDestock.png', title: 'Tableau de bord sur PC' },
+                { src: '/assets/img/canvaDestockCours2.PNG', title: 'Page d\'apprentissage dynamique' },
                 { src: '/assets/img/mobile5.png', title: 'Tableau de bord mobile' },
-                { src: '/assets/img/mobile6.png', title: "Page d'apprentissage dynamique mobile" },
+                { src: '/assets/img/mobile6.png', title: 'Page d\'apprentissage dynamique mobile' },
               ].map((item, i) => (
                 <MotionSection key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 * i}>
                   <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 shadow-xl border border-pink-500/20 hover:border-pink-500/40 transition-all transform hover:-translate-y-2">
@@ -264,8 +262,7 @@ export default function Home() {
 
                     <div className="bg-pink-500/20 border border-pink-500/50 rounded-lg px-4 py-3 mb-6">
                       <p className="text-pink-300 font-semibold">
-                        Économisez 15% – Offre valable 3 semaines 
-                        <br/>
+                        Économisez 15% – Offre valable 3 semaines<br />
                         (code promo : ERPR15)
                       </p>
                       <p className="text-slate-400 text-sm">À partir du 02/11/2025</p>

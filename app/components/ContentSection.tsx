@@ -29,22 +29,22 @@ const ContentSection = () => {
   const features: Feature[] = [
     {
       title: "Vidéos par chapitre",
-      description: "Vidéos explicatives complète en français",
+      description: "Vidéos explicatives complètes en français",
       icon: Play,
       features: ["Vidéos HD", "Explications détaillées"],
     },
     {
-      title: "Quizs progressifs",
+      title: "Quiz progressifs",
       description: "Validez vos acquis et identifiez vos axes d'amélioration.",
       icon: Brain,
       features: [
-        "Quizs de questions par chapitre",
+        "Quiz de questions par chapitre",
         "Difficulté progressive",
         "Suivi des résultats",
       ],
     },
     {
-      title: "Audio Interactif",
+      title: "Audio interactif",
       description: "Chaque lettre et mot en arabe avec un audio cliquable en illimité.",
       icon: Volume2,
       features: [
@@ -68,13 +68,13 @@ const ContentSection = () => {
     },
     {
       title: "Devoirs automatisés et rendus",
-      description: "Recevez vos devoirs automatiquement et rendez les avec un retour de correction.",
+      description: "Recevez vos devoirs automatiquement et rendez-les avec un retour de correction.",
       icon: Send,
-      features: ["Devoirs pratique", "Rendus faciles"],
+      features: ["Devoirs pratiques", "Rendus faciles"],
     },
     {
       title: "Accompagnement individuel",
-      description: "Un suivi humain via WhatsApp & support 7j/7.",
+      description: "Un suivi humain via WhatsApp et support 7 j/7.",
       icon: Users,
       features: ["Coaching personnalisé", "Réponse rapide"],
     },
@@ -123,7 +123,7 @@ const ContentSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">
-            Fonctionnalités modernes et uniquese
+            Fonctionnalités modernes et uniques
           </h2>
           <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Chaque chapitre contient tout ce dont vous avez besoin pour progresser rapidement et va à l'essentiel, avec plus de 530 audios cliquables en illimité !
