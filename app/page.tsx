@@ -6,7 +6,7 @@ import MotionSection from './components/MotionSection';
 import VideoBackground from './components/Videobackground';
 import EmailForm from './components/EmailForm';
 
-import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play } from 'lucide-react';
+import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play, User, Heart, Globe, Briefcase } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -31,9 +31,22 @@ export default function Home() {
               </h1>
 
               <h2 className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, avec plus de <span className="text-pink-400 font-semibold">500 audios intégrés</span> couvrant les lettres, les mots et les phrases.
-                Basée sur <span className="text-blue-400 font-semibold">la méthode ERPR</span> : Écoute, Répétition, Pratique, Régularité.
+                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, <span className="text-pink-400 font-semibold">spécialement conçue pour les débutants et adultes</span>.
               </h2>
+              <div className="bg-gradient-to-r from-blue-500/20 to-pink-500/20 border border-blue-500/40 rounded-xl p-4 mb-8">
+                <p className="text-slate-200 mb-2">
+                  ✨ <span className="text-blue-300 font-semibold">+500 audios intégrés</span> pour une prononciation authentique
+                </p>
+                <p className="text-slate-200 mb-2">
+                  🎥 <span className="text-pink-300 font-semibold">Vidéos explicatives</span> sur chaque lettre et sa prononciation
+                </p>
+                <p className="text-slate-200 mb-2">
+                  👥 <span className="text-blue-300 font-semibold">Accompagnement personnalisé</span> pour progresser sans frustration
+                </p>
+                <p className="text-slate-200">
+                  Basée sur <span className="text-pink-400 font-semibold">la méthode ERPR</span> : Écoute, Répétition, Pratique, Régularité
+                </p>
+              </div>
 
               <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 mb-8">
                 <div className="flex items-baseline gap-3 mb-2">
@@ -193,6 +206,201 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Target Audience & Key Features - SELLING POINTS */}
+        <section id="cible" className="py-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-blue-500/20 border border-pink-500/30 rounded-full px-6 py-3 mb-6">
+                  <Trophy className="w-5 h-5 text-pink-400" />
+                  <span className="text-sm font-bold text-white uppercase tracking-wide">Conçu pour vous</span>
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                  Pour les <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">débutants et adultes</span>
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  Une plateforme pensée spécialement pour ceux qui veulent apprendre l'arabe de zéro, à leur rythme, sans frustration
+                </p>
+              </div>
+            </MotionSection>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                {
+                  title: '+500 Audios intégrés',
+                  subtitle: 'Prononciation authentique',
+                  desc: 'Chaque lettre, mot et phrase possède un audio enregistré par l\'enseignant. Écoutez une prononciation claire, précise et authentique autant de fois que vous le souhaitez.',
+                  icon: Volume2,
+                  highlight: true
+                },
+                {
+                  title: 'Vidéos explicatives',
+                  subtitle: 'Comprendre chaque lettre',
+                  desc: 'Des tutoriels vidéo détaillés qui vous montrent comment prononcer chaque lettre de l\'alphabet arabe. Visuel + auditif = apprentissage plus efficace.',
+                  icon: Play,
+                  highlight: true
+                },
+                {
+                  title: 'Accompagnement personnalisé',
+                  subtitle: 'Vous n\'êtes jamais seul',
+                  desc: 'Progression suivie, conseils adaptés à votre niveau, et support continu pour surmonter vos blocages et progresser rapidement.',
+                  icon: Brain,
+                  highlight: true
+                },
+              ].map(({ title, subtitle, desc, icon: Icon, highlight }, i) => (
+                <MotionSection key={i} direction="up" delay={i * 0.15}>
+                  <div className={`relative rounded-2xl p-8 border transition-all transform hover:-translate-y-2 ${
+                    highlight 
+                      ? 'bg-gradient-to-br from-pink-500/20 to-blue-500/20 border-pink-500/50 shadow-xl shadow-pink-500/10' 
+                      : 'bg-gradient-to-r from-pink-500/10 to-blue-500/10 border-pink-500/30'
+                  }`}>
+                    {highlight && (
+                      <div className="absolute -top-3 -right-3 px-4 py-1 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full text-white text-xs font-bold">
+                        ⭐ Essentiel
+                      </div>
+                    )}
+                    <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-1">{title}</h3>
+                    <p className="text-pink-300 font-semibold text-sm mb-3">{subtitle}</p>
+                    <p className="text-slate-300 leading-relaxed">{desc}</p>
+                  </div>
+                </MotionSection>
+              ))}
+            </div>
+
+            {/* Stats/Benefits Row */}
+            <MotionSection direction="up" delay={0.3}>
+              <div className="grid md:grid-cols-2 gap-8">
+                {[
+                  {
+                    stat: '100%',
+                    label: 'Conçu pour les débutants',
+                    desc: 'Aucune connaissance préalable requise. Du zéro jusqu\'à maîtriser la lecture et l\'écriture.'
+                  },
+                  {
+                    stat: '∞',
+                    label: 'Apprentissage à votre rythme',
+                    desc: 'Accès à vie à la plateforme. Répétez, écoutez et pratiquez autant que vous le souhaitez, quand vous le souhaitez.'
+                  },
+                ].map(({ stat, label, desc }, i) => (
+                  <div key={i} className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-8 text-center">
+                    <div className="text-5xl font-bold bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent mb-3">
+                      {stat}
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2">{label}</h4>
+                    <p className="text-slate-300">{desc}</p>
+                  </div>
+                ))}
+              </div>
+            </MotionSection>
+          </div>
+        </section>
+
+        {/* Pourquoi Apprendre l'Arabe Section */}
+        <section id="pourquoi-apprendre" className="py-20 bg-gradient-to-r from-black-500/10 to-black-500/10 border-y border-pink-500/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                  Pourquoi apprendre <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">l'arabe</span> ?
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  Découvrez les raisons qui font de l'arabe une langue essentielle dans le monde d'aujourd'hui
+                </p>
+              </div>
+            </MotionSection>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { 
+                  title: 'Une langue universelle', 
+                  icon: Globe,
+                  desc: 'Parlée par plus de 400 millions de personnes à travers le monde, l\'arabe est la 5ème langue la plus parlée.' 
+                },
+                { 
+                  title: 'Richesse culturelle', 
+                  icon: Sparkles,
+                  desc: 'Accédez à une civilisation millénaire, à la littérature, la poésie et à une sagesse ancestrale inépuisable.' 
+                },
+                { 
+                  title: 'Opportunités professionnelles', 
+                  icon: Briefcase,
+                  desc: 'L\'arabe ouvre les portes à des carrières internationales dans les affaires, la diplomatie et les médias.' 
+                },
+                { 
+                  title: 'Patrimoine spirituel', 
+                  icon: Heart,
+                  desc: 'Comprenez le Coran et les textes religieux dans leur langue originelle, une expérience profonde et authentique.' 
+                },
+              ].map(({ title, icon: Icon, desc }, i) => (
+                <MotionSection key={i} direction="up" delay={i * 0.15}>
+                  <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 h-full hover:border-pink-500/60 transition-all transform hover:-translate-y-2">
+                    <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3">{title}</h3>
+                    <p className="text-slate-300 text-sm leading-relaxed">{desc}</p>
+                  </div>
+                </MotionSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* About Creator - Biographie */}
+        <section id="biographie" className="py-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Left - Story */}
+                <div>
+                  <h2 className="text-4xl font-bold text-white mb-6">
+                    Comment est née <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">la méthode ERPR</span> ?
+                  </h2>
+                  <p className="text-slate-300 leading-relaxed mb-8">
+                    Après plusieurs années d'enseignement de la langue arabe et une observation attentive des réussites et des échecs des apprenants, j'ai remarqué un point commun essentiel : ceux qui réussissaient appliquaient naturellement les principes de la méthode ERPR.
+                    À l'inverse, ceux qui échouaient négligeaient au moins un de ces piliers fondamentaux.
+                    C'est en partant de ce constat que j'ai travaillé sans relâche à créer une méthode simple, structurée et centrée sur l'essentiel — pour aider chaque élève à être à l'écoute, motivé à répéter, pratiquer et rester régulier.
+                  </p>
+
+                  <div className="flex items-center gap-4 p-6 bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl">
+                    <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <User className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-semibold text-lg">Soidroudine</h4>
+                      <p className="text-slate-400">Créateur de la méthode ERPR</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right - Bio */}
+                <MotionSection direction="right" delay={0.2}>
+                  <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 rounded-2xl p-8 border border-pink-500/30 h-full">
+                    <h3 className="text-2xl font-semibold text-white mb-6">Qui suis-je ?</h3>
+                    <div className="text-slate-300 space-y-4 leading-relaxed">
+                      <p>
+                        Je m'appelle Soidroudine. Autodidacte passionné, j'ai consacré plusieurs années à l'apprentissage de la langue arabe.
+                      </p>
+                      <p>
+                        Mon parcours m'a mené au Caire où j'ai étudié au centre Merkez Al-Ibaanah, puis sous la direction du Cheikh Mahmoud Ash-Shafi'î.
+                      </p>
+                      <p>
+                        Fort de cette expérience, j'enseigne désormais et accompagne de nombreux élèves vers la réussite, certains poursuivant même leurs études jusqu'en Égypte.
+                      </p>
+                      <p className="pt-2 border-t border-pink-500/30">
+                        La création de la méthode ERPR représente mon engagement envers chaque apprenant : offrir un chemin clair, efficace et motivant pour maîtriser l'arabe.
+                      </p>
+                    </div>
+                  </div>
+                </MotionSection>
+              </div>
+            </MotionSection>
+          </div>
+        </section>
+
         {/* Contenu Section */}
         <section id="contenu" className="py-20">
           <ContentSection />
@@ -215,7 +423,7 @@ export default function Home() {
                 { src: '/assets/img/mobile6.png', title: 'Page d\'apprentissage dynamique mobile' },
               ].map((item, i) => (
                 <MotionSection key={i} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 * i}>
-                  <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 shadow-xl border border-pink-500/20 hover:border-pink-500/40 transition-all transform hover:-translate-y-2">
+                  <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 shadow-xl hover:border-pink-500/40 transition-all transform hover:-translate-y-2">
                     <div className="aspect-video rounded-lg overflow-hidden mb-4 border border-slate-700">
                       <Image
                         src={item.src}
@@ -322,71 +530,6 @@ export default function Home() {
         <EmailForm />
       
       </main>
-
-      {/* ✅ Données structurées "Course" pour Google Education */}
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Course",
-            "name": "Méthode ERPR – Lecture et écriture en arabe",
-            "description": "Cours complet et progressif pour apprendre la lecture et l'écriture en arabe. Basé sur la méthode ERPR : Écoute, Répétition, Pratique, Régularité.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Arabe Importance",
-              "url": "https://arabeimportance.fr",
-              "logo": "https://arabeimportance.fr/icon-512.png"
-            },
-            "inLanguage": "fr",
-            "educationalLevel": "Beginner",
-            "audience": {
-              "@type": "Audience",
-              "audienceType": "Débutants, autodidactes, enfants et adultes"
-            },
-            "duration": "P1M",
-            "learningResourceType": "Cours interactif en ligne",
-            "keywords": [
-              "apprendre l'arabe",
-              "cours arabe",
-              "méthode ERPR",
-              "lecture arabe",
-              "écriture arabe",
-              "alphabet arabe",
-              "arabe facile",
-              "arabe importance"
-            ],
-            "offers": {
-              "@type": "Offer",
-              "price": "59.00",
-              "priceCurrency": "EUR",
-              "availability": "https://schema.org/InStock",
-              "url": "https://arabeimportance.fr",
-              "validFrom": "2025-10-13"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "327"
-            },
-            "review": [
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Ahmed B." },
-                "reviewBody": "Une méthode très claire et motivante. J'ai enfin réussi à lire en arabe !",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-              },
-              {
-                "@type": "Review",
-                "author": { "@type": "Person", "name": "Fatima L." },
-                "reviewBody": "Idéal pour les débutants. L'approche ERPR m'a vraiment aidée à progresser.",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5" }
-              }
-            ]
-          }),
-        }}
-      />
 
       <Footer />
     </div>
