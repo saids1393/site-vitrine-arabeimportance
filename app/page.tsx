@@ -33,21 +33,6 @@ export default function Home() {
               <h2 className="text-xl text-slate-300 mb-8 leading-relaxed">
                 Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, <span className="text-pink-400 font-semibold">spécialement conçue pour les débutants et adultes</span>.
               </h2>
-              <div className="bg-gradient-to-r from-blue-500/20 to-pink-500/20 border border-blue-500/40 rounded-xl p-4 mb-8">
-                <p className="text-slate-200 mb-2">
-                  ✨ <span className="text-blue-300 font-semibold">+500 audios intégrés</span> pour une prononciation authentique
-                </p>
-                <p className="text-slate-200 mb-2">
-                  🎥 <span className="text-pink-300 font-semibold">Vidéos explicatives</span> sur chaque lettre et sa prononciation
-                </p>
-                <p className="text-slate-200 mb-2">
-                  👥 <span className="text-blue-300 font-semibold">Accompagnement personnalisé</span> pour progresser sans frustration
-                </p>
-                <p className="text-slate-200">
-                  Basée sur <span className="text-pink-400 font-semibold">la méthode ERPR</span> : Écoute, Répétition, Pratique, Régularité
-                </p>
-              </div>
-
               <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 mb-8">
                 <div className="flex items-baseline gap-3 mb-2">
                   <span className="text-4xl font-bold text-white">75,65€</span>

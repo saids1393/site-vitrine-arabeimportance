@@ -7,8 +7,9 @@ export async function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   return {
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
-      url: `https://arabeimportance.fr/blog/${post.slug}`,
+      url: `https://arabeimportance.fr/blog/${slug}`,
       images: [
         {
           url: post.image || 'https://arabeimportance.fr/og-image.jpg',
@@ -32,13 +33,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       ],
     },
     alternates: {
-      canonical: `https://arabeimportance.fr/blog/${post.slug}`,
+      canonical: `https://arabeimportance.fr/blog/${slug}`,
     },
   };
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const articleSchema = {
@@ -63,7 +65,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://arabeimportance.fr/blog/${post.slug}`,
+      '@id': `https://arabeimportance.fr/blog/${slug}`,
     },
     wordCount: post.wordCount,
     keywords: post.keywords,
@@ -77,7 +79,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       />
 
       <article className="max-w-3xl mx-auto px-6 py-20">
-        {/* Header */}
         <header className="mb-12">
           <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
             {post.title}
@@ -97,7 +98,6 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           </div>
         </header>
 
-        {/* Content */}
         <div className="prose prose-invert max-w-none mb-16">
           <style>{`
             .prose h2 {
@@ -143,11 +143,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
               color: #a1a1aa;
             }
           `}</style>
-          {/* MDX content will be rendered here */}
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
 
-        {/* CTA */}
         <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-8 text-center">
           <h3 className="text-2xl font-bold text-white mb-4">
             Prêt à apprendre l'arabe avec la méthode ERPR ?
@@ -155,16 +153,17 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           <p className="text-slate-300 mb-6">
             Rejoignez des apprenants qui progressent avec notre plateforme complète. +500 audios, vidéos explicatives et accompagnement personnalisé.
           </p>
-          <a
-            href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
+          
+            <a href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:from-pink-600 hover:to-blue-600 transition-all inline-block"
           >
             Commencer maintenant - 75,65€ accès à vie
           </a>
-        </div>
+  </div>
+  
       </article>
     </>
   );
-}
+}   
