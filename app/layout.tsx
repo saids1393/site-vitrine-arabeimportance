@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -72,6 +73,20 @@ export default function RootLayout({
         {/* Thème et responsive */}
         <meta name="theme-color" content="#ffffff" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+           {/* ✅ Script Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BDSV1FW0VH"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BDSV1FW0VH');
+          `}
+        </Script>
 
         {/* ✅ Données structurées globales : Organization + WebSite + Course */}
         <script
