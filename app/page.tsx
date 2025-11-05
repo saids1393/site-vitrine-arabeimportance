@@ -121,7 +121,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <MotionSection direction="up">
               <h2 className="text-4xl font-bold text-white text-center mb-12">
-                Méthode <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">ERPR</span>
+               Nom de la plateforme Méthode <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">ERPR</span>
               </h2>
             </MotionSection>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
