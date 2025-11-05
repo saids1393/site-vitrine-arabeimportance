@@ -31,7 +31,7 @@ export default function Home() {
               </h1>
 
               <h2 className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, <span className="text-pink-400 font-semibold">spécialement conçue pour les débutants et adultes</span>.
+                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, <span className="text-pink-400 font-semibold">spécialement conçue pour les débutants et pour ceux qui souhaitent perfectionner leur prononciation, grâce à plus de 500 audios intégrés.</span>
               </h2>
               <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 mb-8">
                 <div className="flex items-baseline gap-3 mb-2">
@@ -40,7 +40,7 @@ export default function Home() {
                   <span className="bg-pink-500 text-white text-sm font-bold px-3 py-1 rounded-full">-15%</span>
                 </div>
                 <p className="text-slate-300 text-sm mb-3">
-                  Offre de lancement valable 3 semaines<br />
+                  Offre de lancement valable jusqu’au 23 novembre 2025<br />
                   (code promo : ERPR15)
                 </p>
                 <p className="text-blue-300 text-sm font-medium">
@@ -234,11 +234,10 @@ export default function Home() {
                 },
               ].map(({ title, subtitle, desc, icon: Icon, highlight }, i) => (
                 <MotionSection key={i} direction="up" delay={i * 0.15}>
-                  <div className={`relative rounded-2xl p-8 border transition-all transform hover:-translate-y-2 ${
-                    highlight 
-                      ? 'bg-gradient-to-br from-pink-500/20 to-blue-500/20 border-pink-500/50 shadow-xl shadow-pink-500/10' 
+                  <div className={`relative rounded-2xl p-8 border transition-all transform hover:-translate-y-2 ${highlight
+                      ? 'bg-gradient-to-br from-pink-500/20 to-blue-500/20 border-pink-500/50 shadow-xl shadow-pink-500/10'
                       : 'bg-gradient-to-r from-pink-500/10 to-blue-500/10 border-pink-500/30'
-                  }`}>
+                    }`}>
                     {highlight && (
                       <div className="absolute -top-3 -right-3 px-4 py-1 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full text-white text-xs font-bold">
                         ⭐ Essentiel
@@ -299,25 +298,25 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { 
-                  title: 'Une langue universelle', 
+                {
+                  title: 'Une langue universelle',
                   icon: Globe,
-                  desc: 'Parlée par plus de 400 millions de personnes à travers le monde, l\'arabe est la 5ème langue la plus parlée.' 
+                  desc: 'Parlée par plus de 400 millions de personnes à travers le monde, l\'arabe est la 5ème langue la plus parlée.'
                 },
-                { 
-                  title: 'Richesse culturelle', 
+                {
+                  title: 'Richesse culturelle',
                   icon: Sparkles,
-                  desc: 'Accédez à une civilisation millénaire, à la littérature, la poésie et à une sagesse ancestrale inépuisable.' 
+                  desc: 'Accédez à une civilisation millénaire, à la littérature, la poésie et à une sagesse ancestrale inépuisable.'
                 },
-                { 
-                  title: 'Opportunités professionnelles', 
+                {
+                  title: 'Opportunités professionnelles',
                   icon: Briefcase,
-                  desc: 'L\'arabe ouvre les portes à des carrières internationales dans les affaires, la diplomatie et les médias.' 
+                  desc: 'L\'arabe ouvre les portes à des carrières internationales dans les affaires, la diplomatie et les médias.'
                 },
-                { 
-                  title: 'Patrimoine spirituel', 
+                {
+                  title: 'Patrimoine spirituel',
                   icon: Heart,
-                  desc: 'Comprenez le Coran et les textes religieux dans leur langue originelle, une expérience profonde et authentique.' 
+                  desc: 'Comprenez le Coran et les textes religieux dans leur langue originelle, une expérience profonde et authentique.'
                 },
               ].map(({ title, icon: Icon, desc }, i) => (
                 <MotionSection key={i} direction="up" delay={i * 0.15}>
@@ -397,7 +396,7 @@ export default function Home() {
             <MotionSection direction="up">
               <h2 className="text-4xl font-bold text-white text-center mb-12">
                 Une plateforme <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">moderne<br />
-                automatisée et dynamique</span>
+                  automatisée et dynamique</span>
               </h2>
             </MotionSection>
             <div className="grid md:grid-cols-2 gap-8">
@@ -511,11 +510,8 @@ export default function Home() {
             </MotionSection>
           </div>
         </section>
-
         <EmailForm />
-      
       </main>
-
       <Footer />
     </div>
   );
