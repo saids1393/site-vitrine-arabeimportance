@@ -78,12 +78,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-      <article className="max-w-3xl mx-auto px-6 py-20">
+      <article className=" px-6 py-20 bg-black">
         <header className="mb-12">
           <h1 className="text-5xl font-bold text-white mb-6 leading-tight">
             {post.title}
           </h1>
-          <div className="flex items-center gap-4 text-slate-400 text-sm">
+          <div className="flex items-center gap-4 text-slate-400 text-sm text-white">
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString('fr-FR', {
                 year: 'numeric',
@@ -98,7 +98,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </div>
         </header>
 
-        <div className="prose prose-invert max-w-none mb-16">
+        <div className="prose prose-invert max-w-none mb-16 text-white">
           <style>{`
             .prose h2 {
               font-size: 2em;
@@ -146,7 +146,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
 
-        <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-8 text-center">
+        <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-8 text-center text-white">
           <h3 className="text-2xl font-bold text-white mb-4">
             Prêt à apprendre l'arabe avec la méthode ERPR ?
           </h3>

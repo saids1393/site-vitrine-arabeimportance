@@ -66,7 +66,7 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
       />
       
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="px-6 py-20 bg-black">
         <h1 className="text-5xl font-bold text-white mb-4">
           Blog Arabe Importance
         </h1>

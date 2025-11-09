@@ -3,7 +3,7 @@ import ClientHeaderWrapper from './components/ClientHeader';
 import Footer from './components/Footer';
 import ContentSection from './components/ContentSection';
 import MotionSection from './components/MotionSection';
-import VideoBackground from './components/Videobackground';
+// import VideoBackground from './components/Videobackground';
 import EmailForm from './components/EmailForm';
 
 import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play, User, Heart, Globe, Briefcase } from 'lucide-react';
@@ -16,7 +16,7 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section id="accueil" className="pt-10 sm:pt-20 min-h-screen flex items-center relative overflow-hidden">
-          <VideoBackground />
+          {/* <VideoBackground /> */}
 
           <div className="max-w-7xl mx-auto px-6 py-20 lg:flex lg:items-center lg:gap-12 relative z-10">
             {/* Left */}

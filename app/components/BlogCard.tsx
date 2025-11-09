@@ -10,7 +10,7 @@ type Post = {
 export default function BlogCard({ post }: { post: Post }) {
   return (
     <Link href={`/blog/${post.slug}`}>
-      <article className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500/60 transition-all transform hover:-translate-y-2 h-full cursor-pointer block">
+      <article className="bg-black border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500/60 transition-all transform hover:-translate-y-2 h-full cursor-pointer block">
         <div className="flex flex-col h-full">
           <h2 className="text-xl font-bold text-white mb-2 line-clamp-2">
             {post.title}
