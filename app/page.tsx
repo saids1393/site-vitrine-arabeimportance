@@ -6,7 +6,7 @@ import MotionSection from './components/MotionSection';
 // import VideoBackground from './components/Videobackground';
 import EmailForm from './components/EmailForm';
 
-import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play, User, Heart, Globe, Briefcase } from 'lucide-react';
+import { Volume2, Clock, Brain, Trophy, CheckCircle, Sparkles, Music, Play, User, Heart, Globe, Briefcase, Shield, Award } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -27,35 +27,32 @@ export default function Home() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                Arabe importance
+               Méthode ERPR
               </h1>
 
               <h2 className="text-xl text-slate-300 mb-8 leading-relaxed">
-                Une plateforme complète d'apprentissage de la lecture et de l'écriture de l'arabe, <span className="text-pink-400 font-semibold">spécialement conçue pour les débutants et pour ceux qui souhaitent perfectionner leur prononciation, grâce à plus de 500 audios intégrés.</span>
+                Une plateforme complète pour apprendre à lire, écrire et prononcer l'arabe. <span className="text-pink-400 font-semibold">Plus de 500 audios enregistrés par un enseignant, spécialement conçu pour les débutants.</span>
               </h2>
-              <div className="bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl p-6 mb-8">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="text-4xl font-bold text-white">75,65€</span>
-                  <span className="text-2xl text-slate-400 line-through">89€</span>
-                  <span className="bg-pink-500 text-white text-sm font-bold px-3 py-1 rounded-full">-15%</span>
+              <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-2xl p-6 mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-3xl font-bold text-white">0€</span>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">7 jours gratuit</h3>
+                    <p className="text-sm text-slate-300">Sans carte bancaire • Sans engagement</p>
+                  </div>
                 </div>
-                <p className="text-slate-300 text-sm mb-3">
-                  Offre de lancement valable jusqu’au 23 novembre 2025<br />
-                  (code promo : ERPR15)
-                </p>
-                <p className="text-blue-300 text-sm font-medium">
-                  Paiement en 2 fois disponible
-                </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
+                  href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center"
+                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center"
                 >
-                  S'inscrire maintenant
+                  Essayer maintenant – Gratuit 100%
                 </a>
                 <a
                   href="https://methode-erpr-by-arabeimportance.vercel.app/login"
@@ -63,7 +60,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-slate-800 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-slate-700 transition-all border border-slate-700 text-center"
                 >
-                  Connexion
+                  Se connecter
                 </a>
               </div>
             </MotionSection>
@@ -121,7 +118,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <MotionSection direction="up">
               <h2 className="text-4xl font-bold text-white text-center mb-12">
-               Nom de la plateforme : Méthode <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">ERPR</span>
+              Méthode <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">ERPR </span>?
               </h2>
             </MotionSection>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -191,8 +188,67 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Support & Accompaniment Section */}
+        <section id="support" className="py-20">
+          <div className="max-w-7xl mx-auto px-6">
+            <MotionSection direction="up">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-pink-500/20 to-blue-500/20 border border-pink-500/30 rounded-full px-6 py-3 mb-6">
+                  <Heart className="w-5 h-5 text-pink-400" />
+                  <span className="text-sm font-bold text-white uppercase tracking-wide">Vous n'êtes jamais seul</span>
+                </div>
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                  Accompagnement <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">personnalisé sur mesure</span>
+                </h2>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                  Avec votre accès premium, bénéficiez d'un suivi continu et d'une méthode adaptée à votre progression
+                </p>
+              </div>
+            </MotionSection>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                {
+                  title: 'Progression Surveillée',
+                  desc: 'Votre parcours d\'apprentissage est suivi en temps réel. Nous analysons vos avancées et ajustons les contenus pour maximiser votre efficacité.',
+                  icon: Trophy,
+                  highlight: true
+                },
+                {
+                  title: 'Google Drive Personnel',
+                  subtitle: 'Stockage de vos rendus',
+                  desc: 'Vos rendus sont stockés en toute sécurité sur un Google Drive personnel',
+                  icon: Briefcase,
+                  highlight: true
+                },
+                {
+                  title: 'Support Continu',
+                  desc: 'Des questions ? Des blocages ? On est là pour vous. Conseils, motivations et solutions adaptées à vos besoins spécifiques.',
+                  icon: User,
+                  highlight: true
+                },
+              ].map(({ title, subtitle, desc, icon: Icon, highlight }, i) => (
+                <MotionSection key={i} direction="up" delay={i * 0.15}>
+                  <div className={`relative rounded-2xl p-8 border transition-all transform hover:-translate-y-2 ${highlight
+                      ? 'bg-gradient-to-br from-pink-500/20 to-blue-500/20 border-pink-500/50 shadow-xl shadow-pink-500/10'
+                      : 'bg-gradient-to-r from-pink-500/10 to-blue-500/10 border-pink-500/30'
+                    }`}>
+                 
+                    <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-white mb-1">{title}</h3>
+                    {subtitle && <p className="text-pink-300 font-semibold text-sm mb-3">{subtitle}</p>}
+                    <p className="text-slate-300 leading-relaxed">{desc}</p>
+                  </div>
+                </MotionSection>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Target Audience & Key Features - SELLING POINTS */}
-        <section id="cible" className="py-20">
+        <section id="cible" className="py-20 bg-gradient-to-r from-black-500/10 to-black-500/10 border-y border-pink-500/30">
           <div className="max-w-7xl mx-auto px-6">
             <MotionSection direction="up">
               <div className="text-center mb-12">
@@ -201,7 +257,7 @@ export default function Home() {
                   <span className="text-sm font-bold text-white uppercase tracking-wide">Conçu pour vous</span>
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-                  Pour les <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">débutants et adultes</span>
+                  Pour les <span className="bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">débutants et avancés</span>
                 </h2>
                 <p className="text-xl text-slate-300 max-w-3xl mx-auto">
                   Une plateforme pensée spécialement pour ceux qui veulent apprendre l'arabe de zéro, à leur rythme, sans frustration
@@ -354,7 +410,7 @@ export default function Home() {
                       <User className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h4 className="text-white font-semibold text-lg">Soidroudine</h4>
+                      <h4 className="text-white font-semibold text-lg">Prof. Soidroudine</h4>
                       <p className="text-slate-400">Créateur de la méthode ERPR</p>
                     </div>
                   </div>
@@ -425,86 +481,153 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing & CTA Section */}
+        {/* CTA Final Section - Essai Gratuit SEULEMENT */}
         <section
-          id="tarif"
+          id="essai-gratuit"
           className="py-20 bg-gradient-to-r from-black-500/10 to-black-500/10 border-y border-pink-500/30"
         >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <MotionSection direction="up">
-              <div className="p-4 sm:p-8 lg:p-12">
-                <div className="text-center mb-10">
-                  <h2 className="text-3xl sm:text-5xl font-bold text-white mb-4">
-                    Commencez votre apprentissage
-                  </h2>
-                  <p className="text-lg sm:text-xl text-slate-300 leading-relaxed">
-                    Rejoignez la plateforme la plus moderne pour apprendre à lire et écrire
-                  </p>
+              <div className="text-center mb-16">
+                <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+                  Prêt à commencer votre apprentissage ?
+                </h2>
+                <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                  Testez la méthode ERPR pendant 7 jours sans aucun risque
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* Card 1: Ce que vous recevrez */}
+                <div className="group">
+                  <div className="bg-gradient-to-br from-slate-900 to-slate-800 border-2 border-pink-500/30 rounded-3xl p-8 h-full hover:border-pink-500/60 transition-all transform hover:-translate-y-2 shadow-xl">
+                    <div className="inline-block bg-gradient-to-r from-pink-500 to-blue-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-6">
+                      ✨ Accès Immédiat
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-white mb-8">
+                      Vous recevrez
+                    </h3>
+
+                    <div className="space-y-4">
+                       <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold">Bonus : Chapitre avant la méthode</p>
+                          <p className="text-slate-400 text-sm">comprendre l'ERPR et comment les mettre en pratique</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold">Chapitre 1 Complet avec 8 leçons</p>
+                          <p className="text-slate-400 text-sm">Maîtrise des lettres arabes et prononciation</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold">Plus de 500 Audios</p>
+                          <p className="text-slate-400 text-sm">Audios intégrés dans le support numérique</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold">Aucune Carte Bancaire</p>
+                          <p className="text-slate-400 text-sm">Zéro données à fournir</p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                          <CheckCircle className="w-4 h-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold">Accès Automatique</p>
+                          <p className="text-slate-400 text-sm">Se bloque après 7 jours</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                  {/* Bloc tarif */}
-                  <div className="bg-slate-950 rounded-2xl p-6 sm:p-8 border border-pink-500/30">
-                    <h3 className="text-2xl font-bold text-white mb-6">Tarif unique</h3>
+                {/* Card 2: CTA + Engagement */}
+                <div className="group">
+                  <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 border-2 border-green-500/50 rounded-3xl p-8 h-full flex flex-col justify-between shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div>
+                      <div className="inline-block bg-green-500 text-white text-xs font-bold px-4 py-2 rounded-full mb-6">
+                        🎁 7 Jours Gratuits
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold text-white mb-4">
+                        Sans Engagement
+                      </h3>
 
-                    <div className="flex flex-wrap items-baseline gap-3 mb-5">
-                      <span className="text-5xl font-bold text-white">75,65€</span>
-                      <span className="text-3xl text-slate-400 line-through">89€</span>
+                      <div className="space-y-3 mb-8">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <p className="text-slate-200">Décidez après l'essai</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <p className="text-slate-200">Accès complet pendant 7 jours</p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <p className="text-slate-200">Se bloque automatiquement après</p>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="bg-pink-500/20 border border-pink-500/50 rounded-lg px-4 py-3 mb-6">
-                      <p className="text-pink-300 font-semibold">
-                        Économisez 15% – Offre valable 3 semaines<br />
-                        (code promo : ERPR15)
+                    <div className="space-y-4">
+                      <a
+                        href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center"
+                      >
+                        Essayer Gratuitement
+                      </a>
+                      <p className="text-center text-sm text-slate-300 italic">
+                        Sans engagement – Décidez plus tard
                       </p>
-                      <p className="text-slate-400 text-sm">À partir du 02/11/2025</p>
+
+                      {/* Options de paiement discrets */}
+                      <div className="pt-4 border-t border-green-500/30 mt-4">
+                        <p className="text-xs text-slate-400 text-center mb-3 font-semibold">
+                          Débloquer l'accès complet
+                        </p>
+                        <a
+                          href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block bg-gradient-to-r from-blue-500/80 to-purple-500/80 hover:from-blue-600 hover:to-purple-600 text-white text-xs font-bold py-2 px-3 rounded-lg transition-all text-center"
+                        >
+                          ✨ Accès complet directement code promo : ERPR15
+                        </a>
+                      </div>
                     </div>
-
-                    <ul className="space-y-3 text-slate-300">
-                      <li className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
-                        <span>Accès à vie à ce module</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
-                        <span>Audio sur chaque lettre, mot et phrase</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
-                        <span>Méthode ERPR complète</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <CheckCircle className="w-5 h-5 text-pink-400 flex-shrink-0" />
-                        <span>Mises à jour continues</span>
-                      </li>
-                    </ul>
                   </div>
+                </div>
+              </div>
 
-                  {/* Bloc CTA */}
-                  <div className="flex flex-col justify-center">
-                    <div className="bg-blue-500/20 border border-blue-500/50 rounded-2xl p-6 mb-6 text-center">
-                      <h4 className="text-xl font-semibold text-white mb-3">
-                        Paiement facilité
-                      </h4>
-                      <p className="text-slate-300 mb-2">
-                        Paiement en <strong className="text-white">2 fois sans frais</strong>
-                      </p>
-                      <p className="text-blue-300 text-sm">2 x 37,82€</p>
-                    </div>
-
-                    <a
-                      href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full bg-gradient-to-r from-pink-500 to-blue-500 text-white px-6 py-5 rounded-xl font-bold text-lg sm:text-xl hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 mb-4 text-center block"
-                    >
-                      S'inscrire maintenant
-                    </a>
-
-                    <p className="text-center text-slate-400 text-sm">
-                      Accès immédiat après inscription
-                    </p>
-                  </div>
+              {/* Info Bonus */}
+              <div className="text-center">
+                <div className="inline-block bg-gradient-to-r from-pink-500/10 to-blue-500/10 border border-pink-500/30 rounded-2xl px-8 py-6 max-w-2xl">
+                  <p className="text-slate-300">
+                    <span className="text-pink-300 font-semibold">✨ Après vos 7 jours :</span> Continuez votre progression avec un <span className="text-white font-semibold">accompagnement personnalisé</span>, un <span className="text-white font-semibold">Google Drive dédié</span>, et un <span className="text-white font-semibold">support continu</span>
+                  </p>
                 </div>
               </div>
             </MotionSection>

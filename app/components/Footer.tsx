@@ -9,10 +9,28 @@ export default function Footer() {
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
             Prêt à commencer votre apprentissage ?
           </h3>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-            Accédez à la plateforme et inscrivez-vous dès maintenant pour bénéficier de{' '}
-            <span className="text-pink-400 font-semibold">-15% de réduction</span> pendant 3 semaines !
+          <p className="text-lg text-slate-300 max-w-3xl mx-auto mb-6">
+            Testez la méthode ERPR gratuitement pendant 7 jours. <span className="text-green-400 font-semibold">Aucun engagement</span>.
           </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://methode-erpr-by-arabeimportance.vercel.app/free-trial"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg"
+            >
+              Essayer gratuitement
+            </a>
+            <a
+              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-slate-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
+            >
+              Se connecter
+            </a>
+          </div>
         </div>
 
         <div className="border-t border-slate-700 pt-8">
@@ -50,7 +68,7 @@ export default function Footer() {
                   href="https://t.me/ArabeImportance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-pink-400 transition-colors"
+                  className="text-slate-400 hover:text-green-400 transition-colors"
                 >
                   <Send className="w-5 h-5" />
                 </Link>
@@ -58,7 +76,7 @@ export default function Footer() {
                   href="https://instagram.com/arabeimportance"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-pink-400 transition-colors"
+                  className="text-slate-400 hover:text-green-400 transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
                 </Link>

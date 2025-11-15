@@ -22,6 +22,7 @@ function BlogCard({ post }: { post: Post }) {
   );
 }
 
+
 export const metadata: Metadata = {
   title: 'Blog | Arabe Importance - Conseils et tutoriels ERPR',
   description: 'Découvrez nos articles sur la méthode ERPR, apprentissage de l\'arabe dans la prononciation authentique des lettres pour progresser rapidement.',

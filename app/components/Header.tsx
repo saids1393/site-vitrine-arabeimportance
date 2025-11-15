@@ -31,7 +31,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
       { label: 'Accueil', sectionId: 'accueil' },
       { label: 'Méthode', sectionId: 'méthode' },
       { label: 'Contenu', sectionId: 'contenu' },
-      { label: 'Tarif', sectionId: 'tarif' },
+      { label: 'Essai gratuit', sectionId: 'essai-gratuit' },
       { label: 'Contact', sectionId: 'contact' },
 
 
@@ -96,12 +96,12 @@ export default function Header({ scrollToSection }: HeaderProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-pink-600 hover:to-blue-600 transition-all shadow-lg"
+              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg"
             >
-              S'inscrire
+              Essayer gratuitement
             </motion.a>
             <motion.a
               initial={{ opacity: 0, y: -10 }}
@@ -154,13 +154,13 @@ export default function Header({ scrollToSection }: HeaderProps) {
               )
             ))}
             <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/free-trial"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
-              className="w-full max-w-xs text-center px-4 py-3 bg-gradient-to-r from-pink-500 to-blue-500 text-white rounded-md font-semibold hover:from-pink-600 hover:to-blue-600 transition-all"
+              className="w-full max-w-xs text-center px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-md font-semibold hover:from-green-600 hover:to-emerald-600 transition-all"
             >
-              S'inscrire
+              Essayer gratuitement
             </a>
             <a
               href="https://methode-erpr-by-arabeimportance.vercel.app/login"
