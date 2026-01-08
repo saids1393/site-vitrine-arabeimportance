@@ -16,8 +16,6 @@ import {
   ChevronDown,
   ChevronUp,
   Clock,
-  Award,
-  Rocket,
   User,
   UsersRound,
   CircleDollarSign,
@@ -32,6 +30,7 @@ import {
   Menu,
   X,
   ArrowUpRight,
+  Video,
 } from 'lucide-react';
 
 function FAQItem({ question, answer, isOpen, onClick }: {
@@ -64,7 +63,6 @@ function FAQItem({ question, answer, isOpen, onClick }: {
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
-  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -80,8 +78,8 @@ export default function Home() {
       icon: Bot,
       title: '+500 Audios integres',
       description: 'Chaque lettre, mot et phrase possede un audio enregistre par l\'enseignant pour une prononciation authentique.',
-      bgColor: 'bg-orange-50',
-      iconBg: 'bg-orange-500',
+      bgColor: 'bg-sky-50',
+      iconBg: 'bg-sky-500',
     },
     {
       icon: Workflow,
@@ -148,61 +146,53 @@ export default function Home() {
       answer: 'ERPR signifie Ecoute, Repetition, Pratique, Regularite. C\'est une methode d\'apprentissage structuree qui permet d\'assimiler efficacement la langue arabe.',
     },
     {
-      question: 'Dois-je avoir des connaissances prealables ?',
-      answer: 'Non, aucune connaissance prealable n\'est requise. Notre methode est specialement concue pour les debutants complets.',
+      question: 'Quelle est la difference entre Solo et Coaching ?',
+      answer: 'Le plan Solo vous donne acces a tous les contenus pour apprendre en autonomie. Le plan Coaching inclut en plus un accompagnement personnalise avec des sessions video en direct avec le professeur.',
     },
     {
       question: 'Combien de temps pour apprendre a lire ?',
       answer: 'Avec une pratique reguliere de 15-30 minutes par jour, la plupart de nos eleves commencent a lire en 2-3 semaines.',
     },
     {
-      question: 'L\'essai gratuit est-il vraiment gratuit ?',
-      answer: 'Oui, absolument. Vous avez acces a tout le contenu du premier chapitre pendant 7 jours, sans carte bancaire.',
+      question: 'Comment se passent les sessions video ?',
+      answer: 'Avec le plan Coaching, vous beneficiez de sessions en visioconference avec le professeur pour corriger votre prononciation, repondre a vos questions et vous guider dans votre progression.',
     },
   ];
 
   const pricingPlans = [
     {
-      name: 'Gratuit',
-      description: 'Decouvrez la methode ERPR',
-      price: '0',
-      period: '/mois',
-      icon: Rocket,
-      features: ['Chapitre 1 complet', '+100 audios', 'Quiz de validation', 'Acces 7 jours'],
-      cta: 'Commencer',
-      href: 'https://methode-erpr-by-arabeimportance.vercel.app/signup-free',
-      highlighted: false,
-    },
-    {
-      name: 'Starter',
-      description: 'Pour bien demarrer votre apprentissage',
-      price: billingPeriod === 'monthly' ? '19' : '15',
+      name: 'Solo',
+      description: 'Apprenez en toute autonomie',
+      price: '10',
       period: '/mois',
       icon: User,
-      features: ['Tous les chapitres', '+300 audios', 'Videos explicatives', 'Quiz progressifs'],
-      cta: 'Commencer',
+      features: [
+        'Tous les chapitres',
+        '+500 audios integres',
+        'Videos explicatives HD',
+        'Quiz progressifs',
+        'Acces illimite 24h/24',
+        'Mises a jour incluses',
+      ],
+      cta: 'Commencer en Solo',
       href: 'https://methode-erpr-by-arabeimportance.vercel.app/checkout',
       highlighted: false,
     },
     {
-      name: 'Pro',
-      description: 'Pour une progression optimale',
-      price: billingPeriod === 'monthly' ? '49' : '39',
+      name: 'Coaching',
+      description: 'Accompagnement personnalise',
+      price: '30',
       period: '/mois',
-      icon: UsersRound,
-      features: ['Tout Starter inclus', '+500 audios', 'Accompagnement', 'Google Drive dedie'],
-      cta: 'Passer a Pro',
-      href: 'https://methode-erpr-by-arabeimportance.vercel.app/checkout',
-      highlighted: false,
-    },
-    {
-      name: 'Enterprise',
-      description: 'Acces complet a vie',
-      price: '149',
-      period: '',
-      icon: User,
-      features: ['Tout Pro inclus', 'Acces a vie', 'Support prioritaire', 'Mises a jour incluses'],
-      cta: 'Nous contacter',
+      icon: Video,
+      features: [
+        'Tout le contenu Solo',
+        'Sessions video avec le professeur',
+        'Correction de prononciation',
+        'Suivi personnalise',
+        'Google Drive dedie',
+        'Support prioritaire',
+      ],
+      cta: 'Choisir Coaching',
       href: 'https://methode-erpr-by-arabeimportance.vercel.app/checkout',
       highlighted: true,
     },
@@ -214,7 +204,7 @@ export default function Home() {
         <div className="section-container">
           <div className="flex justify-between items-center h-16 md:h-20">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900">ArabeImportance</span>
@@ -232,7 +222,7 @@ export default function Home() {
                 href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors"
+                className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors"
               >
                 Commencer
               </a>
@@ -255,7 +245,7 @@ export default function Home() {
                 href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold text-center"
+                className="bg-sky-500 text-white px-6 py-3 rounded-full font-semibold text-center"
               >
                 Commencer
               </a>
@@ -266,7 +256,7 @@ export default function Home() {
 
       <main>
         <div className="main-container">
-          <section id="accueil" className="pt-32 md:pt-40 pb-20 bg-gradient-to-b from-orange-50/50 to-white">
+          <section id="accueil" className="pt-32 md:pt-40 pb-20 bg-gradient-to-b from-sky-50/50 to-white">
             <div className="section-container">
               <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 <motion.div
@@ -297,19 +287,19 @@ export default function Home() {
 
                   <div className="flex items-center justify-center lg:justify-start gap-1 mb-6">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-5 h-5 fill-orange-400 text-orange-400" />
+                      <Star key={i} className="w-5 h-5 fill-sky-400 text-sky-400" />
                     ))}
                     <span className="ml-2 text-sm font-medium text-gray-600">4.9</span>
                   </div>
 
-                  <div className="inline-flex items-center gap-2 bg-orange-100 rounded-full px-4 py-2 mb-6">
-                    <Sparkles className="w-4 h-4 text-orange-500 -rotate-12" />
-                    <span className="text-sm font-semibold text-orange-700">Methode ERPR</span>
+                  <div className="inline-flex items-center gap-2 bg-sky-100 rounded-full px-4 py-2 mb-6">
+                    <Sparkles className="w-4 h-4 text-sky-500 -rotate-12" />
+                    <span className="text-sm font-semibold text-sky-700">Methode ERPR</span>
                   </div>
 
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                     Apprenez l'arabe avec la methode{' '}
-                    <span className="text-orange-500">ERPR</span>
+                    <span className="text-sky-500">ERPR</span>
                   </h1>
 
                   <p className="text-lg text-gray-500 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -322,7 +312,7 @@ export default function Home() {
                       href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-lg shadow-orange-200"
+                      className="bg-sky-500 hover:bg-sky-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-lg shadow-sky-200"
                     >
                       Essayer gratuitement
                     </a>
@@ -343,12 +333,12 @@ export default function Home() {
                   className="lg:w-1/2"
                 >
                   <div className="relative">
-                    <div className="absolute -top-4 -left-4 w-24 h-24 bg-orange-200 rounded-full blur-3xl opacity-60" />
-                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-300 rounded-full blur-3xl opacity-40" />
+                    <div className="absolute -top-4 -left-4 w-24 h-24 bg-sky-200 rounded-full blur-3xl opacity-60" />
+                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-sky-300 rounded-full blur-3xl opacity-40" />
                     <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 p-8">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center">
-                          <Volume2 className="w-7 h-7 text-orange-500" />
+                        <div className="w-14 h-14 bg-sky-100 rounded-2xl flex items-center justify-center">
+                          <Volume2 className="w-7 h-7 text-sky-500" />
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-900 text-lg">Votre progression</h3>
@@ -358,15 +348,15 @@ export default function Home() {
                       <div className="bg-gray-50 rounded-2xl p-5 mb-6">
                         <div className="flex justify-between mb-3">
                           <span className="text-gray-500">Progression globale</span>
-                          <span className="font-bold text-orange-500">75%</span>
+                          <span className="font-bold text-sky-500">75%</span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-3">
-                          <div className="bg-gradient-to-r from-orange-500 to-orange-400 h-3 rounded-full w-3/4" />
+                          <div className="bg-gradient-to-r from-sky-500 to-sky-400 h-3 rounded-full w-3/4" />
                         </div>
                       </div>
                       <div className="grid grid-cols-3 gap-4">
-                        <div className="bg-orange-50 rounded-xl p-4 text-center">
-                          <Volume2 className="w-6 h-6 text-orange-500 mx-auto mb-2" />
+                        <div className="bg-sky-50 rounded-xl p-4 text-center">
+                          <Volume2 className="w-6 h-6 text-sky-500 mx-auto mb-2" />
                           <span className="text-xs text-gray-600 font-medium">500+ Audios</span>
                         </div>
                         <div className="bg-green-50 rounded-xl p-4 text-center">
@@ -428,7 +418,7 @@ export default function Home() {
                     viewport={{ once: true }}
                   >
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
+                      <div className="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center">
                         <Sparkles className="w-5 h-5 text-white" />
                       </div>
                       <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Fonctionnalites</h2>
@@ -437,13 +427,13 @@ export default function Home() {
                       Tout ce dont vous avez besoin pour maitriser l'arabe - concu pour l'efficacite et la fiabilite.
                     </p>
 
-                    <div className="bg-orange-500 rounded-2xl p-6 text-white">
+                    <div className="bg-sky-500 rounded-2xl p-6 text-white">
                       <p className="font-semibold text-lg mb-4">
                         Approuve par des centaines d'eleves apprenant l'arabe.
                       </p>
                       <a
                         href="#testimonials"
-                        className="inline-flex items-center gap-2 bg-white text-orange-500 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-50 transition-colors"
+                        className="inline-flex items-center gap-2 bg-white text-sky-500 px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-gray-50 transition-colors"
                       >
                         Voir les temoignages
                         <ArrowUpRight className="w-4 h-4" />
@@ -483,7 +473,7 @@ export default function Home() {
                 className="text-center mb-16"
               >
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center">
                     <MessageCircle className="w-5 h-5 text-white" />
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Ce que disent nos eleves</h2>
@@ -503,7 +493,7 @@ export default function Home() {
                     transition={{ delay: index * 0.1 }}
                     className={`rounded-2xl p-6 ${
                       testimonial.featured
-                        ? 'bg-orange-500 text-white'
+                        ? 'bg-sky-500 text-white'
                         : 'bg-white border border-gray-200'
                     }`}
                   >
@@ -514,7 +504,7 @@ export default function Home() {
                           className={`w-5 h-5 ${
                             testimonial.featured
                               ? 'fill-white text-white'
-                              : 'fill-orange-400 text-orange-400'
+                              : 'fill-sky-400 text-sky-400'
                           }`}
                         />
                       ))}
@@ -554,7 +544,7 @@ export default function Home() {
                 className="text-center mb-12"
               >
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center">
                     <HelpCircle className="w-5 h-5 text-white" />
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Questions frequentes</h2>
@@ -587,13 +577,13 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="lg:sticky lg:top-32"
                 >
-                  <div className="bg-violet-500 rounded-2xl p-8 text-white">
+                  <div className="bg-sky-500 rounded-2xl p-8 text-white">
                     <p className="text-xl font-semibold mb-2">
                       Des questions ? Notre equipe est la pour vous aider.
                     </p>
                     <a
                       href="mailto:contact@arabeimportance.fr"
-                      className="inline-flex items-center gap-2 bg-white text-violet-600 px-6 py-3 rounded-full font-semibold mt-4 hover:bg-gray-50 transition-colors"
+                      className="inline-flex items-center gap-2 bg-white text-sky-600 px-6 py-3 rounded-full font-semibold mt-4 hover:bg-gray-50 transition-colors"
                     >
                       Nous contacter
                     </a>
@@ -612,41 +602,17 @@ export default function Home() {
                 className="text-center mb-12"
               >
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
+                  <div className="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center">
                     <CircleDollarSign className="w-5 h-5 text-white" />
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Tarifs simples et transparents</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Choisissez votre formule</h2>
                 </div>
-                <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-8">
-                  Choisissez la formule qui vous convient - evoluez selon vos besoins.
+                <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+                  Autodidacte ou accompagne ? Choisissez l'option qui vous correspond.
                 </p>
-
-                <div className="inline-flex items-center bg-orange-50 rounded-full p-1 relative">
-                  <button
-                    onClick={() => setBillingPeriod('monthly')}
-                    className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                      billingPeriod === 'monthly'
-                        ? 'bg-orange-500 text-white'
-                        : 'text-orange-600'
-                    }`}
-                  >
-                    Mensuel
-                  </button>
-                  <button
-                    onClick={() => setBillingPeriod('yearly')}
-                    className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                      billingPeriod === 'yearly'
-                        ? 'bg-orange-500 text-white'
-                        : 'text-orange-600'
-                    }`}
-                  >
-                    Annuel
-                  </button>
-                  <span className="absolute -top-3 -right-4 text-xs font-bold text-green-600">20% OFF</span>
-                </div>
               </motion.div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {pricingPlans.map((plan, index) => (
                   <motion.div
                     key={plan.name}
@@ -654,27 +620,27 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className={`rounded-2xl p-6 flex flex-col ${
+                    className={`rounded-2xl p-8 flex flex-col ${
                       plan.highlighted
-                        ? 'bg-orange-500 text-white'
+                        ? 'bg-sky-500 text-white'
                         : 'bg-white border border-gray-200'
                     }`}
                   >
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${
-                      plan.highlighted ? 'bg-white/20' : 'bg-orange-50'
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-6 ${
+                      plan.highlighted ? 'bg-white/20' : 'bg-sky-50'
                     }`}>
-                      <plan.icon className={`w-6 h-6 ${plan.highlighted ? 'text-white' : 'text-orange-500'}`} />
+                      <plan.icon className={`w-7 h-7 ${plan.highlighted ? 'text-white' : 'text-sky-500'}`} />
                     </div>
 
-                    <h3 className={`text-lg font-bold mb-1 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                    <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
                       {plan.name}
                     </h3>
-                    <p className={`text-sm mb-4 ${plan.highlighted ? 'text-white/80' : 'text-gray-500'}`}>
+                    <p className={`text-base mb-6 ${plan.highlighted ? 'text-white/80' : 'text-gray-500'}`}>
                       {plan.description}
                     </p>
 
-                    <div className="mb-6">
-                      <span className={`text-4xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                    <div className="mb-8">
+                      <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
                         {plan.price}EUR
                       </span>
                       <span className={plan.highlighted ? 'text-white/70' : 'text-gray-500'}>
@@ -686,22 +652,22 @@ export default function Home() {
                       href={plan.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full py-3 rounded-full font-semibold text-center mb-6 transition-colors ${
+                      className={`w-full py-4 rounded-full font-semibold text-center mb-8 transition-colors text-lg ${
                         plan.highlighted
-                          ? 'bg-white text-orange-500 hover:bg-gray-50'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          ? 'bg-white text-sky-500 hover:bg-gray-50'
+                          : 'bg-sky-500 text-white hover:bg-sky-600'
                       }`}
                     >
                       {plan.cta}
                     </a>
 
-                    <ul className="space-y-3 mt-auto">
+                    <ul className="space-y-4 mt-auto">
                       {plan.features.map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <CheckCircle className={`w-4 h-4 flex-shrink-0 ${
-                            plan.highlighted ? 'text-white' : 'text-orange-500'
+                        <li key={i} className="flex items-center gap-3">
+                          <CheckCircle className={`w-5 h-5 flex-shrink-0 ${
+                            plan.highlighted ? 'text-white' : 'text-sky-500'
                           }`} />
-                          <span className={`text-sm ${plan.highlighted ? 'text-white/90' : 'text-gray-600'}`}>
+                          <span className={`${plan.highlighted ? 'text-white/90' : 'text-gray-600'}`}>
                             {feature}
                           </span>
                         </li>
@@ -714,15 +680,15 @@ export default function Home() {
           </section>
         </div>
 
-        <footer className="bg-gradient-to-b from-orange-50 to-orange-100 mt-20 rounded-t-3xl relative overflow-hidden">
+        <footer className="bg-gradient-to-b from-sky-50 to-sky-100 mt-20 rounded-t-3xl relative overflow-hidden">
           <div className="section-container py-16 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-start gap-8">
               <div>
                 <Link href="/" className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xl font-bold text-orange-500">ArabeImportance</span>
+                  <span className="text-xl font-bold text-sky-500">ArabeImportance</span>
                 </Link>
                 <p className="text-gray-600 max-w-sm">
                   Pour toute question ou demande d'information, n'hesitez pas a nous contacter.
@@ -730,22 +696,22 @@ export default function Home() {
               </div>
 
               <div>
-                <h4 className="text-orange-500 font-bold uppercase tracking-wider text-sm mb-4">Social</h4>
+                <h4 className="text-sky-500 font-bold uppercase tracking-wider text-sm mb-4">Social</h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#" className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium">
+                    <a href="#" className="flex items-center gap-2 text-sky-500 hover:text-sky-600 font-medium">
                       <Twitter className="w-5 h-5" />
                       Twitter
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium">
+                    <a href="#" className="flex items-center gap-2 text-sky-500 hover:text-sky-600 font-medium">
                       <Linkedin className="w-5 h-5" />
                       Linkedin
                     </a>
                   </li>
                   <li>
-                    <a href="https://instagram.com/arabeimportance" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium">
+                    <a href="https://instagram.com/arabeimportance" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sky-500 hover:text-sky-600 font-medium">
                       <Instagram className="w-5 h-5" />
                       Instagram
                     </a>
@@ -756,8 +722,8 @@ export default function Home() {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pointer-events-none select-none overflow-hidden">
-            <div className="flex items-center gap-4 text-orange-200/40 mb-[-20px]">
-              <div className="w-20 h-20 bg-orange-200/30 rounded-xl flex items-center justify-center">
+            <div className="flex items-center gap-4 text-sky-200/40 mb-[-20px]">
+              <div className="w-20 h-20 bg-sky-200/30 rounded-xl flex items-center justify-center">
                 <Sparkles className="w-12 h-12" />
               </div>
               <span className="text-[120px] md:text-[180px] font-bold leading-none">ArabeImportance</span>
