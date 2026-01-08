@@ -1,11 +1,9 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import logoUrl from '../assets/img/logo-arabe-importance-white.png';
 
 interface HeaderProps {
   scrollToSection: (sectionId: string) => void;
@@ -19,23 +17,26 @@ interface MenuItem {
 
 export default function Header({ scrollToSection }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isAbonnementsPage = pathname === '/abonnements';
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const menuItems: MenuItem[] = isAbonnementsPage
-    ? [
-      { label: 'Accueil', href: '/' },
-
-    ]
+    ? [{ label: 'Accueil', href: '/' }]
     : [
-      { label: 'Accueil', sectionId: 'accueil' },
-      { label: 'Méthode', sectionId: 'méthode' },
-      { label: 'Contenu', sectionId: 'contenu' },
-      { label: 'Essai gratuit', sectionId: 'essai-gratuit' },
-      { label: 'Contact', sectionId: 'contact' },
-
-
-    ];
+        { label: 'Accueil', sectionId: 'accueil' },
+        { label: 'Fonctionnalites', sectionId: 'features' },
+        { label: 'Temoignages', sectionId: 'testimonials' },
+        { label: 'Tarifs', sectionId: 'pricing' },
+      ];
 
   const handleMenuClick = (sectionId: string) => {
     scrollToSection(sectionId);
@@ -43,27 +44,28 @@ export default function Header({ scrollToSection }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/5 backdrop-blur-md z-50 border-b border-white/10 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 md:px-16 lg:px-24 xl:px-32">
+        <div className="flex justify-between items-center h-16 md:h-20">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-2"
+            className="flex items-center"
           >
-            {/* Logo */}
             <Link href="/" className="flex items-center cursor-pointer">
-              <Image
-                src={logoUrl}
-                alt="Logo"
-                width={130}
-                height={30}
-                className="object-contain"
-              />
+              <span className="text-xl md:text-2xl font-bold text-gray-900">
+                Arabe<span className="text-orange-500">Importance</span>
+              </span>
             </Link>
           </motion.div>
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+
+          <nav className="hidden md:flex items-center gap-8">
             {menuItems.map((item, index) => (
               item.href ? (
                 <motion.div
@@ -74,7 +76,7 @@ export default function Header({ scrollToSection }: HeaderProps) {
                 >
                   <Link
                     href={item.href}
-                    className="text-white hover:text-blue-300 transition-colors font-medium cursor-pointer text-lg"
+                    className="text-gray-600 hover:text-orange-500 transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
@@ -86,60 +88,67 @@ export default function Header({ scrollToSection }: HeaderProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => scrollToSection(item.sectionId!)}
-                  className="text-white hover:text-blue-300 transition-colors font-medium cursor-pointer text-lg"
+                  className="text-gray-600 hover:text-orange-500 transition-colors font-medium"
                 >
                   {item.label}
                 </motion.button>
               )
             ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
             <motion.a
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg"
+              className="text-gray-600 hover:text-orange-500 transition-colors font-medium px-4 py-2"
             >
-              Essayer gratuitement
+              Se connecter
             </motion.a>
             <motion.a
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
+              className="btn-primary"
             >
-              Connexion
+              Commencer
             </motion.a>
-          </nav>
-          {/* Mobile Menu Button */}
+          </div>
+
           <button
-            className="md:hidden"
+            className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
+            {isMenuOpen ? (
+              <X size={24} className="text-gray-900" />
+            ) : (
+              <Menu size={24} className="text-gray-900" />
+            )}
           </button>
         </div>
       </div>
-      {/* Mobile Menu */}
+
       {isMenuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10"
+          className="md:hidden bg-white border-t border-gray-100"
         >
-          <div className="px-4 py-4 space-y-2 flex flex-col items-center">
+          <div className="px-4 py-4 space-y-2 flex flex-col">
             {menuItems.map((item) => (
               item.href ? (
                 <Link
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 rounded-md transition-colors cursor-pointer text-lg"
+                  className="px-4 py-3 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-lg transition-colors font-medium"
                 >
                   {item.label}
                 </Link>
@@ -147,30 +156,32 @@ export default function Header({ scrollToSection }: HeaderProps) {
                 <button
                   key={item.label}
                   onClick={() => handleMenuClick(item.sectionId!)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 rounded-md transition-colors cursor-pointer text-lg"
+                  className="px-4 py-3 text-left text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-lg transition-colors font-medium"
                 >
                   {item.label}
                 </button>
               )
             ))}
-            <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/free-trial"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="w-full max-w-xs text-center px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-md font-semibold hover:from-green-600 hover:to-emerald-600 transition-all"
-            >
-              Essayer gratuitement
-            </a>
-            <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="w-full max-w-xs text-center px-4 py-3 bg-slate-800 text-white rounded-md font-semibold hover:bg-slate-700 transition-all border border-slate-700"
-            >
-              Connexion
-            </a>
+            <div className="pt-4 border-t border-gray-100 space-y-2">
+              <a
+                href="https://methode-erpr-by-arabeimportance.vercel.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-4 py-3 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-lg transition-colors font-medium"
+              >
+                Se connecter
+              </a>
+              <a
+                href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="block px-4 py-3 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-full font-semibold text-center"
+              >
+                Commencer
+              </a>
+            </div>
           </div>
         </motion.div>
       )}
