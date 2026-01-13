@@ -25,8 +25,8 @@ export default function Abonnements() {
       price: '7',
       priceUnit: '/heure',
       icon: Volume2,
-      bgColor: 'bg-blue-50',
-      iconBg: 'bg-blue-500',
+      bgColor: 'bg-sky-50',
+      iconBg: 'bg-sky-500',
       features: [
         'Correction de sourate Al-Fatiha en entier',
         'Apprentissage des bases du Tajwid',
@@ -49,12 +49,12 @@ export default function Abonnements() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div className="section-container">
           <div className="flex justify-between items-center h-16 md:h-20">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900">ArabeImportance</span>
@@ -66,10 +66,10 @@ export default function Abonnements() {
 
             <div className="hidden md:flex items-center gap-3">
               <a
-                href="https://methode-erpr-by-arabeimportance.vercel.app"
+                href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-2.5 rounded-full font-semibold transition-colors"
+                className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors"
               >
                 Commencer
               </a>
@@ -86,10 +86,10 @@ export default function Abonnements() {
             <div className="section-container flex flex-col gap-4">
               <Link href="/" className="text-gray-600 hover:text-gray-900 font-medium py-2">Accueil</Link>
               <a
-                href="https://methode-erpr-by-arabeimportance.vercel.app"
+                href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold text-center"
+                className="bg-sky-500 text-white px-6 py-3 rounded-full font-semibold text-center"
               >
                 Commencer
               </a>
@@ -108,14 +108,14 @@ export default function Abonnements() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <div className="inline-flex items-center gap-2 bg-blue-100 rounded-full px-4 py-2 mb-6">
-                  <Star className="w-4 h-4 text-blue-500" />
-                  <span className="text-sm font-semibold text-blue-900">Pour les plus avances</span>
+                <div className="inline-flex items-center gap-2 bg-sky-100 rounded-full px-4 py-2 mb-6">
+                  <Star className="w-4 h-4 text-sky-500" />
+                  <span className="text-sm font-semibold text-sky-700">Pour les plus avances</span>
                 </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                   Formations{' '}
-                  <span className="text-blue-500">avancees</span>
+                  <span className="text-sky-500">avancees</span>
                 </h1>
 
                 <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
@@ -148,7 +148,7 @@ export default function Abonnements() {
                     <ul className="space-y-3">
                       {offer.features.map((feature, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                          <div className="w-2 h-2 bg-sky-500 rounded-full mt-2 flex-shrink-0"></div>
                           <span className="text-gray-600">{feature}</span>
                         </li>
                       ))}
@@ -184,15 +184,15 @@ export default function Abonnements() {
           </section>
         </div>
 
-        <footer className="bg-gradient-to-b from-blue-50 to-blue-100 mt-20 rounded-t-3xl relative overflow-hidden">
+        <footer className="bg-gradient-to-b from-sky-50 to-sky-100 mt-20 rounded-t-3xl relative overflow-hidden">
           <div className="section-container py-16 relative z-10">
             <div className="flex flex-col md:flex-row justify-between items-start gap-8">
               <div>
                 <Link href="/" className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                  <div className="w-8 h-8 bg-sky-500 rounded-lg flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xl font-bold text-blue-500">ArabeImportance</span>
+                  <span className="text-xl font-bold text-sky-500">ArabeImportance</span>
                 </Link>
                 <p className="text-gray-600 max-w-sm">
                   Pour toute question ou demande d'information, n'hesitez pas a nous contacter.
@@ -200,22 +200,22 @@ export default function Abonnements() {
               </div>
 
               <div>
-                <h4 className="text-blue-500 font-bold uppercase tracking-wider text-sm mb-4">Social</h4>
+                <h4 className="text-sky-500 font-bold uppercase tracking-wider text-sm mb-4">Social</h4>
                 <ul className="space-y-3">
                   <li>
-                    <a href="#" className="flex items-center gap-2 text-blue-500 hover:text-blue-800 font-medium">
+                    <a href="#" className="flex items-center gap-2 text-sky-500 hover:text-sky-600 font-medium">
                       <Twitter className="w-5 h-5" />
                       Twitter
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="flex items-center gap-2 text-blue-500 hover:text-blue-800 font-medium">
+                    <a href="#" className="flex items-center gap-2 text-sky-500 hover:text-sky-600 font-medium">
                       <Linkedin className="w-5 h-5" />
                       Linkedin
                     </a>
                   </li>
                   <li>
-                    <a href="https://instagram.com/arabeimportance" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-blue-500 hover:text-blue-800 font-medium">
+                    <a href="https://instagram.com/arabeimportance" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sky-500 hover:text-sky-600 font-medium">
                       <Instagram className="w-5 h-5" />
                       Instagram
                     </a>
@@ -226,8 +226,8 @@ export default function Abonnements() {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center pointer-events-none select-none overflow-hidden">
-            <div className="flex items-center gap-4 text-blue-200/40 mb-[-20px]">
-              <div className="w-20 h-20 bg-blue-200/30 rounded-xl flex items-center justify-center">
+            <div className="flex items-center gap-4 text-sky-200/40 mb-[-20px]">
+              <div className="w-20 h-20 bg-sky-200/30 rounded-xl flex items-center justify-center">
                 <Sparkles className="w-12 h-12" />
               </div>
               <span className="text-[120px] md:text-[180px] font-bold leading-none">ArabeImportance</span>
