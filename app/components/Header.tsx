@@ -1,11 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import logoUrl from '../assets/img/logo-arabe-importance-white.png';
+import logoImage from '@/app/assets/img/logo-arabe-importance-blue.png';
 
 interface HeaderProps {
   scrollToSection: (sectionId: string) => void;
@@ -18,162 +17,130 @@ interface MenuItem {
 }
 
 export default function Header({ scrollToSection }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isAbonnementsPage = pathname === '/abonnements';
 
   const menuItems: MenuItem[] = isAbonnementsPage
-    ? [
-      { label: 'Accueil', href: '/' },
-
-    ]
+    ? [{ label: 'Accueil', href: '/' }]
     : [
-      { label: 'Accueil', sectionId: 'accueil' },
-      { label: 'Méthode', sectionId: 'méthode' },
-      { label: 'Contenu', sectionId: 'contenu' },
-      { label: 'Essai gratuit', sectionId: 'essai-gratuit' },
-      { label: 'Contact', sectionId: 'contact' },
-
-
-    ];
+        { label: 'Accueil', sectionId: 'accueil' },
+        { label: 'Fonctionnalités', sectionId: 'features' },
+        { label: 'Témoignages', sectionId: 'testimonials' },
+        { label: 'Tarifs', sectionId: 'pricing' },
+      ];
 
   const handleMenuClick = (sectionId: string) => {
     scrollToSection(sectionId);
-    setIsMenuOpen(false);
+    setMobileMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/5 backdrop-blur-md z-50 border-b border-white/10 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center space-x-2"
-          >
-            {/* Logo */}
-            <Link href="/" className="flex items-center cursor-pointer">
+    <>
+      {/* Header Desktop */}
+      <header className="hidden md:block fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div className="section-container">
+          <div className="flex justify-between items-center h-20">
+            <Link href="/" className="flex items-center">
               <Image
-                src={logoUrl}
-                alt="Logo"
-                width={130}
-                height={30}
-                className="object-contain"
+                src={logoImage}
+                alt="ArabeImportance"
+                width={300}
+                height={100}
+                className="h-14 w-auto"
               />
             </Link>
-          </motion.div>
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {menuItems.map((item, index) => (
-              item.href ? (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
+
+            <nav className="flex items-center gap-8">
+              {menuItems.map((item) => (
+                item.href ? (
                   <Link
+                    key={item.label}
                     href={item.href}
-                    className="text-white hover:text-blue-300 transition-colors font-medium cursor-pointer text-lg"
+                    className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
                   >
                     {item.label}
                   </Link>
-                </motion.div>
-              ) : (
-                <motion.button
-                  key={item.label}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.sectionId!)}
-                  className="text-white hover:text-blue-300 transition-colors font-medium cursor-pointer text-lg"
-                >
-                  {item.label}
-                </motion.button>
-              )
-            ))}
-            <motion.a
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              href="https://methode-erpr-by-arabeimportance.vercel.app/signup-free"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg"
-            >
-              Essayer gratuitement
-            </motion.a>
-            <motion.a
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
-            >
-              Connexion
-            </motion.a>
-          </nav>
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} className="text-white" /> : <Menu size={24} className="text-white" />}
-          </button>
-        </div>
-      </div>
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10"
-        >
-          <div className="px-4 py-4 space-y-2 flex flex-col items-center">
-            {menuItems.map((item) => (
-              item.href ? (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 rounded-md transition-colors cursor-pointer text-lg"
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.label}
-                  onClick={() => handleMenuClick(item.sectionId!)}
-                  className="w-full max-w-xs text-center px-4 py-3 text-white hover:text-blue-300 hover:bg-white/10 rounded-md transition-colors cursor-pointer text-lg"
-                >
-                  {item.label}
-                </button>
-              )
-            ))}
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.sectionId!)}
+                    className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
+                )
+              ))}
+            </nav>
+
             <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/free-trial"
+              href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="w-full max-w-xs text-center px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-md font-semibold hover:from-green-600 hover:to-emerald-600 transition-all"
+              className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-semibold transition-colors"
             >
-              Essayer gratuitement
-            </a>
-            <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="w-full max-w-xs text-center px-4 py-3 bg-slate-800 text-white rounded-md font-semibold hover:bg-slate-700 transition-all border border-slate-700"
-            >
-              Connexion
+              Commencer
             </a>
           </div>
-        </motion.div>
-      )}
-    </header>
+        </div>
+      </header>
+
+      {/* Header Mobile */}
+      <header className="md:hidden fixed top-0 left-0 right-0 z-50 px-4 pt-4">
+        <div className="relative rounded-xl border transition-colors duration-300 bg-sky-500/60 backdrop-blur-xl border-white/10 px-4 py-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center">
+            <Image
+              src={logoImage}
+              alt="ArabeImportance"
+              width={200}
+              height={60}
+              className="h-8 w-auto brightness-0 invert"
+            />
+          </Link>
+
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="w-10 h-10 flex items-center justify-center text-white hover:bg-white/10 rounded-xl transition-colors"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="relative rounded-xl border transition-colors duration-300 bg-sky-500/60 backdrop-blur-xl border-white/10 mt-2 py-4 px-4">
+            <div className="flex flex-col gap-2">
+              {menuItems.map((item) => (
+                item.href ? (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-white/80 hover:text-white hover:bg-white/10 font-medium py-3 px-4 rounded-xl transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <button
+                    key={item.label}
+                    onClick={() => handleMenuClick(item.sectionId!)}
+                    className="text-left text-white/80 hover:text-white hover:bg-white/10 font-medium py-3 px-4 rounded-xl transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
+                )
+              ))}
+              <a
+                href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-sky-500 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold text-center mt-2 transition-colors"
+              >
+                Commencer
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
   );
 }

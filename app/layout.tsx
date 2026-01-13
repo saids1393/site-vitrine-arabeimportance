@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-urbanist",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Méthode ERPR – Apprentissage de la lecture et de l'écriture en arabe",
+    default: "Arabe Importance – Apprendre l'arabe avec la méthode ERPR",
     template: "%s | Arabe Importance"
   },
   description:
@@ -38,7 +45,7 @@ export const metadata: Metadata = {
         url: "https://arabeimportance.fr/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Méthode ERPR - Apprentissage de la lecture et de l'écriture en arabe",
+        alt: "Arabe Importance - Apprentissage de la langue arabe avec la méthode ERPR",
       },
     ],
   },
@@ -53,7 +60,7 @@ export const metadata: Metadata = {
     canonical: "https://arabeimportance.fr/",
   },
   verification: {
-    google: "jd5X4FA2YA9yn-36R-X2tVQaCsfoC0Jok4bIBaIEqwI",
+    google: "AnPTHJcOSVhBUGxLxLjIC_HgisZajhrO2jNsAARDr4k",
   },
   metadataBase: new URL("https://arabeimportance.fr"),
 };
@@ -152,7 +159,7 @@ export default function RootLayout({
                 "learningResourceType": "Cours interactif en ligne",
                 "courseMode": "Online",
                 "duration": "P1M",
-                "keywords": "Arabe Importance, méthode ERPR, apprendre l'arabe, apprendre l'arabe pour débutants, cours arabe en ligne, arabe facile, lecture arabe, écriture arabe, prononciation arabe authentique, alphabet arabe, +500 audios intégrés, vidéos explicatives arabe, apprentissage interactif arabe, cours particuliers arabe, classe virtuelle arabe, feedback personnalisé, arabe littéraire, arabe standard, MSA, grammaire arabe progressive, conjugaison arabe, vocabulaire arabe, apprendre à lire arabe, apprendre à écrire arabe, arabe pour adultes, arabe pour enfants, méthode ERPR écoute répétition, programme complet arabe, formation arabe en ligne, cours arabe débutant, arabe niveau A1, arabe niveau A2, apprendre arabe rapidement, apprendre arabe facilement, certification arabe, exercices arabe interactifs, quiz arabe, accompagnement personnalisé arabe, tutorat arabe en ligne, prix cours arabe, arabe Importance vs concurrents, meilleure plateforme arabe, alternative Larabefacile, alternative AlifBee, alternative Busuu, alternative Preply",
+                "keywords": "Arabe Importance, méthode ERPR, apprendre l'arabe, apprendre l'arabe pour débutants, cours arabe en ligne, arabe facile, lecture arabe, écriture arabe, prononciation arabe authentique, alphabet arabe, +500 audios intégrés, vidéos explicatives arabe, apprentissage interactif arabe, cours particuliers arabe, classe virtuelle arabe, feedback personnalisé, arabe littéraire, arabe standard, MSA, grammaire arabe progressive, conjugaison arabe, vocabulaire arabe, apprendre à lire arabe, apprendre à écrire arabe, arabe pour adultes, arabe pour enfants, méthode ERPR écoute répétition, programme complet arabe, formation arabe en ligne, cours arabe débutant, arabe niveau A1, arabe niveau A2, apprendre arabe rapidement, apprendre arabe facilement, certification arabe, exercices arabe interactifs, quiz arabe, coachingment personnalisé arabe, tutorat arabe en ligne, prix cours arabe, arabe Importance vs concurrents, meilleure plateforme arabe, alternative Larabefacile, alternative AlifBee, alternative Busuu, alternative Preply",
                 "audience": {
                   "@type": "Audience",
                   "audienceType": "Débutants, adultes, autodidactes"
@@ -214,7 +221,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className={`${urbanist.className} antialiased`}>{children}</body>
     </html>
   );
 }

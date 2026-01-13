@@ -151,7 +151,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             Prêt à apprendre l'arabe avec la méthode ERPR ?
           </h3>
           <p className="text-slate-300 mb-6">
-            Rejoignez des apprenants qui progressent avec notre plateforme complète. +500 audios, vidéos explicatives et accompagnement personnalisé.
+            Rejoignez des apprenants qui progressent avec notre plateforme complète. +500 audios, vidéos explicatives et coachingment personnalisé.
           </p>
           
             <a href="https://methode-erpr-by-arabeimportance.vercel.app/checkout"

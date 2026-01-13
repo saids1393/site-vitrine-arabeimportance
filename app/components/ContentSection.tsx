@@ -56,7 +56,7 @@ const ContentSection = () => {
     },
     {
       title: "Support numérique dynamique",
-      description: "Un accompagnement fluide et rapide.",
+      description: "Un coachingment fluide et rapide.",
       icon: Monitor,
       features: ["Accessible pour tout appareil", "Mises à jour continues"],
     },
@@ -73,7 +73,7 @@ const ContentSection = () => {
       features: ["Devoirs pratiques", "Rendus faciles"],
     },
     {
-      title: "Accompagnement individuel",
+      title: "coachingment individuel",
       description: "Un suivi humain via WhatsApp et support 7 j/7.",
       icon: Users,
       features: ["Coaching personnalisé", "Réponse rapide"],

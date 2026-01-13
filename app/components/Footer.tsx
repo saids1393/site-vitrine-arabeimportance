@@ -1,89 +1,139 @@
+'use client';
 import Link from 'next/link';
-import { Send, Instagram } from 'lucide-react';
+import { Send, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer className="bg-black/80 text-white py-12 border-t border-pink-500/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            Prêt à commencer votre apprentissage ?
-          </h3>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto mb-6">
-            Testez la méthode ERPR gratuitement pendant 7 jours. <span className="text-green-400 font-semibold">Aucun engagement</span>.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/free-trial"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all shadow-lg"
-            >
-              Essayer gratuitement
-            </a>
-            <a
-              href="https://methode-erpr-by-arabeimportance.vercel.app/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-slate-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
-            >
-              Se connecter
-            </a>
-          </div>
-        </div>
-
-        <div className="border-t border-slate-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-400 text-sm mb-4 md:mb-0">
-              &copy; 2025 <span className="text-white font-medium">Arabe importance</span>. Tous droits réservés.
+    <footer className="bg-gradient-to-b from-orange-50 to-orange-100 rounded-t-3xl">
+      <div className="max-w-7xl mx-auto px-4 md:px-16 lg:px-24 xl:px-32 pt-20 pb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2"
+          >
+            <Link href="/" className="inline-block mb-6">
+              <span className="text-2xl font-bold text-gray-900">
+                Arabe<span className="text-orange-500">Importance</span>
+              </span>
+            </Link>
+            <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
+              Apprenez l'arabe avec la methode ERPR. Une approche simple, progressive
+              et efficace pour maitriser la lecture et l'ecriture en arabe.
             </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="https://t.me/ArabeImportance"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-orange-500 hover:shadow-md transition-all"
+              >
+                <Send className="w-5 h-5" />
+              </Link>
+              <Link
+                href="https://instagram.com/arabeimportance"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-orange-500 hover:shadow-md transition-all"
+              >
+                <Instagram className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#"
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-orange-500 hover:shadow-md transition-all"
+              >
+                <Twitter className="w-5 h-5" />
+              </Link>
+              <Link
+                href="#"
+                className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-orange-500 hover:shadow-md transition-all"
+              >
+                <Linkedin className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
 
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-              <div className="flex space-x-4">
-                <Link
-                  href="/blog"
-                  className="text-slate-400 hover:text-white transition-colors text-sm"
-                >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <h4 className="font-semibold text-gray-900 mb-4">Navigation</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  Accueil
+                </Link>
+              </li>
+              <li>
+                <Link href="/#features" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  Fonctionnalites
+                </Link>
+              </li>
+              <li>
+                <Link href="/#testimonials" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  Temoignages
+                </Link>
+              </li>
+              <li>
+                <Link href="/#pricing" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  Tarifs
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/blog" className="text-gray-600 hover:text-orange-500 transition-colors">
                   Blog
                 </Link>
-                <Link
-                  href="/cgv"
-                  className="text-slate-400 hover:text-white transition-colors text-sm"
-                >
-                  Conditions générales
+              </li>
+              <li>
+                <Link href="/cgv" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  Conditions generales
                 </Link>
-                <Link
-                  href="/legal"
-                  className="text-slate-400 hover:text-white transition-colors text-sm"
-                >
-                  Mentions légales
+              </li>
+              <li>
+                <Link href="/legal" className="text-gray-600 hover:text-orange-500 transition-colors">
+                  Mentions legales
                 </Link>
-              </div>
+              </li>
+            </ul>
+          </motion.div>
+        </div>
 
-              <div className="hidden sm:block h-4 w-px bg-slate-700"></div>
-
-              <div className="flex space-x-4">
-                <Link
-                  href="https://t.me/ArabeImportance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-green-400 transition-colors"
-                >
-                  <Send className="w-5 h-5" />
-                </Link>
-                <Link
-                  href="https://instagram.com/arabeimportance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-green-400 transition-colors"
-                >
-                  <Instagram className="w-5 h-5" />
-                </Link>
-              </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="pt-8 border-t border-orange-200"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm">
+              2025 Arabe Importance. Tous droits reserves.
+            </p>
+            <div className="flex items-center gap-2">
+              <span className="text-gray-500 text-sm">Besoin d'aide ?</span>
+              <a
+                href="mailto:contact@arabeimportance.fr"
+                className="text-orange-500 hover:text-orange-600 font-medium text-sm"
+              >
+                Contactez-nous
+              </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
